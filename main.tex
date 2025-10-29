@@ -31,14 +31,22 @@
     backend=biber,
     style=numeric-comp,
     sorting=none,
+    date=year,
     maxbibnames=6,
     minbibnames=6,
     giveninits=true,
     doi=true,
     url=true,
-    isbn=false
+    isbn=false,
 ]{biblatex}
 \addbibresource{references.bib}
+\DeclareFieldFormat*{title}{\MakeSentenceCase*{#1}}
+\DeclareFieldFormat*{titlecase}{\MakeSentenceCase*{#1}}
+\DeclareFieldFormat{pages}{#1}
+\DeclareFieldFormat{page}{#1}
+\DeclareFieldFormat{pagetotal}{#1}
+\renewbibmacro{in:}{}
+\AtEveryBibitem{\clearlist{language}}
 
 % Line spacing
 \usepackage{setspace}
@@ -46,7 +54,7 @@
 
 % Headers and footers
 \usepackage{fancyhdr}
-\setlength{\headheight}{14.5pt}
+\setlength{\headheight}{28pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\thepage}

@@ -63,7 +63,7 @@ Throughout this study, the neighborhood is defined as the Moore neighborhood (i.
 This choice better approximates the continuous spatial movement of SoRs and mobile agents than the von Neumann neighborhood (i.e., four orthogonal cells), where movement is restricted to only cardinal directions.
 In addition, for distance calculations, particularly when determining resource gradients from SoRs, the Euclidean distance is employed to produce smooth, circular gradients that better represent natural resource distributions than other metrics, e.g., the Manhattan or Chebyshev distances.
 
-\subsection*{Game}\label{sec:game}
+\subsection*{Game}\label{sec:4_game}
 
 Games represent cooperative or competitive interactions between agents that involve the gain or loss of resources.
 Each agent holds a strategy, either cooperation ($C$) or defection ($D$), which determines its behavior in interactions.
@@ -90,7 +90,7 @@ Here, we set $k = 1$ for moderate sensitivity and set $\pi_0 = 4.0$ to center th
 Given that each agent can accumulate payoffs from up to eight of its neighbors, the theoretical payoff range is $8S$ to $8R$ and $8P$ to $8T$ for cooperators and defectors, respectively.
 With our parameter constraints, this yields a payoff range of $-8 < \pi_j < 16$.
 
-\subsection*{Migration}\label{sec:migration}
+\subsection*{Migration}\label{sec:4_migration}
 
 At each time step, agents migrate if their fitness $\omega_j$ is less than the resource threshold $\theta_{x,y}$ at their current location.
 Any agent that meets this condition migrates with probability $p_M$ and remains at the location with the complementary probability $1 - p_M$.
@@ -98,15 +98,15 @@ The migration direction follows a resource-oriented bias, where an agent moves t
 Cells occupied by other agents are excluded from the candidate destinations.
 The agents migrate asynchronously in a randomized order to avoid movement conflicts.
 
-\subsection*{Strategy update}\label{sec:strategy}
+\subsection*{Strategy update}\label{sec:4_strategy}
 
 At each time step, agents update their strategies synchronously if their fitness $\omega_j$ is less than the resource threshold $\theta_{x,y}$.
 Any agent that meets this condition adopts the strategy of the most successful neighbor (i.e., the neighbor with the highest fitness).
 This process is subject to mutation, where the adopted strategy is replaced by the opposite strategy (e.g., from $C$ to $D$ or vice versa) with probability $\mu$.
 
-\subsection*{Evaluation}\label{sec:evaluation}
+\subsection*{Evaluation}\label{sec:4_evaluation}
 
-To investigate the effects of environmental variability and agent mobility on the evolution of cooperation, simulations are performed under a range of parameter configurations, as shown in Table~\ref{tab:params}.
+To investigate the effects of environmental variability and agent mobility on the evolution of cooperation, simulations are performed under a range of parameter configurations, as shown in Table~\ref{tab:4_params}.
 
 Each configuration is evaluated through $100$ independent trials of $10000$ generations each.
 As the primary outcome measure, we compute the cooperation rate $\phi_C$, which is defined as the average proportion of agents employing the $C$ strategy during the final $5000$ generations averaged over all trials.
@@ -114,7 +114,7 @@ As the primary outcome measure, we compute the cooperation rate $\phi_C$, which 
 \begin{table}[!ht]
 \centering
 \caption{Model parameters used in the simulations.}
-\label{tab:params}
+\label{tab:4_params}
 \begin{tabular}{cll}
 \hline
 \textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
