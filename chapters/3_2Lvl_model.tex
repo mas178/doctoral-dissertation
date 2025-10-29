@@ -1,0 +1,310 @@
+\chapter{The extended model with migration in hierarchical structure}\label{ch:3_2Lvl_model}
+
+\begin{CJK}{UTF8}{min}
+{\color{red}
+本章は執筆中です (Modelセクションの完成度: 80\%, Resultsセクションの完成度: 50\%)。
+予備審査までにできる限り整えます。
+}
+\end{CJK}
+\vspace*{1cm}
+
+\section{Model}\label{sec_model}
+
+This model is designed to explore the effects of environmental variability and agent mobility on the evolution of cooperation.
+
+\subsection*{Agent, group and structure}\label{sec:structure}
+
+We consider the model composed of multiple regional groups, each inhabited by a number of humans who may migrate between the groups in response to environmental or social pressures.
+Within this world, the population is represented by agents and regional groups, and their interaction (see Subsection~\ref{sec:game}) and migration (see Subsection~\ref{sec:migration}) are governed by the geographical and interaction structures (see Figure~\ref{fig:3_model}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/3/Model}
+  \caption[Illustration of the model structure.]{
+Illustration of the model structure.
+Regional groups are arranged on a circular geographic structure, where the SoR stochastically moves between groups.
+Each group contains agents.
+Each group and each agent independently adopt either $C$ (blue) or $D$ (red).
+Numbers indicate group resource levels, which decrease with distance from the SoR.
+Interaction structures exist at the group level and at the agent level within each group.
+  }
+  \label{fig:3_model}
+\end{figure}
+
+In this model, there are $n_F$ agents and $n_R$ regional groups.
+An agent is an abstract representation of the minimal unit of human migration, such as a family.
+A group represents the set of agents within a geographically dispersed human habitat.
+
+The geographical structure constrains the positions of groups and the migration of agents.
+It is defined as a circular graph, i.e., a ring structure, in which each group is connected to its two neighboring groups.
+These connections remain fixed throughout the simulation.
+The agents are initially distributed evenly across all groups and can migrate between neighboring groups during the simulation.
+The migration results in uneven spatial distributions of agents over time, and some groups can be empty.
+
+The interaction structures constrain the selection of opponents for cooperative or competitive interactions at two levels, i.e., inter-group and intra-group (between agents).
+There is a single inter-group interaction structure in the model, while each group has its own intra-group interaction structure and no interactions occur between agents belonging to different groups.
+An interaction structure is represented by a weighted, undirected, complete graph whose edge weights are dynamic while its topology remains fixed.
+The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$) denotes the strength of the relationship between nodes $i$ and $j$, where a node represents either a group or an agent, and is proportional to the probability of interaction between them.
+
+Given these structural foundations, the simulation proceeds in four stages: environmental variability, game, migration, and strategy update.
+Game and strategy updates occur at both the group and agent levels, in that order.
+Each stage is described in the following subsections.
+
+\subsection*{Environmental variability}\label{sec:ev}
+
+The model captures a key feature of the environmental variability observed during the MSA in Africa, namely the unpredictable shifts in the geographical distribution of resources.
+
+To represent this type of variability, we define the source of resources (SoR) as a dynamic point corresponding to the most resource-abundant region.
+The SoR moves stochastically across the regional groups introduced in Subsection~\ref{sec:structure} at each simulation time step.
+This stochastic movement is formalized as
+\begin{equation}
+x_{t+1} =
+\begin{cases}
+\left[ (x_t + \Delta_t - 1) \bmod n_R \right] + 1, & \text{with probability } p_{EV}, \\
+x_t, & \text{otherwise},
+\end{cases}
+\end{equation}
+where $x_t$ denotes the index on the circular graph of regional groups indicating the position of the SoR at time $t$, $\Delta_t \in \{-1, +1\}$ is chosen with equal probability, and $p_{EV}$ is a key parameter controlling the intensity of the environmental variability.
+
+The group at which the SoR is located receives a resource value of $1$. The amount of resources allocated to other groups decreases with their distance from the SoR along the geographical structure, reaching $0$ for the group farthest from the SoR.
+This resource allocation is formalized as
+\begin{equation}
+r_i^R = 1 - \frac{d_i}{\left\lfloor \frac{n_R}{2} \right\rfloor}
+\end{equation}
+where $r_i^R$ denotes the resources received by group $i$, and $d_i$ is the distance between group $i$ and the SoR, calculated with periodic boundary conditions.
+The resources of each group are evenly shared among its agents.
+
+\subsection*{Game}\label{sec:game}
+
+Interactions that affect gains and losses of resources, both between groups and between agents, are modeled using a game-theoretic framework.
+Because interactions at the group and agent levels often follow the same rules, we occasionally use the term \textit{entity} as a general label for both.
+Entity $i$ adopts a strategy $s_i \in \{C, D\}$, where $C$ denotes cooperation and $D$ denotes defection.
+The interaction dynamics consist of three sequential phases:
+opponent selection,
+a pairwise public goods game (PGG), and
+an update of the interaction structure.
+
+The opponent selection is based on the relationships between entities specified by the edge weights of the interaction structure.
+Each entity $i$ stochastically selects another entity as its opponent, with the probability of selecting entity $j$ given by
+\begin{equation}
+P(j|i) = \frac{w_{i,j}}{\sum_{k \neq i} w_{i,k}} .
+\label{eq:opponent_selection}
+\end{equation}
+
+Each selected pair then engages in a pairwise PGG.
+Here, we employ a pairwise PGG rather than traditional pairwise games such as the Prisoner’s Dilemma Game and the Stag Hunt Game in order to incorporate both the resource value of each entity and the relationships into the game.
+In the game between entity $i$ and $j$, both contribute their respective amounts $c_i$ and $c_j$; the total contribution is multiplied by a constant factor $b$, and the amplified resources are then shared equally between them.
+Specifically, $c_i$ is defined as
+\begin{equation}
+c_i =
+\begin{cases}
+r_i \times w_{i,j}, & \text{if } s_i = C, \\
+0, & \text{if } s_i = D
+\end{cases}
+\end{equation}
+where $r_i$ denotes the resource available to entity $i$ at the time of the game.
+In summary, the payoff matrix for entities $i$ and $j$ is
+\begin{equation}
+\begin{array}{c|cc}
+      & C & D \\
+\hline
+C & \frac{(c_i + c_j) b}{2} - c_i, \frac{(c_i + c_j) b}{2} - c_j & \frac{c_i b}{2} - c_i, \frac{c_j b}{2} \\
+D & \frac{c_i b}{2}, \frac{c_j b}{2} - c_j & 0, 0 .
+\end{array}
+\end{equation}
+
+Finally, the edge weights of the interaction structure are updated to reflect the outcomes of the pairwise games.
+Because entities benefit from being connected to $C$ but not to $D$, the direction of change depends on the combination of strategies.
+When $C$–$C$, each has an incentive to strengthen the tie, and the relationship becomes stronger.
+When $C$–$D$ or $D$–$C$, one side tends to strengthen while the other tends to weaken the tie; these opposing tendencies cancel out, and the relationship remains unchanged.
+When $D$–$D$, each has an incentive to weaken the tie, and the relationship becomes weaker.
+Formally, the update of the edge weights is given by
+\begin{equation}
+w_{i,j}' = w_{i,j} + (T - w_{i,j}) \Delta w ,
+\end{equation}
+where $\Delta w$ ($0 \leq \Delta w \leq 1$) denotes the update rate, and the target value $T$ is set to $1$ if $C$–$C$, $w_{i,j}$ if $C$–$D$ or $D$–$C$, and $0$ if $D$–$D$.
+
+% ここまで修正済み
+
+\subsection*{Migration}\label{sec:migration}
+
+Agents facing resource scarcity stochastically migrate to an adjacent regional group in search of better conditions.
+Specifically, the probability that migration occurs is given by $\max \left(1 - \tfrac{r_i^F}{\theta_F}, 0\right) \cdot p_M$, where $r_i^F$ denotes the resource available to agent $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal threshold shared by all groups, $\theta_F$ is the per-agent threshold obtained by $\theta_F = \tfrac{\theta_R}{n_F / n_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
+
+The migration direction is also probabilistic:
+with probability $p_{SoR}$, the agent moves to the neighboring group closer to the SoR;
+otherwise, it chooses randomly between the two neighboring groups.
+
+Upon migration, the agent establishes new relationships in the destination group, and discards all previous ones.
+Specifically, the edge weights between the agent and the others in the destination group are set to $w_0$, and the edge weights between the agent and the others in the original group are set to $0$.
+
+\subsection*{Strategy update}\label{sec:strategy}
+
+Entities stochastically update their strategies in response to resource scarcity.
+Specifically, the probability that an update occurs is given by $\max \left(1 - \tfrac{r_i}{\theta}, 0\right) \cdot p_{SU}$, where $p_{SU}$ is a parameter controlling the frequency of strategy update events.
+An entity $i$ that updates its strategy stochastically selects another entity $j$ as its role model, with the probability given by
+\begin{equation}
+Q(j|i) = \frac{R_j}{\sum_{\substack{k \neq i \\ R_k > \theta}} R_k}
+\end{equation}
+where $\theta$ denotes the relevant threshold, i.e., $\theta_R$ at the group level and $\theta_F$ at the agent level.
+The adopted strategy is then subject to mutation with probability $\mu$, resulting in a stochastic switch between $C$ and $D$.
+After the update, all edges of the updated entity are reset to the baseline weight $w_0$.
+
+\subsection*{Evaluation}\label{sec:evaluation}
+
+To examine how environmental variability and agent mobility influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:params}.
+For each setting, $100$ independent runs of $10000$ generations are carried out. 
+As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and agents, respectively, employing strategy $C$ during the last $5000$ generations and averaged over all runs.
+
+\begin{table}[!ht]
+\centering
+\caption{Model parameters used in the simulations.}
+\label{tab:params}
+\begin{tabular}{cll}
+\hline
+\textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
+\hline
+$n_R$ & Number of regional groups & $10 \times 2^{\{0, 1, 2, 3\}}$ \\
+$n_F$ & Number of agents & $100 \times 2^{\{0, 1, 2, 3, 4, 5, 6\}}$\\
+$\phi_C^0$ & Initial frequency of cooperators & $\{0, 0.5, 1\}$ \\
+$w_0$ & Initial edge weight & $\{0, 0.1, \ldots, 1.0\}$ \\
+$p_{EV}$ & Probability factor for environmental variability & $\{0, 0.1, \ldots, 1.0\}$ \\
+$\theta_R$ & Resource threshold at group level & $0.5$ \\
+$b$ & PGG multiplier & $\{1.0, 1.1, \ldots, 2.0\}$ \\
+$\Delta w$ & Update rate of edge weights & $\{0, 0.1, \ldots, 1.0\}$ \\
+$p_M$ & Probability factor for migration events & $\{0, 0.1, \ldots, 1.0\}$ \\
+$p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1.0\}$ \\
+$p_{SU}$ & Probability factor for strategy update events & $0.1$ \\
+$\mu$ & Mutation probability in strategy update & $\{0, 0.01, 0.05, 0.1\}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\section{Results}\label{sec_results}
+
+\subsection*{Influence of environmental variability and agent mobility}
+
+We conducted computational experiments to investigate how the environmental variability ($p_{EV}$) and the agent mobility ($p_M$) affect the cooperation rates at both the group ($\phi_C^R$) and agent levels ($\phi_C^F$).
+
+Both $\phi_C^R$ and $\phi_C^F$ increase with $p_{EV}$, though with different patterns.
+At the group level (Figure~\ref{fig:result1_1}a), $\phi_C^R$ values are around $0.5$ at $p_{EV} = 0$, increase sharply to approximately $0.7$ by $p_{EV} = 0.1$, and then increase gradually to approximately $0.8$ for $p_{EV} > 0.1$.
+This pattern does not depend on $p_M$.
+At the agent level (Figure~\ref{fig:result1_1}b), $\phi_C^F$ values are below $0.1$ at $p_{EV} = 0$ except at $p_M = 0$;
+however, they increase steeply by $p_{EV} = 0.1$ and plateau at levels determined by $p_M$ for $p_{EV} > 0.1$.
+
+While $p_M$ does not affect $\phi_C^R$ (Figure~\ref{fig:result1_1}c), $p_M$ significantly influences $\phi_C^F$ (Figure~\ref{fig:result1_1}d).
+When $p_{EV} > 0$, $\phi_C^F$ is approximately $0.6$ at $p_M = 0$, increases to $0.8$--$0.9$ at $p_M = 0.1$, and then decreases linearly for $p_M > 0.1$.
+In contrast, when $p_{EV} = 0$, $\phi_C^F$ starts at approximately $0.45$ at $p_M = 0$ and declines rapidly as $p_M$ increases.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/3/Result1_1}
+  \caption[Average cooperation rates as functions of $p_{EV}$ and $p_M$.]{
+Average cooperation rates as functions of $p_{EV}$ and $p_M$.
+(a) $\phi_C^R$ vs. $p_{EV}$ for different $p_M$ values.
+(b) $\phi_C^F$ vs. $p_{EV}$ for different $p_M$ values.
+(c) $\phi_C^R$ vs. $p_M$ for different $p_{EV}$ values.
+(d) $\phi_C^F$ vs. $p_M$ for different $p_{EV}$ values.
+Each data point represents the mean across 100 independent trials, where each trial is averaged over the final 5000 generations.
+Other parameters: $n_R = 10$, $n_F = 100$, $\phi_C^0 = 0.5$, $w_0 = 0.3$, $\theta_R = 0.5$, $b = 1.9$, $\Delta w = 0.1$, $p_{SoR} = 0.1$, $\mu = 0.01$.
+  }
+  \label{fig:result1_1}
+\end{figure}
+
+Figure~\ref{fig:result1_2} shows standard deviations corresponding to Figure~\ref{fig:result1_1}.
+Although the mean values exhibit clear patterns (Figure~\ref{fig:result1_1}), the high inter-trial variability arises because $\phi_C^R$ and $\phi_C^F$ do not stabilize over time within each individual trial, with different trials converging toward either $0$ or $1$.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/3/Result1_2}
+  \caption{
+Standard deviations corresponding to Figure~\ref{fig:result1_1}.
+  }
+  \label{fig:result1_2}
+\end{figure}
+
+To examine the direction of influence between the group-level and agent-level processes, we conducted ablation experiments by selectively disabling specific model components.
+The results show that disabling agent-level games, migration, and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group-level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
+This asymmetry indicates that group-level processes contribute to agent-level cooperation, while the reverse influence is minimal.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_1}
+  \caption[Ablation experiments corresponding to Figure~\ref{fig:result1_1}.]{
+Ablation experiments corresponding to Figure~\ref{fig:result1_1}.
+(a) and (c) show $\phi_C^R$ when agent level games, migration, and strategy updates are disabled.
+(b) and (d) show $\phi_C^F$ when group level games and strategy updates are disabled.
+Comparison with Figure~\ref{fig:result1_1} reveals that $\phi_C^R$ maintains similar patterns regardless of agent level processes, whereas $\phi_C^F$ is substantially reduced without group level processes.
+Other conditions are identical to Figure~\ref{fig:result1_1}.
+  }
+  \label{fig:mechanism1_1}
+\end{figure}
+
+The evolution of group-level cooperation by environmental variability can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
+When $p_{EV} = 0$, the resource-rich region remains fixed at group $1$, creating persistent spatial inequality where groups near SoR remain resource-rich and maintain stable strategies, while distant groups experience resource scarcity and undergo frequent strategy updates (Figure~\ref{fig:mechanism1_2}a).
+This spatial segregation prevents the formation of stable cooperative networks across the entire groups.
+In contrast, when $p_{EV} > 0$, the location of the resource-rich region shifts over time, ensuring that all regions experience both resource-rich and resource-poor periods.
+This temporal equity increases the long-term value of maintaining cooperative relationships through inter-regional games.
+As shown in Figure~\ref{fig:mechanism1_2}c, cooperative networks gradually form and stabilize throughout the population.
+Groups adopting $C$ strategies build strong reciprocal relationships, while defecting regions become isolated.
+These cooperative networks provide resilience against both resource fluctuations and occasional mutations.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_2}
+  \caption[Temporal evolution of group-level cooperation.]{
+Temporal evolution of group-level cooperation.
+The horizontal axis represents generation, and the vertical axis represents group index.
+Blue indicates $C$ and red indicates $D$.
+(a) shows the case where $p_{EV} = 0$ with the resource-rich region fixed at group $1$.
+(b) shows the case where $p_{EV} = 0.1$ with a shifting resource-rich region.
+Occasional mutations introduce $D$, but they quickly revert to $C$.
+(c) shows the the transition of the sum of weights between $C$ and $C$.
+Other conditions are identical to Figure~\ref{fig:result1_1}.
+  }
+  \label{fig:mechanism1_2}
+\end{figure}
+
+\textcolor{red}{
+ToDo: The evolution of agent-level cooperation by environmental variability can be explained by ...
+}
+
+\subsection*{Influence of population-related parameters}
+
+Figure~\ref{fig:result2_1} shows the effects of population size parameters $n_R$ and $n_F$ on cooperation rates under different environmental and mobility conditions.
+
+When $p_{EV} = 0.0$ and $p_M = 0.0$, both $n_R$ and $n_F$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
+When $p_{EV} = 0.0$ and $p_M = 0.1$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $n_R$ and $n_F$ (Figure~\ref{fig:result2_1}d).
+
+Under dynamic environmental conditions with $p_{EV} = 0.5$ and $p_M = 0.0$, $\phi_C^R$ decreases slightly with increasing $n_R$ but remains largely unaffected by $n_F$ (Figure~\ref{fig:result2_1}e).
+At the agent level, $\phi_C^F$ decreases slightly with increasing $n_R$ but increases slightly with increasing $n_F$ (Figure~\ref{fig:result2_1}f).
+These patterns remain essentially unchanged when $p_M$ increases to 0.1 (Figure~\ref{fig:result2_1}g,h).
+
+The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
+When $\phi_C^0 = 0$, cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
+In contrast, when $\phi_C^0 = 1$, the patterns change dramatically.
+Both $\phi_C^R$ and $\phi_C^F$ approach 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases.
+Similarly, both cooperation rates approach 1.0 when $p_M$ ranges from 0 to 0.1 and decline as $p_M$ increases beyond this range.
+
+\subsection*{Influence of network parameters}
+
+The initial network weight $w_0$ influences cooperation evolution at both levels, with smaller values promoting higher cooperation rates (Figure~\ref{fig:result3_1}).
+This occurs because $w_0$ determines the interaction strength with newcomers introduced through strategy updates or migration.
+When $w_0$ is small, newcomers have weak initial relationships with existing members, limiting their immediate impact on the system.
+If a newcomer adopts defection, the low $w_0$ prevents strong interactions that could disrupt established cooperative networks.
+In contrast, when $w_0$ is large, defecting newcomers immediately engage in strong interactions with cooperative members, potentially destabilizing the cooperative network and reducing overall cooperation rates.
+
+The relation weight update rate $\Delta w$ positively affects cooperation, with higher values promoting cooperation at both levels (Figure~\ref{fig:result3_2}).
+Higher $\Delta w$ values enable relation weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the differentiation between $C$ and $D$ relationships.
+This rapid differentiation amplifies the benefits of cooperation and the costs of defection, strengthening selection pressures that favor cooperative strategies.
+However, cooperation rates saturate at approximately $\Delta w = 0.3$ as they approach their maximum possible values, beyond which further increases in $\Delta w$ have minimal additional effects.
+
+\subsection*{Influence of other parameters}
+
+We examined the effects of several additional parameters: the SoR orientation ($p_{SoR}$), the PGG multiplier ($b$), and the mutation rate ($\mu$).
+The parameter $p_{SoR}$ has no significant effect on cooperation rates.
+Higher values of $b$ promote cooperation at both levels, as expected from standard public goods game theory.
+Higher $\mu$ values blur the patterns observed in mean cooperation rates while reducing inter-trial variability, but do not alter the qualitative patterns.
+Since these results are either trivial or follow directly from model assumptions, detailed results are provided in the Supplementary Material.
