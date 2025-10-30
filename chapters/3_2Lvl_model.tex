@@ -1,4 +1,4 @@
-\chapter{The extended model with migration in hierarchical structure}\label{ch:3_2Lvl_model}
+\chapter{The 2-level model with migration}\label{ch:3_2Lvl_model}
 
 \begin{CJK}{UTF8}{min}
 {\color{red}
@@ -129,7 +129,11 @@ where $\Delta w$ ($0 \leq \Delta w \leq 1$) denotes the update rate, and the tar
 \subsection*{Migration}\label{sec:migration}
 
 Agents facing resource scarcity stochastically migrate to an adjacent regional group in search of better conditions.
-Specifically, the probability that migration occurs is given by $\max \left(1 - \tfrac{r_i^F}{\theta_F}, 0\right) \cdot p_M$, where $r_i^F$ denotes the resource available to agent $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal threshold shared by all groups, $\theta_F$ is the per-agent threshold obtained by $\theta_F = \tfrac{\theta_R}{n_F / n_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
+Specifically, the probability that migration occurs is given by
+\begin{equation}
+  \max\left(1 - \tfrac{r_i^F}{\theta_F}, 0\right) \cdot p_M ,
+\end{equation}
+where $r_i^F$ denotes the resource available to agent $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal threshold shared by all groups, $\theta_F$ is the per-agent threshold obtained by $\theta_F = \tfrac{\theta_R}{n_F / n_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
 
 The migration direction is also probabilistic:
 with probability $p_{SoR}$, the agent moves to the neighboring group closer to the SoR;
@@ -275,6 +279,13 @@ ToDo: The evolution of agent-level cooperation by environmental variability can 
 
 Figure~\ref{fig:result2_1} shows the effects of population size parameters $n_R$ and $n_F$ on cooperation rates under different environmental and mobility conditions.
 
+\begin{figure}[H]
+  \centering
+  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
+  \caption[Placeholder for Figure~\ref{fig:result2_1}]{Placeholder figure for population size effects ($n_R$, $n_F$) under varying $p_{EV}$ and $p_M$.}
+  \label{fig:result2_1}
+\end{figure}
+
 When $p_{EV} = 0.0$ and $p_M = 0.0$, both $n_R$ and $n_F$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
 When $p_{EV} = 0.0$ and $p_M = 0.1$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $n_R$ and $n_F$ (Figure~\ref{fig:result2_1}d).
 
@@ -283,6 +294,12 @@ At the agent level, $\phi_C^F$ decreases slightly with increasing $n_R$ but incr
 These patterns remain essentially unchanged when $p_M$ increases to 0.1 (Figure~\ref{fig:result2_1}g,h).
 
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
+\begin{figure}[H]
+  \centering
+  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
+  \caption[Placeholder for Figure~\ref{fig:result2_2}]{Placeholder figure for effects of initial cooperation rate $\phi_C^0$.}
+  \label{fig:result2_2}
+\end{figure}
 When $\phi_C^0 = 0$, cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
 In contrast, when $\phi_C^0 = 1$, the patterns change dramatically.
 Both $\phi_C^R$ and $\phi_C^F$ approach 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases.
@@ -291,12 +308,24 @@ Similarly, both cooperation rates approach 1.0 when $p_M$ ranges from 0 to 0.1 a
 \subsection*{Influence of network parameters}
 
 The initial network weight $w_0$ influences cooperation evolution at both levels, with smaller values promoting higher cooperation rates (Figure~\ref{fig:result3_1}).
+\begin{figure}[H]
+  \centering
+  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
+  \caption[Placeholder for Figure~\ref{fig:result3_1}]{Placeholder figure for effects of initial network weight $w_0$.}
+  \label{fig:result3_1}
+\end{figure}
 This occurs because $w_0$ determines the interaction strength with newcomers introduced through strategy updates or migration.
 When $w_0$ is small, newcomers have weak initial relationships with existing members, limiting their immediate impact on the system.
 If a newcomer adopts defection, the low $w_0$ prevents strong interactions that could disrupt established cooperative networks.
 In contrast, when $w_0$ is large, defecting newcomers immediately engage in strong interactions with cooperative members, potentially destabilizing the cooperative network and reducing overall cooperation rates.
 
 The relation weight update rate $\Delta w$ positively affects cooperation, with higher values promoting cooperation at both levels (Figure~\ref{fig:result3_2}).
+\begin{figure}[H]
+  \centering
+  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
+  \caption[Placeholder for Figure~\ref{fig:result3_2}]{Placeholder figure for effects of relation weight update rate $\Delta w$.}
+  \label{fig:result3_2}
+\end{figure}
 Higher $\Delta w$ values enable relation weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the differentiation between $C$ and $D$ relationships.
 This rapid differentiation amplifies the benefits of cooperation and the costs of defection, strengthening selection pressures that favor cooperative strategies.
 However, cooperation rates saturate at approximately $\Delta w = 0.3$ as they approach their maximum possible values, beyond which further increases in $\Delta w$ have minimal additional effects.

@@ -54,15 +54,19 @@
 
 % Headers and footers
 \usepackage{fancyhdr}
-\setlength{\headheight}{28pt}
+\setlength{\headheight}{16pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\thepage}
 \fancyhead[L]{\leftmark}
 \renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
 
-% Hyperlinks - 作業用にリンク有効
-% 注: CD提出時は hyperref を無効化するか [hidelinks] オプションを使用
+% Hyperlinks
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 % \usepackage[hidelinks]{hyperref}
 
@@ -129,6 +133,9 @@
 % ========================================
 % Abstract
 % ========================================
+% Front matter: use lowercase roman numerals
+\pagenumbering{roman}
+\setcounter{page}{1}
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
@@ -187,6 +194,10 @@ These findings suggest that environmental variability can promote cooperative gr
 % ========================================
 % Main Content
 % ========================================
+% Switch to arabic numerals for main matter starting Chapter 1
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \include{chapters/1_introduction}
 \include{chapters/2_base_model}
 \include{chapters/3_2Lvl_model}
@@ -215,7 +226,6 @@ All data, as well as the code required to run the simulations and generate the f
 % ========================================
 % Bibliography
 % ========================================
-\addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography[heading=bibintoc]
 
 % ========================================
