@@ -144,26 +144,24 @@ The effect of EV was assessed by comparing the average cooperation rates across 
 \begin{table}[ht]
     \renewcommand{\arraystretch}{1.3}
     \centering
-    \begin{tabular}{|c|l|c|}
-        \hline
-        Parameter & \multicolumn{1}{c|}{Description} & Value \\
-        \hline
+    \begin{tabular}{clc}
+        \toprule
+        Parameter & Description & Value \\
+        \midrule
         $N$ & Number of agents & 100 \\
         $n^C_0$ & Initial number of C agents & 0 \\
         $k_0$ & Initial degree of the interaction structure network & 4 \\
         $t_{max}$ & Number of time steps (generations) for a simulation & 10,000 \\
         $trials$ & Number of simulations per parameter set & 100 \\
-        \hline
         $r_{max}$ & Max resource & $1.0$ \\
         $f_{RD}$ & Resource decrement factor & $0.02$ \\
         $\sigma_R$ & Shift range of the SoR & \{0, 1, ..., 49\}  \\
         $\mu_\theta$ & Expected value of threshold $\theta$ & $0.5$ \\
         $\beta$ & Autoregressive coefficient of the UV & \{0.0, 0.1, ..., 0.9\} \\
         $\sigma_\theta$ & SD of the noise term of UV & $\{0.0, 0.1, 0.2\}$ \\
-        \hline
         $b$ & Multiplication factor for PGG & \{1.0, 1.1, ..., 2.0\} \\
         $\mu$ & Mutation rate for strategy imitation & 0.01 \\
-        \hline
+        \bottomrule
     \end{tabular}
     \caption{Model parameters used in the simulations.}
     \label{tab:parameters}

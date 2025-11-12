@@ -124,8 +124,6 @@ w_{i,j}' = w_{i,j} + (T - w_{i,j}) \Delta w ,
 \end{equation}
 where $\Delta w$ ($0 \leq \Delta w \leq 1$) denotes the update rate, and the target value $T$ is set to $1$ if $C$–$C$, $w_{i,j}$ if $C$–$D$ or $D$–$C$, and $0$ if $D$–$D$.
 
-% ここまで修正済み
-
 \subsection*{Migration}\label{sec:migration}
 
 Agents facing resource scarcity stochastically migrate to an adjacent regional group in search of better conditions.
@@ -165,9 +163,9 @@ As the principal performance indicators, we calculate the cooperation rates $\ph
 \caption{Model parameters used in the simulations.}
 \label{tab:params}
 \begin{tabular}{cll}
-\hline
+\toprule
 \textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
-\hline
+\midrule
 $n_R$ & Number of regional groups & $10 \times 2^{\{0, 1, 2, 3\}}$ \\
 $n_F$ & Number of agents & $100 \times 2^{\{0, 1, 2, 3, 4, 5, 6\}}$\\
 $\phi_C^0$ & Initial frequency of cooperators & $\{0, 0.5, 1\}$ \\
@@ -180,7 +178,7 @@ $p_M$ & Probability factor for migration events & $\{0, 0.1, \ldots, 1.0\}$ \\
 $p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1.0\}$ \\
 $p_{SU}$ & Probability factor for strategy update events & $0.1$ \\
 $\mu$ & Mutation probability in strategy update & $\{0, 0.01, 0.05, 0.1\}$ \\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
