@@ -26,7 +26,7 @@ Their approach treats strategies as heritable traits subject to natural selectio
 This framework has become fundamental to studying the evolution of cooperation, as it enables formal analysis of how cooperative and selfish strategies compete and coexist.
 
 Axelrod and Hamilton (1981) \cite{Axelrod1981} demonstrated that reciprocal cooperation can evolve among non-relatives through repeated interactions.
-Using the iterated prisoner's dilemma game, they showed that simple reciprocal strategies such as Tit-for-Tat, which cooperates initially and then mimics the opponent's previous action, can be evolutionarily successful, when individuals interact repeatedly and can recognize their past partners.
+Using the iterated prisoner's dilemma game, they showed that simple reciprocal strategies such as Tit-for-Tat, which cooperates initially and then mimics the opponent's previous action, can be evolutionarily successful when individuals interact repeatedly and can recognize their past partners.
 This work established direct reciprocity as a fundamental mechanism for the evolution of cooperation.
 However, this mechanism requires individuals to recognize each other and remember past interactions, making it applicable primarily to small groups with repeated encounters.
 In large-scale societies where interactions are often anonymous or infrequent, alternative mechanisms are needed to explain the prevalence of cooperation.
@@ -51,15 +51,15 @@ Second, other factors such as networks, norms, and learning algorithms are activ
 However, EV appears to be less directly related to cooperation, and thus has been studied less than other factors in the field of the evolution of cooperation.
 These two points are detailed in the following Sections \ref{sec:ev_and_mhb} and \ref{sec:ev_and_eoc}.
 
-\section{Modern human behavior and environmental variability}\label{sec:ev_and_mhb}
+\section{Environmental variability and the evolution of modern human behavior}\label{sec:ev_and_mhb}
 
 Modern human behavior refers to a suite of traits characteristic of \textit{Homo sapiens}, including abstract thinking, symbolic expression, complex planning, language, art, and crucially, large-scale cooperation and ultrasociality.
 Numerous studies concur that these behavioral patterns emerged during the Middle Stone Age (MSA) in Africa\cite{Mcbrearty2000, Henshilwood2003, dErrico2020, Wilkins2021, Bergstrom2021}.
 While there is broad consensus on when and where these behaviors originated, the mechanisms driving their emergence remain enigmatic, despite various proposed theories.
 
-Among various hypotheses proposed to explain these developments, the variability selection hypothesis (VSH), proposed by Potts (1996, 1998) \cite{Potts1996, Potts1998}, suggests that environmental unpredictability and variability was a primary driving force in human evolution.
-According to this hypothesis, intensified environmental fluctuations during MSA in Africa favored ``versatilists" those capable of rapid adaptation to new environments over ``specialists", who adapt to specific environments, or ``generalists", who adapt across a range of environments.
-In this context, EV encompasses changes in landscape dynamics (such as land-lake oscillations), climate (such as arid-moist climate oscillations), variations in flora and fauna, ultimately leading to the unpredictability of resource availability.
+Among various hypotheses proposed to explain these developments, the variability selection hypothesis (VSH), proposed by Potts (1996, 1998) \cite{Potts1996, Potts1998}, suggests that EV was a primary driving force in human evolution.
+According to this hypothesis, intensified environmental fluctuations during MSA in Africa favored ``versatilists'', those capable of rapid adaptation to new environments over ``specialists'', who adapt to specific environments, or ``generalists'', who adapt across a range of environments.
+In this context, EV encompasses changes in landscape dynamics (such as land-lake oscillations), climate fluctuations (such as arid-moist climate oscillations), variations in flora and fauna, ultimately leading to the unpredictability of resource availability.
 
 Initially, this hypothesis was supported by a temporal correlation between intensified environmental changes, the replacement of human species, and the increased complexity of cultural artifacts, such as stone tools and ornaments \cite{Faith2021}.
 In addition, the cognitive buffer hypothesis (CBH) \cite{Schuck-Paim2008, Sol2008, Sol2009} provides a neuroscientific basis for VSH, and a mathematical model \cite{Grove2011} demonstrates its theoretical feasibility.
@@ -67,26 +67,32 @@ The CBH posits that larger brain sizes in animals, including humans, evolved as 
 In contrast, several theories \cite{Navarrete2011, Will2021, Stibel2023} propose that EV and behavioral diversity do not necessarily drive human encephalization.
 These theories emphasize the role of social contexts, as suggested by the social brain hypothesis (SBH) \cite{Whiten1988, Dunbar1998, Barrett2007, Grove2008, Knight2011, Hayes2014, Faith2021, Dunbar2024a}, and consider other factors such as dietary influences \cite{DeCasien2017, Grabowski2023}.
 The SBH argues that human intellectual abilities evolved in response to the selection pressures of complex social environments, which required the effective management of social relationships within and between groups.
-Therefore, while temporal correlations between EV and the behavioral innovations in hominins are evident, the causal mechanisms underlying these relationships remain unclear.
 
-\section{Evolution of cooperation and environmental variability}\label{sec:ev_and_eoc}
+While temporal correlations between EV and the emergence of modern human behavior are evident, the causal mechanisms remain debated.
+Moreover, since large-scale complex cooperation is a component of modern human behavior, VSH implicitly suggests that EV played some sort of role in the evolution of cooperation.
+This lack of direct explanation provides the first motivation of this dissertation.
 
-Large-scale and complex cooperation is also a key component of modern human behavior.
-We are interested in whether cooperation emerged in response to EV, as suggested by VSH for other behavioral traits.
+\section{Environmental variability and the evolution of cooperation}\label{sec:ev_and_eoc}
 
 Most previous studies on the evolution of cooperation have not considered environmental factors, assuming fixed environmental conditions.
-However, a growing number of studies have examined cooperation under environmental variation.
-These studies, typically conducted in biological or physical contexts, focus on aspects such as extrinsic population variability \cite{Brockhurst2007, Miller2015}, variability in game structure \cite{Gokhale2016, Stojkoski2021}, variability in the strength of selection \cite{Assaf2013}, the impact of EV on learning strategies \cite{Borg2012}, and resource pressure \cite{Pereda2017}.
+Nevertheless, a small but growing number of studies have examined cooperation under EV.
 
-However, these studies examine different types of environmental variation from what we investigate.
-Our focus is on temporal fluctuations in resource availability---environments where resource levels rise and fall over time.
-While the resource pressure study \cite{Pereda2017} addresses resource levels, it compares static scenarios of abundance versus scarcity rather than examining temporal variation.
+These works on EV can be broadly categorized into extrinsic EV models and intrinsic EV models.
+Extrinsic EV can be represented through several models, including fluctuations in the population that the environment can sustain\cite{Brockhurst2007, Miller2015}, stochastic variations in payoff matrices or game rules\cite{Gokhale2016, Stojkoski2021}, variability in learning and information transmission mechanisms\cite{Borg2012,Assaf2013}.
+Differences in resource availability have also been studied\cite{Pereda2017}, though the model does not involve temporal variability but rather compares static scenarios of abundance and scarcity.
+Intrinsic EV, in contrast, refers to EV in which interactions in a system modify the environment, and environmental feedback in turn shapes the system's behavior.
+
+While anthropogenic environmental change is increasingly critical in modern societies, such feedback effects would be negligible in the context of MSA.
+Therefore, we focus on extrinsic EV rather than intrinsic EV.
+This extrinsic EV should capture the unpredictability of resource availability, as explained in Section \ref{sec:ev_and_mhb}.
+Specifically, we examine how increased intensity of EV between abundant and scarce conditions affects evolutionary dynamics, rather than unidirectional shifts from abundance to scarcity or vice versa.
+This aspect of EV has not been previously studied, constituting our second motivation.
 
 \section{Research objectives and approach}\label{sec:objectives_and_approach}
 
-The key questions of this dissertation are:
-(i) Does EV promote the evolution of cooperation?
-(ii) If so, how does EV promote the evolution of cooperation?
+Given the research gaps identified above, this dissertation addresses the following key research questions:
+(i) Does EV promote cooperation? and
+(ii) If so, how does it?
 
 As discussed earlier, EV during the MSA manifested through various interconnected fluctuations that collectively created unpredictable resource availability.
 These environmental fluctuations can be modeled in numerous ways.
