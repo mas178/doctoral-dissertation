@@ -1,4 +1,4 @@
-\chapter{Introduction}\label{ch:introduction}
+\chapter{Introduction}\label{ch:1_introduction}
 
 Cooperation is fundamental to human society.
 Some forms of cooperation support basic biological survival and reproduction, including cooperative hunting, resource sharing, collective defense against predators, and alloparental care.
@@ -54,8 +54,8 @@ These two points are detailed in the following Sections \ref{sec:ev_and_mhb} and
 \section{Environmental variability and the evolution of modern human behavior}\label{sec:ev_and_mhb}
 
 Modern human behavior refers to a suite of traits characteristic of \textit{Homo sapiens}, including abstract thinking, symbolic expression, complex planning, language, art, and crucially, large-scale cooperation and ultrasociality.
-Numerous studies concur that these behavioral patterns emerged during the Middle Stone Age (MSA) in Africa\cite{Mcbrearty2000, Henshilwood2003, dErrico2020, Wilkins2021, Bergstrom2021}.
-While there is broad consensus on when and where these behaviors originated, the mechanisms driving their emergence remain enigmatic, despite various proposed theories.
+Numerous studies concur that these behavioral patterns emerged during the Middle Stone Age (MSA) in Africa \cite{Mcbrearty2000, Henshilwood2003, dErrico2020, Wilkins2021, Bergstrom2021}.
+While there is broad consensus on when and where these behaviors originated, the mechanisms driving their emergence remain enigmatic despite various proposed theories.
 
 Among various hypotheses proposed to explain these developments, the variability selection hypothesis (VSH), proposed by Potts (1996, 1998) \cite{Potts1996, Potts1998}, suggests that EV was a primary driving force in human evolution.
 According to this hypothesis, intensified environmental fluctuations during MSA in Africa favored ``versatilists'', those capable of rapid adaptation to new environments over ``specialists'', who adapt to specific environments, or ``generalists'', who adapt across a range of environments.
@@ -78,13 +78,13 @@ Most previous studies on the evolution of cooperation have not considered enviro
 Nevertheless, a small but growing number of studies have examined cooperation under EV.
 
 These works on EV can be broadly categorized into extrinsic EV models and intrinsic EV models.
-Extrinsic EV can be represented through several models, including fluctuations in the population that the environment can sustain\cite{Brockhurst2007, Miller2015}, stochastic variations in payoff matrices or game rules\cite{Gokhale2016, Stojkoski2021}, variability in learning and information transmission mechanisms\cite{Borg2012,Assaf2013}.
-Differences in resource availability have also been studied\cite{Pereda2017}, though the model does not involve temporal variability but rather compares static scenarios of abundance and scarcity.
+Extrinsic EV can be represented through several models, including fluctuations in the population that the environment can sustain \cite{Brockhurst2007, Miller2015}, stochastic variations in payoff matrices or game rules \cite{Gokhale2016, Stojkoski2021}, variability in learning, and information transmission mechanisms \cite{Borg2012,Assaf2013}.
+Differences in resource availability have also been studied \cite{Pereda2017}, though the model does not involve temporal variability but rather compares static scenarios of abundance and scarcity.
 Intrinsic EV, in contrast, refers to EV in which interactions in a system modify the environment, and environmental feedback in turn shapes the system's behavior.
 
 While anthropogenic environmental change is increasingly critical in modern societies, such feedback effects would be negligible in the context of MSA.
 Therefore, we focus on extrinsic EV rather than intrinsic EV.
-This extrinsic EV should capture the unpredictability of resource availability, as explained in Section \ref{sec:ev_and_mhb}.
+This extrinsic EV should capture the unpredictability of resource availability, as explained in Section~\ref{sec:ev_and_mhb}.
 Specifically, we examine how increased intensity of EV between abundant and scarce conditions affects evolutionary dynamics, rather than unidirectional shifts from abundance to scarcity or vice versa.
 This aspect of EV has not been previously studied, constituting our second motivation.
 
@@ -94,38 +94,77 @@ Given the research gaps identified above, this dissertation addresses the follow
 (i) Does EV promote cooperation? and
 (ii) If so, how does it?
 
-As discussed earlier, EV during the MSA manifested through various interconnected fluctuations that collectively created unpredictable resource availability.
-These environmental fluctuations can be modeled in numerous ways.
-As a starting point, we consider three distinct approaches to modeling EV.
-We begin with a base model that examines the evolution of cooperation among spatially distinct groups.
-We then develop two extensions that incorporate migration between groups, a fundamental characteristic of pre-sedentary human populations.
-Each approach examines different aspects of how environmental conditions may have influenced cooperation dynamics.
+To address these research questions, we adopt a constructive approach.
+The constructive approach is a methodology that seeks to understand phenomena by artificially constructing systems that reproduce them and analyzing their behavior.
+In the context of this dissertation, we employ multi-agent simulations based on evolutionary game theory to reproduce and examine the evolutionary dynamics of cooperative behavior under EV.
 
-By answering these questions, we seek to understand whether the evolution of large-scale cooperation in humans can be explained, at least in part, by the variability selection framework.
+We adopt this simulation-based approach for three reasons.
+First, directly observing evolutionary processes is infeasible because they occur over timescales far beyond experimental reach; simulations allow us to observe such dynamics within tractable timeframes.
+Second, simulations enable systematic manipulation of variables such as the intensity of EV, which cannot be controlled in natural situations.
+Third, simulations allow us to isolate causal relationships by simplifying conditions, whereas in the real world numerous confounding factors mediate the relationship between EV and cooperation.
 
-Our study suggests that VSH, typically explained through the CBH, may also be connected to the SBH, which is generally considered separate from both VSH and CBH.
-While complex social environments encompass various factors, what uniquely characterizes human societies is the extensive and sophisticated cooperation observed, including intergroup cooperation and trade, which contrasts with the intragroup cooperation common in many animal societies.
-These advanced social behaviors are central to modern human behavior, and understanding their origins requires focusing on social factors that extend beyond individual-level adaptations, such as those proposed in CBH.
-Specifically, we demonstrate that EV fosters intergroup cooperation, which may have contributed to the development of complex social structures.
+However, this approach has inherent limitations.
+Because our simulations abstract away from the complexity of real systems, they cannot provide precise quantitative predictions, such as the specific magnitude of EV required to produce a given level of cooperation.
+Rather, our objective is to reproduce broad qualitative patterns and to identify the mechanisms through which EV can promote or hinder cooperation, providing theoretical insights that complement empirical research.
 
 \section{Organization}\label{sec:organization}
 
-This chapter (Chapter 1) reviews the field of the evolution of cooperation, highlighting that while general theoretical frameworks have been well established, research examining cooperation under specific contexts remains an active area of investigation.
-We then introduce VSH, which proposes that EV drove the evolution of human behavior, including cooperation.
-Although temporal correlations between EV and behavioral innovations are evident, the causal mechanisms underlying these relationships remain unclear.
-Finally, we present the research objectives of this dissertation and describe three distinct approaches to modeling EV, each designed to examine different aspects of how EV may have influenced cooperation dynamics.
+In this chapter, we reviewed the field of the evolution of cooperation, highlighting that while general theoretical frameworks have been well established, research examining cooperation under specific contexts remains an active area of investigation.
+We then identified the relationship between cooperation and EV as the central focus of this dissertation and posed two research questions: whether EV promotes cooperation, and if so, how.
+Finally, we introduced our simulation-based constructive approach to address these questions and clarified its scope and limitations.
 
-Chapter 2 introduces a base model that examines the evolution of cooperation among geographically distinct groups under EV.
-In this model, groups represent sites where resources may concentrate, such as riverbanks or lakeshores, where human populations naturally gathered.
+Numerous approaches to modeling the evolution of cooperation under EV are conceivable.
+In this dissertation, we consider three abstract models, examined in Chapters \ref{ch:2_base_model}, \ref{ch:3_2Lvl_model}, and \ref{ch:4_2D_model}.
+Given this diversity of possible approaches, these models are not exhaustive, yet they provide an important starting point for future theoretical and empirical research.
+
+\textit{Chapter \ref{ch:2_base_model} \nameref{ch:2_base_model}} introduces a base model that examines the evolution of cooperation among geographically distinct groups under EV.
+In this model, groups represent sites at which resources may concentrate, such as riverbanks or lakeshores, where human populations naturally gathered.
 A limitation of this model is that it does not account for migration between groups.
 
-Chapter 3 extends the base model by introducing a two-level structure with individual-level migration.
-Here, each geographical group, as defined in Chapter 2, contains multiple individuals who can move between groups.
+\textit{Chapter \ref{ch:3_2Lvl_model} \nameref{ch:3_2Lvl_model}} extends the base model by introducing a two-level structure with individual-level migration.
+Here, each geographical group, as defined in Chapter \ref{ch:2_base_model}, contains multiple individuals who can move between groups.
 This framework allows us to examine how EV influences cooperation when individual migration is considered.
-However, while this model is a natural extension of Chapter 2, it represents a relatively unique approach within the existing studies on cooperation and migration, limiting comparability with prior works.
+However, while this model is a natural extension of Chapter \ref{ch:2_base_model}, it represents a relatively unique approach within the existing studies on cooperation and migration, limiting comparability with prior works.
 
-Chapter 4 addresses this limitation by employing a two-dimensional spatial structure, widely used in existing studies of cooperation with migration.
-In this model, without assuming explicit group structures, as defined in Chapters 2 and 3, we investigate how EV influences cooperation among individuals moving across a two-dimensional space.
+\textit{Chapter \ref{ch:4_2D_model} \nameref{ch:4_2D_model}} addresses this limitation by employing a two-dimensional spatial structure, widely used in the literature on cooperation with migration.
+In this model, without assuming explicit group structures, as defined in Chapters \ref{ch:2_base_model} and \ref{ch:3_2Lvl_model}, we investigate how EV influences cooperation among individuals moving across a two-dimensional space.
 
-Finally, Chapter 5 synthesizes the results from the three models in Chapters 2, 3, and 4 to discuss how EV influences the evolution of cooperation.
+\textit{Chapter \ref{ch:5_conclusion} \nameref{ch:5_conclusion}} synthesizes the findings from the three models in Chapters \ref{ch:2_base_model}, \ref{ch:3_2Lvl_model}, and \ref{ch:4_2D_model} to discuss the commonalities and differences in the mechanisms.
 We further consider the implications and significance of this research, as well as its limitations and directions for future work.
+
+Finally, Table \ref{tab:key_concepts} summarizes the key concepts used throughout this dissertation for clarity, including some that are formally introduced in later chapters.
+
+\begin{table}[htbp]
+\centering
+\caption{Key concepts used throughout this dissertation}
+\label{tab:key_concepts}
+\begin{tabular}{p{0.18\textwidth}p{0.77\textwidth}}
+\toprule
+Term & Description \\
+\midrule
+Cooperation &
+This is a long description that will wrap across multiple lines in the second column.
+It explains the concept in detail and provides context for understanding how this term is used throughout the dissertation. \\
+\addlinespace
+Environmental \allowbreak Variability (EV) &
+This is another long description that demonstrates how text wraps in the second column.
+It provides a comprehensive explanation of the concept, including its various aspects and implications for the research presented in this work. \\
+\addlinespace
+Migration and \allowbreak Mobility &
+This is another long description that demonstrates how text wraps in the second column.
+It provides a comprehensive explanation of the concept, including its various aspects and implications for the research presented in this work. \\
+\addlinespace
+Agent &
+This description explains the theoretical framework used in this dissertation.
+It covers the mathematical foundations and how it applies to understanding cooperative behaviors in changing environments. \\
+\addlinespace
+Group &
+This description explains the theoretical framework used in this dissertation.
+It covers the mathematical foundations and how it applies to understanding cooperative behaviors in changing environments. \\
+\addlinespace
+Individual &
+This description explains the theoretical framework used in this dissertation.
+It covers the mathematical foundations and how it applies to understanding cooperative behaviors in changing environments. \\
+\bottomrule
+\end{tabular}
+\end{table}
