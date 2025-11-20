@@ -6,8 +6,10 @@ This repository is used for managing my doctoral dissertation project.
 
 ```text
 doctoral-dissertation/
-├── dissertation.tex  # Main LaTeX document
-├── dissertation.pdf  # Generated PDF output
+├── main.tex          # Main LaTeX document
+├── main.pdf          # LaTeX-generated PDF output
+├── dissertation.pdf  # Compressed PDF for submission
+├── compress_pdf.sh   # PDF compression script
 ├── chapters/         # Chapter and ancillary files
 │   ├── 1_introduction.tex
 │   ├── 2_base_model.tex
@@ -23,7 +25,8 @@ doctoral-dissertation/
 │   └── 4/
 ├── references.bib    # Bibliography database
 ├── latexmkrc         # LaTeX build configuration
-├── build             # Empty directory for build files
+├── build/            # Build files directory
+├── LICENSE           # License file
 └── README.md
 ```
 
