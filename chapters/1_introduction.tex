@@ -142,29 +142,39 @@ Finally, to provide an overall perspective, Table \ref{tab:key_concepts} summari
 \toprule
 Term & Description \\
 \midrule
-Cooperation &
-This is a long description that will wrap across multiple lines in the second column.
-It explains the concept in detail and provides context for understanding how this term is used throughout the dissertation. \\
-\addlinespace
-Environmental Variability (EV) &
-This is another long description that demonstrates how text wraps in the second column.
-It provides a comprehensive explanation of the concept, including its various aspects and implications for the research presented in this work. \\
-\addlinespace
-Migration and Mobility &
-This is another long description that demonstrates how text wraps in the second column.
-It provides a comprehensive explanation of the concept, including its various aspects and implications for the research presented in this work. \\
-\addlinespace
 Agent &
-This description explains the theoretical framework used in this dissertation.
-It covers the mathematical foundations and how it applies to understanding cooperative behaviors in changing environments. \\
-\addlinespace
-Group &
-This description explains the theoretical framework used in this dissertation.
-It covers the mathematical foundations and how it applies to understanding cooperative behaviors in changing environments. \\
+An autonomous unit in simulation models that possesses a behavioral strategy, perceives its environment and takes actions.
+In Chapter \ref{ch:2_base_model}, agents represent groups.
+In Chapter \ref{ch:3_2Lvl_model}, two levels of agents exist: groups and individuals within groups.
+In Chapter \ref{ch:4_2D_model}, agents represent individuals. \\
 \addlinespace
 Individual &
-This description explains the theoretical framework used in this dissertation.
-It covers the mathematical foundations and how it applies to understanding cooperative behaviors in changing environments. \\
+An agent representing the unit of migration.
+Due to this definition, individuals are not necessarily single persons but may represent small groups such as families.
+In Chapter \ref{ch:2_base_model}, individuals are not explicitly modeled.
+In Chapter \ref{ch:3_2Lvl_model}, individuals migrate between groups.
+In Chapter \ref{ch:4_2D_model}, individuals migrate across a 2D space. \\
+\addlinespace
+Group &
+A collection of individuals sharing a common geographical location.
+In Chapter \ref{ch:2_base_model}, groups are modeled as agents.
+In Chapter \ref{ch:3_2Lvl_model}, groups are modeled as high-level agents, incorporating individuals as low-level agents.
+In Chapter \ref{ch:4_2D_model}, groups are not explicitly modeled, though spatial clusters (i.e., spontaneous group-like structures) of individuals with the same strategy may emerge.\\
+\addlinespace
+Cooperation &
+Altruistic behavior that appears to benefit other agents at a cost to the acting agent (i.e., individual or group).
+Cooperation ($C$) and its alternative behavior, defection ($D$), are used as behavioral strategies of an agent in game-theoretic models.\\
+\addlinespace
+Environmental Variability (EV) &
+Temporal fluctuations in the spatial distribution of resource availability.
+This dissertation focuses on extrinsic EV, which occurs independently of human activity, reflecting unpredictable climate and landscape fluctuations during the MSA in Africa.
+In the later chapters, EV is modeled through the stochastic movement of Sources of Resources (SoRs), focal points of resource abundance, and the resulting shifts in resource distribution.\\
+\addlinespace
+Migration and Mobility &
+Migration means spatial movement of individuals in response to resource availability or environmental conditions, while mobility means the ability to migrate.
+In Chapter \ref{ch:2_base_model}, migration is not incorporated.
+In Chapter \ref{ch:3_2Lvl_model}, individuals migrate between groups.
+In Chapter \ref{ch:4_2D_model}, individuals migrate across a 2D space.\\
 \bottomrule
 \end{tabular}
 \end{table}
