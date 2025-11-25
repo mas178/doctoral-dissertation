@@ -2,6 +2,7 @@
 
 This chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025a}, published in \textit{PLOS Complex Systems}.} introduces a base model to examine our research questions: whether and how environmental variability (EV) promotes the evolution of cooperation.
 Although migration is a reasonable response to EV for people during the Middle Stone Age (MSA), we exclude it here to focus on the direct effects of EV on cooperation.
+The combined effects of EV and migration are examined in Chapters \ref{ch:3_2Lvl_model} and \ref{ch:4_2D_model}.
 
 \section{Model}\label{sec:2_model}
 
@@ -20,7 +21,7 @@ Here, autonomy suggests that the basic behavioral patterns for a group regarding
 
 \subsection*{Agent and structure}
 
-In this model, each agent represents a single group and has a strategy of either cooperation or defection (in this chapter, ``C'' represents a cooperation strategy or a cooperator, while ``D'' represents a defection strategy or a defector).
+In this chapter, each agent represents a single group and has a strategy of either cooperation or defection (``C'' represents a cooperation strategy or a cooperator, while ``D'' represents a defection strategy or a defector).
 Initially, all agents are set to D, as intergroup cooperation is considered extremely unlikely \cite{DeDreu2022a, Rodrigues2023}.
 This chapter focuses exclusively on intergroup interactions and does not consider intragroup interactions.
 While a two-level model would be necessary to analyze the tension between intergroup and intragroup interactions, as seen in multilevel selection studies, a one-level model is suitable here given our focus on intergroup interactions.
@@ -58,7 +59,7 @@ Here, $\Delta_t$ is a random integer step uniformly distributed within the range
 UV represents another form of EV in which the total resource quantity fluctuates randomly over time, while the resource distribution between regions remains fixed.
 This variability reflects large-scale fluctuations in resource availability across a wide area encompassing all regions.
 However, to simplify the implementation, we fix the resource values and instead model UV by varying the threshold value $\theta$, which determines when reformation occurs.
-The fluctuation is modeled by an AR(1) process \cite{Hasselmann1976, Vyushin2012, Salcedo2022}, $\theta_{t+1} = \mu_\theta (1 - \beta) + \theta_t \beta + \epsilon$, where $\mu_\theta$ is the expected value of $\theta$, $\beta$ is the autoregressive coefficient ($0 \leq \beta \leq 1$), and $\epsilon$ is a normally distributed noise term with mean 0 and standard deviation (SD) $\sigma_\theta$.
+The fluctuation is modeled by a first-order autoregressive process, or AR(1) \cite{Hasselmann1976, Vyushin2012, Salcedo2022}, $\theta_{t+1} = \mu_\theta (1 - \beta) + \theta_t \beta + \epsilon$ with $0 \leq \beta < 1$ and $\epsilon \sim N(0, \sigma_\theta^2)$, where $\mu_\theta$ is the expected value of $\theta$, $\beta$ is the autoregressive coefficient, and $\epsilon$ is a normally distributed noise term with mean $0$ and standard deviation (SD) $\sigma_\theta$.
 The intensity of RV is determined by the shift range of the SoR ($\sigma_R$), while the intensity of UV is influenced by the autoregressive coefficient ($\beta$) and the SD of the noise term ($\sigma_\theta$).
 We examine the impact of EV on the evolution of cooperation under three scenarios: RV, UV, and combined variability (CV), where both the SoR shifts and the threshold $\theta$ fluctuates.
 
@@ -73,7 +74,6 @@ The gray ring represents the geographical structure, and each line connecting ag
 Following this, the game and reformation processes occur.
 The resource threshold for reformation is fixed at $\theta = 0.5$.
 (b) In the UV model, the SoR remains fixed, but the threshold $\theta$ fluctuates randomly, following an AR(1) process.
-\textcolor{red}{ToDo: prime node -> SoR.}
     }
     \label{fig:model}
 \end{figure}
@@ -109,7 +109,7 @@ P_i &= 0
 \end{align}
 
 The social optimum, which maximizes the sum of both payoffs, is CC under $b > 1$.
-The Nash equilibrium is when DD for $b < 2$.
+The Nash equilibrium is DD when $b < 2$.
 Thus, a social dilemma exists across the defined range of $b$, except at the boundaries.
 Additionally, by solving $T_i > R_i > P_i > S_i$, the condition for the game to qualify as a prisoner’s dilemma is $b > 1 + \frac{M_i - M_j}{M_i + M_j}$.
 If this condition is not met, then $T_i > P_i > R_i > S_i$.
@@ -124,7 +124,7 @@ This assumption is inconsistent with our research context. Therefore, we have de
 If, as a result of the games, an agent’s resource falls below the threshold $\theta$, it is considered to have failed to adapt to the environment, triggering a reformation of its strategy and network connections.
 An agent $i$ that falls below $\theta$ randomly selects a role model.
 The probability that $j$ is chosen as its role model is $p^R_j = \frac{r_j}{\sum_{k \in [1, .., N]} r_k}$.
-The $i$ imitates $j$’s strategy, with mutation occurring at a probability $\mu$.
+Agent $i$ imitates $j$’s strategy, with mutation occurring at a probability $\mu$.
 Additionally, agents that fall below the threshold disconnect all of their current relationships.
 They then randomly select the same number of new neighbors as the number of disconnections and establish new connections.
 The probability that agent $j$ is chosen as a new neighbor is proportional to $p^R_j$.
@@ -154,13 +154,13 @@ To assess the effect of EV on the evolution of cooperation we compared the avera
         \hline
         $r_{max}$ & Max resource & $1.0$ \\
         $f_{RD}$ & Resource decrement factor & $0.02$ \\
-        $\sigma_R$ & Shift range of the SoR & \{0, 1, ..., 49\}  \\
+        $\sigma_R$ & Shift range of the SoR & $\{0, 1, ..., 49\}$  \\
         $\mu_\theta$ & Expected value of threshold $\theta$ & $0.5$ \\
-        $\beta$ & Autoregressive coefficient of the UV & \{0.0, 0.1, ..., 0.9\} \\
-        $\sigma_\theta$ & SD of the noise term of UV & $\{0.0, 0.1, 02\}$ \\
+        $\beta$ & Autoregressive coefficient of the UV & $\{0.0, 0.1, ..., 0.9\}$ \\
+        $\sigma_\theta$ & SD of the noise term of UV & $\{0.0, 0.1, 0.2\}$ \\
         \hline
-        $b$ & Multiplication factor for PGG & \{1.0, 1.1, ..., 2.0\} \\
-        $\mu$ & Mutation rate for strategy imitation & 0.01 \\
+        $b$ & Multiplication factor for PGG & $\{1.0, 1.1, ..., 2.0\}$ \\
+        $\mu$ & Mutation rate for strategy imitation & $0.01$ \\
         \hline
     \end{tabular}
     \label{tab:parameters}
@@ -309,13 +309,10 @@ However, when the first factor is weak and inhibits the second, as in the UV mod
 
 \section{Summary}\label{sec:2_summary}
 
-\textcolor{red}{ToDo: Review this section.}
-
 This chapter examined the effects of EV on the evolution of intergroup cooperation using a base model without migration.
 The results show that RV strongly promotes cooperation, while UV has a weaker effect.
-These differences arise from two key factors: the extent to which EV generates fluctuations in strategy distribution through mutation and reformation, and the coevolution of cooperation and network structure.
-RV effectively promotes both factors, whereas UV generates insufficient fluctuations and disrupts network heterogeneity.
+These differences arise from two key factors: the fluctuations in strategy distribution generated by EV, and the coevolution of cooperation and network structure.
+Both factors work effectively under RV, whereas under UV, neither factor operates effectively due to insufficient fluctuations and disrupted network heterogeneity.
 
-A limitation of this model is that agents cannot migrate between locations.
-In reality, migration toward resource-rich areas is a natural response to environmental change, and such movement would influence both the evolution of cooperation and network structure.
-The following chapters address this limitation by introducing mobility: Chapter \ref{ch:3_2Lvl_model} extends this model with individual-level migration within a two-level group structure, and Chapter \ref{ch:4_2D_model} examines cooperation among mobile individuals in a two-dimensional spatial structure.
+These findings provide a foundation for examining cooperation under EV.
+The next chapter, Chapter \ref{ch:3_2Lvl_model}, extends this base model by incorporating individual-level migration to examine the combined effects of EV and migration.
