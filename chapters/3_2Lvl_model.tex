@@ -31,7 +31,7 @@ Interaction structures exist at the group level and at the agent level within ea
   \label{fig:3_model}
 \end{figure}
 
-In this model, there are $n_F$ agents and $n_R$ regional groups.
+In this model, there are $N_F$ agents and $N_R$ regional groups.
 An agent is an abstract representation of the minimal unit of human migration, such as a family.
 A group represents the set of agents within a geographically dispersed human habitat.
 
@@ -60,7 +60,7 @@ This stochastic movement is formalized as
 \begin{equation}
 x_{t+1} =
 \begin{cases}
-\left[ (x_t + \Delta_t - 1) \bmod n_R \right] + 1, & \text{with probability } p_{EV}, \\
+\left[ (x_t + \Delta_t - 1) \bmod N_R \right] + 1, & \text{with probability } p_{EV}, \\
 x_t, & \text{otherwise},
 \end{cases}
 \end{equation}
@@ -69,7 +69,7 @@ where $x_t$ denotes the index on the circular graph of regional groups indicatin
 The group at which the SoR is located receives a resource value of $1$. The amount of resources allocated to other groups decreases with their distance from the SoR along the geographical structure, reaching $0$ for the group farthest from the SoR.
 This resource allocation is formalized as
 \begin{equation}
-r_i^R = 1 - \frac{d_i}{\left\lfloor \frac{n_R}{2} \right\rfloor}
+r_i^R = 1 - \frac{d_i}{\left\lfloor \frac{N_R}{2} \right\rfloor}
 \end{equation}
 where $r_i^R$ denotes the resources received by group $i$, and $d_i$ is the distance between group $i$ and the SoR, calculated with periodic boundary conditions.
 The resources of each group are evenly shared among its agents.
@@ -131,7 +131,7 @@ Specifically, the probability that migration occurs is given by
 \begin{equation}
   \max\left(1 - \tfrac{r_i^F}{\theta_F}, 0\right) \cdot p_M ,
 \end{equation}
-where $r_i^F$ denotes the resource available to agent $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal threshold shared by all groups, $\theta_F$ is the per-agent threshold obtained by $\theta_F = \tfrac{\theta_R}{n_F / n_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
+where $r_i^F$ denotes the resource available to agent $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal threshold shared by all groups, $\theta_F$ is the per-agent threshold obtained by $\theta_F = \tfrac{\theta_R}{N_F / N_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
 
 The migration direction is also probabilistic:
 with probability $p_{SoR}$, the agent moves to the neighboring group closer to the SoR;
@@ -154,29 +154,38 @@ After the update, all edges of the updated entity are reset to the baseline weig
 
 \subsection*{Evaluation}\label{sec:evaluation}
 
-To examine how environmental variability and agent mobility influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:params}.
+To examine how environmental variability and agent mobility influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:3_params}.
 For each setting, $100$ independent runs of $10000$ generations are carried out. 
 As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and agents, respectively, employing strategy $C$ during the last $5000$ generations and averaged over all runs.
 
 \begin{table}[!ht]
 \centering
-\caption{Model parameters used in the simulations}
-\label{tab:params}
-\begin{tabular}{cll}
+\caption[Model parameters used in the simulations]{Model parameters used in the simulations.}
+\label{tab:3_params}
+\begin{tabular}{cp{0.5\textwidth}p{0.3\textwidth}}
 \toprule
 \textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
 \midrule
-$n_R$ & Number of regional groups & $10 \times 2^{\{0, 1, 2, 3\}}$ \\
-$n_F$ & Number of agents & $100 \times 2^{\{0, 1, 2, 3, 4, 5, 6\}}$\\
+$N_R$ & Number of group agents & $10 \times 2^{\{0, 1, 2, 3\}}$ \\
+$N_F$ & Number of individual agents & $100 \times 2^{\{0, 1, 2, 3, 4, 5, 6\}}$\\
 $\phi_C^0$ & Initial frequency of cooperators & $\{0, 0.5, 1\}$ \\
-$w_0$ & Initial edge weight & $\{0, 0.1, \ldots, 1.0\}$ \\
-$p_{EV}$ & Probability factor for environmental variability & $\{0, 0.1, \ldots, 1.0\}$ \\
+\addlinespace
+$w_0$ & Initial edge weight & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
+$p_{EV}$ & Probability of SoR shift; controlling the intensity of EV ($\sigma_R$ (shift range of the SoR) in Chapter~\ref{ch:2_base_model}) & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
 $\theta_R$ & Resource threshold at group level & $0.5$ \\
-$b$ & PGG multiplier & $\{1.0, 1.1, \ldots, 2.0\}$ \\
-$\Delta w$ & Update rate of edge weights & $\{0, 0.1, \ldots, 1.0\}$ \\
-$p_M$ & Probability factor for migration events & $\{0, 0.1, \ldots, 1.0\}$ \\
-$p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1.0\}$ \\
+\addlinespace
+$b$ & Multiplication factor for PGG & $\{1, 1.1, \ldots, 2\}$ \\
+\addlinespace
+$\Delta w$ & Update rate of edge weights & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
+$p_M$ & Probability factor multiplied by resource deficit for migration events (direct probability for agents below threshold in Chapter~\ref{ch:4_2D_model}) & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
+$p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
 $p_{SU}$ & Probability factor for strategy update events & $0.1$ \\
+\addlinespace
 $\mu$ & Mutation probability in strategy update & $\{0, 0.01, 0.05, 0.1\}$ \\
 \bottomrule
 \end{tabular}
@@ -210,7 +219,7 @@ Average cooperation rates as functions of $p_{EV}$ and $p_M$.
 (c) $\phi_C^R$ vs. $p_M$ for different $p_{EV}$ values.
 (d) $\phi_C^F$ vs. $p_M$ for different $p_{EV}$ values.
 Each data point represents the mean across 100 independent trials, where each trial is averaged over the final 5000 generations.
-Other parameters: $n_R = 10$, $n_F = 100$, $\phi_C^0 = 0.5$, $w_0 = 0.3$, $\theta_R = 0.5$, $b = 1.9$, $\Delta w = 0.1$, $p_{SoR} = 0.1$, $\mu = 0.01$.
+Other parameters: $N_R = 10$, $N_F = 100$, $\phi_C^0 = 0.5$, $w_0 = 0.3$, $\theta_R = 0.5$, $b = 1.9$, $\Delta w = 0.1$, $p_{SoR} = 0.1$, $\mu = 0.01$.
   }
   \label{fig:result1_1}
 \end{figure}
@@ -275,20 +284,21 @@ ToDo: The evolution of agent-level cooperation by environmental variability can 
 
 \subsection*{Influence of population-related parameters}
 
-Figure~\ref{fig:result2_1} shows the effects of population size parameters $n_R$ and $n_F$ on cooperation rates under different environmental and mobility conditions.
+Figure~\ref{fig:result2_1} shows the effects of population size parameters $N_R$ and $N_F$ on cooperation rates under different environmental and mobility conditions.
 
 \begin{figure}[H]
   \centering
   \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
-  \caption[Placeholder for Figure~\ref{fig:result2_1}]{Placeholder figure for population size effects ($n_R$, $n_F$) under varying $p_{EV}$ and $p_M$.}
+  \caption[Placeholder for Figure~\ref{fig:result2_1}]{Placeholder figure for population size effects ($N
+_R$, $N_F$) under varying $p_{EV}$ and $p_M$.}
   \label{fig:result2_1}
 \end{figure}
 
-When $p_{EV} = 0.0$ and $p_M = 0.0$, both $n_R$ and $n_F$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
-When $p_{EV} = 0.0$ and $p_M = 0.1$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $n_R$ and $n_F$ (Figure~\ref{fig:result2_1}d).
+When $p_{EV} = 0.0$ and $p_M = 0.0$, both $N_R$ and $N_F$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
+When $p_{EV} = 0.0$ and $p_M = 0.1$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $N_R$ and $N_F$ (Figure~\ref{fig:result2_1}d).
 
-Under dynamic environmental conditions with $p_{EV} = 0.5$ and $p_M = 0.0$, $\phi_C^R$ decreases slightly with increasing $n_R$ but remains largely unaffected by $n_F$ (Figure~\ref{fig:result2_1}e).
-At the agent level, $\phi_C^F$ decreases slightly with increasing $n_R$ but increases slightly with increasing $n_F$ (Figure~\ref{fig:result2_1}f).
+Under dynamic environmental conditions with $p_{EV} = 0.5$ and $p_M = 0.0$, $\phi_C^R$ decreases slightly with increasing $N_R$ but remains largely unaffected by $N_F$ (Figure~\ref{fig:result2_1}e).
+At the agent level, $\phi_C^F$ decreases slightly with increasing $N_R$ but increases slightly with increasing $N_F$ (Figure~\ref{fig:result2_1}f).
 These patterns remain essentially unchanged when $p_M$ increases to 0.1 (Figure~\ref{fig:result2_1}g,h).
 
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).

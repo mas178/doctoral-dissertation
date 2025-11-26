@@ -4,7 +4,7 @@ This repository is used for managing my doctoral dissertation project.
 
 ## Citation
 
-Inaba, M. (2026). *Evolution of Cooperation under Environmental Variability* [Doctoral dissertation, University of Tsukuba]. https://doi.org/10.15068/(to be assigned)
+Inaba, M. (2026). *Evolution of Cooperation under Environmental Variability* [Doctoral dissertation, University of Tsukuba]. https://doi.org/10.15068/(to_be_assigned)
 
 ## File Structure
 

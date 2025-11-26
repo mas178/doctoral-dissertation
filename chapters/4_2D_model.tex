@@ -1,17 +1,21 @@
 \chapter{The 2-dimensional model with migration}\label{ch:4_2D_model}
 
 In Chapters~\ref{ch:2_base_model} and \ref{ch:3_2Lvl_model}, we examined the evolution of cooperation under environmental variability (EV) using models with explicit group structures.
-Chapter~\ref{ch:2_base_model} demonstrated that EV can promote cooperation through the interplay between environmental disruptions and social network structures that support cooperation.
-However, that model does not incorporate mobility, which is an essential trait of pre-sedentary human populations in the Middle Stone Age (MSA).
-Chapter~\ref{ch:3_2Lvl_model} introduced individual-level migration, but its relatively unique framework limits direct comparison with existing studies on cooperation and migration.
-In this chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025b}, published in \textit{Chaos, solitons \& fractals}.} we adopt a 2-dimensional (2D) spatial structure, which is widely used in the literature, to examine how EV and agent mobility jointly affect the evolution of cooperation.
+The base model in Chapter~\ref{ch:2_base_model} demonstrated that EV can promote cooperation without migration.
+The 2-level model with migration in Chapter~\ref{ch:3_2Lvl_model} extended this by introducing individual-level migration and demonstrated that EV can still promote cooperation.
+Moreover, moderate migration promotes cooperation while excessive migration hinders it.
+However, the 2-level model is relatively unique and limits clear comparison with existing studies on cooperation and migration.
+In this chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025b}, published in \textit{Chaos, solitons \& fractals}.} we adopt a 2-dimensional (2D) space without explicit group structures, which is widely used in the literature.
 
 The evolution of cooperation among mobile agents has been studied actively.
-Dugatkin and Wilson (1991) \cite{Dugatkin1991} performed pioneering work in this area, and Vainstein et al. (2007) \cite{Vainstein2007} subsequently established that mobility promotes cooperation under minimal assumptions.
-More recently, various migration strategies \cite{Cong2012, Chen2012, He2020, Dhakal2020, Ren2021, Yang2023, Zhang2025} differing in trigger conditions and migration distance have been proposed.
-However, to the best of our knowledge, no study has examined exogenous EV in the evolution of cooperation with migration.
+Dugatkin and Wilson (1991) \cite{Dugatkin1991} performed pioneering work in this area, demonstrating that the effectiveness of Axelrod's Tit-for-Tat strategy \cite{Axelrod1981} can be undermined by mobile defectors (Rover strategy) when migration costs are low, although their model employed a patch structure rather than a 2D space.
+More contemporary research in 2D spatial settings, where both cooperators and defectors can migrate, was initiated by Vainstein and Arenzon (2001) \cite{Vainstein2001} and established by Vainstein et al. (2007) \cite{Vainstein2007}.
+They demonstrated that mobility can have contrasting effects: under certain conditions, it promotes cooperation by facilitating cooperator clustering and separation from defectors, while under other conditions, it hinders cooperation by generating strategic chaos.
+These developments are reviewed in Perc and Szolnoki (2010) \cite{Perc2010}.
+Building on Vainstein's framework, various migration strategies \cite{Cong2012, Chen2012, He2020, Dhakal2020, Ren2021, Yang2023, Zhang2025} differing in trigger conditions and migration distance have been proposed more recently.
+However, to the best of our knowledge, no study has examined the effects of extrinsic EV on the evolution of cooperation among mobile agents.
 
-This chapter addresses this gap by modeling EV as randomly moving resource-rich spots across a 2D space and agent mobility as resource-seeking migration.
+This chapter addresses this gap within Vainstein's framework by modeling EV as randomly moving resource-rich spots (Sources of Resources; SoRs) across a 2D space and agent mobility as resource-seeking migration.
 Through extensive simulations, we examine whether and how these factors jointly promote cooperation.
 
 \section{Model}\label{sec:4_model}
@@ -114,7 +118,7 @@ This sparsity reduces the interdependence between neighboring strategy updates, 
 
 \subsection*{Evaluation}
 
-To investigate the effects of environmental variability and agent mobility on the evolution of cooperation, simulations are performed under a range of parameter configurations, as shown in Table~\ref{tab:4_1_params}.
+To investigate the effects of environmental variability and agent mobility on the evolution of cooperation, simulations are performed under a range of parameter configurations, as shown in Table~\ref{tab:4_params}.
 
 Each configuration is evaluated through $100$ independent trials of $10000$ generations each.
 As the primary outcome measure, we compute the cooperation rate $\phi_C$, which is defined as the average proportion of agents employing the $C$ strategy during the final $5000$ generations averaged over all trials.
@@ -122,26 +126,36 @@ As the primary outcome measure, we compute the cooperation rate $\phi_C$, which 
 \begin{table}[!ht]
 \centering
 \caption[Model parameters used in the simulations]{Model parameters used in the simulations.}
-\label{tab:4_1_params}
-\begin{tabular}{cll}
-\hline
+\label{tab:4_params}
+\begin{tabular}{cp{0.5\textwidth}p{0.3\textwidth}}
+\toprule
 \textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
-\hline
+\midrule
 $W \times H$ & Grid dimensions & $200 \times 200, 400 \times 200$ \\
-$N$ & Total number of agents & $500 \times 2^{\{0, 1, 2, 3, 4, 5\}}$ \\
-$\phi_C^0$ & Initial frequency of cooperators & $0, 0.5, 1$ \\
-$n_{SoR}$ & Total number of SoRs & 1, 2 \\
-$p_{EV}$ & Probability of SoR shift & $0$ to $1$ (step: $0.1$) \\
+$N$ & Number of agents & $500 \times 2^{\{0, 1, 2, 3, 4, 5\}}$ \\
+$\phi_C^0$ & Initial frequency of cooperators & $\{0, 0.5, 1\}$ \\
+\addlinespace
+$n_{SoR}$ & Total number of SoRs & $\{1, 2\}$ \\
+\addlinespace
+$p_{EV}$ & Probability of SoR shift; controlling the intensity of EV (shift range of the SoR, $\sigma_R$, in Chapter~\ref{ch:2_base_model}) & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
 $R$ & Payoff for mutual cooperation & $1$ \\
-$T$ & Payoff for defection against cooperator & $0$ to $2$ (step: $0.1$) \\
+$T$ & Payoff for defection against cooperator & $\{0, 0.1, \ldots, 2\}$ \\
 $P$ & Payoff for mutual defection & $0$ \\
-$S$ & Payoff for cooperation against defector & $-1$ to $1$ (step: $0.1$) \\
-$p_M$ & Probability of migration & $0$ to $1$ (step: $0.1$) \\
-$p_{SoR}$ & Probability of resource-oriented migration & $0$ to $1$ (step: $0.1$) \\
-$\mu$ & Probability of mutation  & $0, 0.01$ \\
-\hline
+$S$ & Payoff for cooperation against defector & $\{-1, -0.9, \ldots, 1\}$ \\
+\addlinespace
+$p_M$ & Direct probability of migration for agents below threshold (multiplied by resource deficit in Chapter~\ref{ch:3_2Lvl_model}) & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
+$p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1\}$ \\
+\addlinespace
+$\mu$ & Mutation probability in strategy update & $\{0, 0.01\}$ \\
+\bottomrule
 \end{tabular}
 \end{table}
+
+in Chapter~\ref{ch:2_base_model}, the intensity of EV is controlled by $\sigma_R$ (shift range of the SoR)
+
+the intensity of EV is controlled by $\sigma_R$ (shift range of the SoR) in Chapter~\ref{ch:2_base_model}.
 
 \section{Results}\label{sec:4_results}
 
@@ -257,7 +271,7 @@ The results for $N = 32000$ are omitted because they exhibited negligible differ
 }\label{fig:4_population}
 \end{figure}
 
-\subsubsection*{Number of SoRs and initial cooperator rate}
+\subsubsection*{Number of SoRs and initial cooperation rate}
 
 Both the number of SoRs ($n_{SoR}$) and the initial frequency of cooperators ($\phi_C^0$) have a significant influence on the results.
 While the 2-SoR configuration forms large band-shaped defector groups (Figure~\ref{fig:4_temporal_01_10}b), the 1-SoR configuration only forms a small, circular resource-rich area (Figure~\ref{fig:4_1sor}b).
@@ -323,3 +337,5 @@ Agents accumulate resources through cooperative or competitive interactions, and
 First, with sufficient agent mobility, even modest environmental variability promotes cooperation; however, further variability does not enhance cooperation.
 Second, with any level of environmental variability, agent mobility promotes cooperation.
 Third, these effects occur because environmental variability disrupts a few large stable defector groups that form in resource-rich areas, and agent mobility effectively enables the formation of numerous small cooperator groups at those sites.
+
+The next chapter, Chapter~\ref{ch:5_conclusion}, synthesizes and compares the findings from all three models to identify common mechanisms and discuss the broader implications for understanding the evolution of cooperation under environmental variability.
