@@ -5,7 +5,7 @@ The base model in Chapter~\ref{ch:2_base_model} demonstrated that EV can promote
 The 2-level model with migration in Chapter~\ref{ch:3_2Lvl_model} extended this by introducing individual-level migration and demonstrated that EV can still promote cooperation.
 Moreover, moderate migration promotes cooperation while excessive migration hinders it.
 However, the 2-level model is relatively unique and limits clear comparison with existing studies on cooperation and migration.
-In this chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025b}, published in \textit{Chaos, solitons \& fractals}.} we adopt a 2-dimensional (2D) space without explicit group structures, which is widely used in the literature.
+In this chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025b}, published in \textit{Chaos, Solitons \& Fractals}.} we adopt a 2-dimensional (2D) space without explicit group structures, which is widely used in the literature.
 
 The evolution of cooperation among mobile agents has been studied actively.
 Dugatkin and Wilson (1991) \cite{Dugatkin1991} performed pioneering work in this area, demonstrating that the effectiveness of Axelrod's Tit-for-Tat strategy \cite{Axelrod1981} can be undermined by mobile defectors (Rover strategy) when migration costs are low, although their model employed a patch structure rather than a 2D space.
@@ -132,7 +132,7 @@ As the primary outcome measure, we compute the cooperation rate $\phi_C$, which 
 \textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
 \midrule
 $W \times H$ & Grid dimensions & $200 \times 200, 400 \times 200$ \\
-$N$ & Number of agents & $500 \times 2^{\{0, 1, 2, 3, 4, 5\}}$ \\
+$N$ & Number of agents & $500 \times 2^{\{0, 1, 2, 3, 4, 5\}}$ \\ % ToDo: {500, 1000, 2000, 4000, 8000, 16000} という表記に直す。
 $\phi_C^0$ & Initial frequency of cooperators & $\{0, 0.5, 1\}$ \\
 \addlinespace
 $n_{SoR}$ & Total number of SoRs & $\{1, 2\}$ \\
@@ -152,10 +152,6 @@ $\mu$ & Mutation probability in strategy update & $\{0, 0.01\}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-in Chapter~\ref{ch:2_base_model}, the intensity of EV is controlled by $\sigma_R$ (shift range of the SoR)
-
-the intensity of EV is controlled by $\sigma_R$ (shift range of the SoR) in Chapter~\ref{ch:2_base_model}.
 
 \section{Results}\label{sec:4_results}
 
