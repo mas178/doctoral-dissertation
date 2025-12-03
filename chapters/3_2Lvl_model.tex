@@ -4,57 +4,71 @@ While the base model in Chapter \ref{ch:2_base_model} demonstrated that environm
 During the Middle Stone Age (MSA), human populations likely responded to resource scarcity by migrating to more favorable environments.
 Therefore, this chapter introduces migration into the base model to examine how EV and migration jointly influence the evolution of cooperation.
 
-Migration can be modeled in various ways, depending on factors such as spatial structure, the unit of migration, migration triggers, and destination selection mechanisms.
-This chapter extends the base model in a straightforward manner by introducing individuals within groups and allowing them to migrate between neighboring groups, as detailed in Section~\ref{sec:3_model}.
-
 \section{Model}\label{sec:3_model}
 
-This model is designed to explore the effects of environmental variability and agent mobility on the evolution of cooperation.
+Migration can be modeled in various ways, depending on key design choices such as spatial structure, the unit of migration, migration triggers, and destination selection mechanisms.
 
-\subsection*{Agent, group and structure}\label{sec:structure}
+First, regarding spatial structure, previous studies have primarily employed either patch structures \cite{Dugatkin1991}, where agents move between discrete locations, or two-dimensional continuous spaces \cite{Vainstein2001, Vainstein2007}, where agents move across a grid or plane.
+To extend the base model from Chapter~\ref{ch:2_base_model} in a straightforward manner, this chapter adopts a patch structure where each regional group contains multiple low-level agents who can migrate between neighboring groups.
+The two-dimensional spatial approach is examined in Chapter~\ref{ch:4_2D_model}.
+
+Second, the unit of migration can be defined at different scales, such as individuals, families, or entire groups.
+In the MSA context, individual humans would rarely migrate alone due to survival constraints, and unified decision-making and simultaneous migration by large groups would be equally implausible given the complexity of group coordination.
+In this chapter, we do not strictly define what the unit of migration corresponds to in the real world, but conceptualize it as a small kin-based unit, such as a family or extended family group.
+For convenience, we refer to this unit of migration as an individual, even though this unit is not necessarily a single person.
+
+Third and fourth, migration triggers and destination selection mechanisms determine when and where individuals migrate.
+In this chapter, individuals migrate, triggered by resource scarcity, toward resource-rich areas, as this research conceptualizes EV as fluctuations in resource availability.
+
+These design choices result in a two-level hierarchical structure with group agents and individual agents.
+EV affects resource allocation at both levels.
+Game and strategy update occur independently at both levels.
+Migration occurs at the individual level between groups.
+
+\subsection*{Structural overview}\label{sec:structure}
 
 We consider the model composed of multiple regional groups, each inhabited by a number of humans who may migrate between the groups in response to environmental or social pressures.
-Within this world, the population is represented by agents and regional groups, and their interaction (see Subsection~\ref{sec:game}) and migration (see Subsection~\ref{sec:migration}) are governed by the geographical and interaction structures (see Figure~\ref{fig:3_model}).
+Within this world, the population is represented by group agents and individual agents, and their interaction (see Subsection~\ref{sec:game}) and migration (see Subsection~\ref{sec:migration}) are governed by the geographical and interaction structures (see Figure~\ref{fig:3_model}).
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/3/Model}
-  \caption[Illustration of the model structure.]{
+  \caption[Illustration of the model structure]{
 Illustration of the model structure.
 Regional groups are arranged on a circular geographic structure, where the SoR stochastically moves between groups.
-Each group contains agents.
-Each group and each agent independently adopt either $C$ (blue) or $D$ (red).
+Each group contains individuals.
+Each group and each individual independently adopt either $C$ (blue) or $D$ (red).
 Numbers indicate group resource levels, which decrease with distance from the SoR.
-Interaction structures exist at the group level and at the agent level within each group.
+Interaction structures exist at the group level and at the individual level.
   }
   \label{fig:3_model}
 \end{figure}
 
-In this model, there are $N_F$ agents and $N_R$ regional groups.
-An agent is an abstract representation of the minimal unit of human migration, such as a family.
-A group represents the set of agents within a geographically dispersed human habitat.
+In this model, there are $N_F$ individuals and $N_R$ groups.
+An individual is an abstract representation of the minimal unit of human migration, such as a family.
+A group represents the set of individuals within a geographically dispersed human habitat.
 
-The geographical structure constrains the positions of groups and the migration of agents.
+The geographical structure constrains the positions of groups and the migration of individuals.
 It is defined as a circular graph, i.e., a ring structure, in which each group is connected to its two neighboring groups.
 These connections remain fixed throughout the simulation.
-The agents are initially distributed evenly across all groups and can migrate between neighboring groups during the simulation.
-The migration results in uneven spatial distributions of agents over time, and some groups can be empty.
+The individuals are initially distributed evenly across all groups and can migrate between neighboring groups during the simulation.
+The migration results in uneven spatial distributions of individuals over time, and some groups can be empty.
 
-The interaction structures constrain the selection of opponents for cooperative or competitive interactions at two levels, i.e., inter-group and intra-group (between agents).
-There is a single inter-group interaction structure in the model, while each group has its own intra-group interaction structure and no interactions occur between agents belonging to different groups.
+The interaction structures constrain the selection of opponents for cooperative or competitive interactions at two levels, i.e., the group level and the individual level.
+There is a single group level interaction structure in the model, while each group has its own individual level interaction structure and no interactions occur between individuals belonging to different groups.
 An interaction structure is represented by a weighted, undirected, complete graph whose edge weights are dynamic while its topology remains fixed.
-The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$) denotes the strength of the relationship between nodes $i$ and $j$, where a node represents either a group or an agent, and is proportional to the probability of interaction between them.
+The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$) denotes the strength of the relationship between nodes $i$ and $j$, where a node represents either a group or an individual, and is proportional to the probability of interaction between them.
 
-Given these structural foundations, the simulation proceeds in four stages: environmental variability, game, migration, and strategy update.
-Game and strategy updates occur at both the group and agent levels, in that order.
+Given these structural foundations, the simulation proceeds in four stages: EV, game, migration, and strategy update.
+Game and strategy updates occur at both the group and individual levels, in that order.
 Each stage is described in the following subsections.
 
 \subsection*{Environmental variability}\label{sec:ev}
 
-The model captures a key feature of the environmental variability observed during the MSA in Africa, namely the unpredictable shifts in the geographical distribution of resources.
+The model captures a key feature of the EV observed during the MSA in Africa, namely the unpredictable shifts in the geographical distribution of resources.
 
 To represent this type of variability, we define the source of resources (SoR) as a dynamic point corresponding to the most resource-abundant region.
-The SoR moves stochastically across the regional groups introduced in Subsection~\ref{sec:structure} at each simulation time step.
+The SoR moves stochastically across the regional groups at each simulation time step.
 This stochastic movement is formalized as
 \begin{equation}
 x_{t+1} =
@@ -63,36 +77,37 @@ x_{t+1} =
 x_t, & \text{otherwise},
 \end{cases}
 \end{equation}
-where $x_t$ denotes the index on the circular graph of regional groups indicating the position of the SoR at time $t$, $\Delta_t \in \{-1, +1\}$ is chosen with equal probability, and $p_{EV}$ is a key parameter controlling the intensity of the environmental variability.
+where $x_t$ denotes the index on the circular graph of regional groups indicating the position of the SoR at time $t$, $\Delta_t \in \{-1, +1\}$ is chosen with equal probability, and $p_{EV}$ is a key parameter controlling the intensity of the EV.
 
-The group at which the SoR is located receives a resource value of $1$. The amount of resources allocated to other groups decreases with their distance from the SoR along the geographical structure, reaching $0$ for the group farthest from the SoR.
+The group at which the SoR is located receives a resource value of $1$.
+The amount of resources allocated to other groups decreases with their distance from the SoR along the geographical structure, reaching $0$ for the group farthest from the SoR.
 This resource allocation is formalized as
 \begin{equation}
 r_i^R = 1 - \frac{d_i}{\left\lfloor \frac{N_R}{2} \right\rfloor}
 \end{equation}
 where $r_i^R$ denotes the resources received by group $i$, and $d_i$ is the distance between group $i$ and the SoR, calculated with periodic boundary conditions.
-The resources of each group are evenly shared among its agents.
+The resources of each group are evenly shared among its individuals.
 
 \subsection*{Game}\label{sec:game}
 
-Interactions that affect gains and losses of resources, both between groups and between agents, are modeled using a game-theoretic framework.
-Because interactions at the group and agent levels often follow the same rules, we occasionally use the term \textit{entity} as a general label for both.
-Entity $i$ adopts a strategy $s_i \in \{C, D\}$, where $C$ denotes cooperation and $D$ denotes defection.
+Interactions that affect gains and losses of resources, both between groups and between individuals, are modeled using a game-theoretic framework.
+For simplicity, we occasionally use the term \textit{agent} as a general label for both group agents and individual agents throughout this chapter.
+Agent $i$ adopts a strategy $s_i \in \{C, D\}$, where $C$ denotes cooperation and $D$ denotes defection.
 The interaction dynamics consist of three sequential phases:
 opponent selection,
 a pairwise public goods game (PGG), and
 an update of the interaction structure.
 
-The opponent selection is based on the relationships between entities specified by the edge weights of the interaction structure.
-Each entity $i$ stochastically selects another entity as its opponent, with the probability of selecting entity $j$ given by
+The opponent selection is based on the relationships between agents specified by the edge weights of the interaction structure.
+Each agent $i$ stochastically selects another agent as its opponent, with the probability of selecting agent $j$ given by
 \begin{equation}
 P(j|i) = \frac{w_{i,j}}{\sum_{k \neq i} w_{i,k}} .
 \label{eq:opponent_selection}
 \end{equation}
 
 Each selected pair then engages in a pairwise PGG.
-Here, we employ a pairwise PGG rather than traditional pairwise games such as the Prisoner’s Dilemma Game and the Stag Hunt Game in order to incorporate both the resource value of each entity and the relationships into the game.
-In the game between entity $i$ and $j$, both contribute their respective amounts $c_i$ and $c_j$; the total contribution is multiplied by a constant factor $b$, and the amplified resources are then shared equally between them.
+Here, we employ a pairwise PGG rather than traditional pairwise games such as the Prisoner’s Dilemma Game and the Stag Hunt Game in order to incorporate both the resource value of each agent and the relationships into the game.
+In the game between agent $i$ and $j$, both contribute their respective amounts $c_i$ and $c_j$; the total contribution is multiplied by a constant factor $b$, and the amplified resources are then shared equally between them.
 Specifically, $c_i$ is defined as
 \begin{equation}
 c_i =
@@ -101,8 +116,8 @@ r_i \times w_{i,j}, & \text{if } s_i = C, \\
 0, & \text{if } s_i = D
 \end{cases}
 \end{equation}
-where $r_i$ denotes the resource available to entity $i$ at the time of the game.
-In summary, the payoff matrix for entities $i$ and $j$ is
+where $r_i$ denotes the resource available to agent $i$.
+In summary, the payoff matrix for agents $i$ and $j$ is
 \begin{equation}
 \begin{array}{c|cc}
       & C & D \\
@@ -113,7 +128,7 @@ D & \frac{c_i b}{2}, \frac{c_j b}{2} - c_j & 0, 0 .
 \end{equation}
 
 Finally, the edge weights of the interaction structure are updated to reflect the outcomes of the pairwise games.
-Because entities benefit from being connected to $C$ but not to $D$, the direction of change depends on the combination of strategies.
+Because agents benefit from being connected to $C$ but not to $D$, the direction of change depends on the combination of strategies.
 When $C$–$C$, each has an incentive to strengthen the tie, and the relationship becomes stronger.
 When $C$–$D$ or $D$–$C$, one side tends to strengthen while the other tends to weaken the tie; these opposing tendencies cancel out, and the relationship remains unchanged.
 When $D$–$D$, each has an incentive to weaken the tie, and the relationship becomes weaker.
@@ -125,37 +140,38 @@ where $\Delta w$ ($0 \leq \Delta w \leq 1$) denotes the update rate, and the tar
 
 \subsection*{Migration}\label{sec:migration}
 
-Agents facing resource scarcity stochastically migrate to an adjacent regional group in search of better conditions.
+Individuals facing resource scarcity stochastically migrate to an adjacent regional group in search of better conditions.
 Specifically, the probability that migration occurs is given by
 \begin{equation}
   \max\left(1 - \tfrac{r_i^F}{\theta_F}, 0\right) \cdot p_M ,
 \end{equation}
-where $r_i^F$ denotes the resource available to agent $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal threshold shared by all groups, $\theta_F$ is the per-agent threshold obtained by $\theta_F = \tfrac{\theta_R}{N_F / N_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
+where $r_i^F$ denotes the resource available to individual $i$, $\theta_R$ ($0 < \theta_R < 1$) is the universal resource threshold shared by all groups, $\theta_F$ is the per-individual threshold obtained by $\theta_F = \tfrac{\theta_R}{N_F / N_R}$, and $p_M$ is a parameter controlling the frequency of migration events.
 
 The migration direction is also probabilistic:
-with probability $p_{SoR}$, the agent moves to the neighboring group closer to the SoR;
+with probability $p_{SoR}$, the individual moves to the neighboring group closer to the SoR;
 otherwise, it chooses randomly between the two neighboring groups.
 
-Upon migration, the agent establishes new relationships in the destination group, and discards all previous ones.
-Specifically, the edge weights between the agent and the others in the destination group are set to $w_0$, and the edge weights between the agent and the others in the original group are set to $0$.
+Upon migration, the individual establishes new relationships in the destination group, and discards all previous ones.
+Specifically, the edge weights between the individual and the others in the destination group are set to $w_0$, and the edge weights between the individual and the others in the original group are set to $0$.
 
 \subsection*{Strategy update}\label{sec:strategy}
 
-Entities stochastically update their strategies in response to resource scarcity.
+Agents stochastically update their strategies in response to resource scarcity.
 Specifically, the probability that an update occurs is given by $\max \left(1 - \tfrac{r_i}{\theta}, 0\right) \cdot p_{SU}$, where $p_{SU}$ is a parameter controlling the frequency of strategy update events.
-An entity $i$ that updates its strategy stochastically selects another entity $j$ as its role model, with the probability given by
+An agent $i$ that updates its strategy stochastically selects another agent $j$ as its role model from the appropriate pool: group agents select from all other group agents, while individual agents select from other individuals within the same group.
+The probability of selecting agent $j$ is given by
 \begin{equation}
-Q(j|i) = \frac{R_j}{\sum_{\substack{k \neq i \\ R_k > \theta}} R_k}
+Q(j|i) = \frac{r_j}{\sum_{\substack{k \neq i \\ r_k > \theta}} r_k}
 \end{equation}
-where $\theta$ denotes the relevant threshold, i.e., $\theta_R$ at the group level and $\theta_F$ at the agent level.
+where $\theta$ denotes the relevant threshold, i.e., $\theta_R$ at the group level and $\theta_F$ at the individual level.
 The adopted strategy is then subject to mutation with probability $\mu$, resulting in a stochastic switch between $C$ and $D$.
-After the update, all edges of the updated entity are reset to the baseline weight $w_0$.
+After the update, all edges of the updated agent are reset to the baseline weight $w_0$.
 
 \subsection*{Evaluation}\label{sec:evaluation}
 
-To examine how environmental variability and agent mobility influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:3_params}.
+To examine how EV and migration influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:3_params}.
 For each setting, $100$ independent runs of $10000$ generations are carried out. 
-As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and agents, respectively, employing strategy $C$ during the last $5000$ generations and averaged over all runs.
+As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and individuals, respectively, employing strategy $C$ during the last $5000$ generations and averaged over all runs.
 
 \begin{table}[!ht]
 \centering
@@ -190,13 +206,11 @@ $\mu$ & Mutation probability in strategy update & $\{0, 0.01, 0.05, 0.1\}$ \\
 \end{tabular}
 \end{table}
 
-\newpage
-
 \section{Results}\label{sec_results}
 
 \subsection*{Influence of environmental variability and agent mobility}
 
-We conducted computational experiments to investigate how the environmental variability ($p_{EV}$) and the agent mobility ($p_M$) affect the cooperation rates at both the group ($\phi_C^R$) and agent levels ($\phi_C^F$).
+We conducted computational experiments to investigate how the EV ($p_{EV}$) and the agent mobility ($p_M$) affect the cooperation rates at both the group ($\phi_C^R$) and agent levels ($\phi_C^F$).
 
 Both $\phi_C^R$ and $\phi_C^F$ increase with $p_{EV}$, though with different patterns.
 At the group level (Figure~\ref{fig:result1_1}a), $\phi_C^R$ values are around $0.5$ at $p_{EV} = 0$, increase sharply to approximately $0.7$ by $p_{EV} = 0.1$, and then increase gradually to approximately $0.8$ for $p_{EV} > 0.1$.
@@ -252,7 +266,7 @@ Other conditions are identical to Figure~\ref{fig:result1_1}.
   \label{fig:mechanism1_1}
 \end{figure}
 
-The evolution of group-level cooperation by environmental variability can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
+The evolution of group-level cooperation by EV can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
 When $p_{EV} = 0$, the resource-rich region remains fixed at group $1$, creating persistent spatial inequality where groups near SoR remain resource-rich and maintain stable strategies, while distant groups experience resource scarcity and undergo frequent strategy updates (Figure~\ref{fig:mechanism1_2}a).
 This spatial segregation prevents the formation of stable cooperative networks across the entire groups.
 In contrast, when $p_{EV} > 0$, the location of the resource-rich region shifts over time, ensuring that all regions experience both resource-rich and resource-poor periods.
@@ -278,7 +292,7 @@ Other conditions are identical to Figure~\ref{fig:result1_1}.
 \end{figure}
 
 \textcolor{red}{
-ToDo: The evolution of agent-level cooperation by environmental variability can be explained by ...
+ToDo: The evolution of agent-level cooperation by EV can be explained by ...
 }
 
 \subsection*{Influence of population-related parameters}
