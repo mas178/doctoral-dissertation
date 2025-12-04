@@ -195,7 +195,7 @@ $b$ & Multiplication factor for PGG & $\{1, 1.1, \ldots, 2\}$ \\
 \addlinespace
 $\Delta w$ & Update rate of edge weights & $\{0, 0.1, \ldots, 1\}$ \\
 \addlinespace
-$p_M$ & Probability factor multiplied by resource deficit for migration events (direct probability for agents below threshold in Chapter~\ref{ch:4_2D_model}) & $\{0, 0.1, \ldots, 1\}$ \\
+$p_M$ & Probability factor multiplied by resource deficit for migration events, controlling the individual mobility (direct probability for agents below threshold in Chapter~\ref{ch:4_2D_model}) & $\{0, 0.1, \ldots, 1\}$ \\
 \addlinespace
 $p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1\}$ \\
 \addlinespace
@@ -208,14 +208,14 @@ $\mu$ & Mutation probability in strategy update & $\{0, 0.01, 0.05, 0.1\}$ \\
 
 \section{Results}\label{sec_results}
 
-\subsection*{Influence of environmental variability and agent mobility}
+\subsection*{Key results: influence of environmental variability and migration}
 
-We conducted computational experiments to investigate how the EV ($p_{EV}$) and the agent mobility ($p_M$) affect the cooperation rates at both the group ($\phi_C^R$) and agent levels ($\phi_C^F$).
+We conducted computational experiments to investigate how the EV ($p_{EV}$) and the migration ($p_M$) affect the cooperation rates at the group level ($\phi_C^R$) and the individual level ($\phi_C^F$).
 
 Both $\phi_C^R$ and $\phi_C^F$ increase with $p_{EV}$, though with different patterns.
 At the group level (Figure~\ref{fig:result1_1}a), $\phi_C^R$ values are around $0.5$ at $p_{EV} = 0$, increase sharply to approximately $0.7$ by $p_{EV} = 0.1$, and then increase gradually to approximately $0.8$ for $p_{EV} > 0.1$.
 This pattern does not depend on $p_M$.
-At the agent level (Figure~\ref{fig:result1_1}b), $\phi_C^F$ values are below $0.1$ at $p_{EV} = 0$ except at $p_M = 0$;
+At the individual level (Figure~\ref{fig:result1_1}b), $\phi_C^F$ values are below $0.1$ at $p_{EV} = 0$ except at $p_M = 0$;
 however, they increase steeply by $p_{EV} = 0.1$ and plateau at levels determined by $p_M$ for $p_{EV} > 0.1$.
 
 While $p_M$ does not affect $\phi_C^R$ (Figure~\ref{fig:result1_1}c), $p_M$ significantly influences $\phi_C^F$ (Figure~\ref{fig:result1_1}d).
@@ -225,7 +225,7 @@ In contrast, when $p_{EV} = 0$, $\phi_C^F$ starts at approximately $0.45$ at $p_
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Result1_1}
-  \caption[Average cooperation rates as functions of $p_{EV}$ and $p_M$.]{
+  \caption[Average cooperation rates as functions of $p_{EV}$ and $p_M$]{
 Average cooperation rates as functions of $p_{EV}$ and $p_M$.
 (a) $\phi_C^R$ vs. $p_{EV}$ for different $p_M$ values.
 (b) $\phi_C^F$ vs. $p_{EV}$ for different $p_M$ values.
@@ -243,57 +243,84 @@ Although the mean values exhibit clear patterns (Figure~\ref{fig:result1_1}), th
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Result1_2}
-  \caption{
+  \caption[Standard deviations corresponding to Figure~\ref{fig:result1_1}]{
 Standard deviations corresponding to Figure~\ref{fig:result1_1}.
   }
   \label{fig:result1_2}
 \end{figure}
 
-To examine the direction of influence between the group-level and agent-level processes, we conducted ablation experiments by selectively disabling specific model components.
-The results show that disabling agent-level games, migration, and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group-level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
-This asymmetry indicates that group-level processes contribute to agent-level cooperation, while the reverse influence is minimal.
+\subsection*{Primary drivers of the key results}
+
+To examine the direction of influence between the group level and individual level processes, we conducted ablation experiments by selectively disabling specific model components.
+The results show that disabling individual level games, migration, and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
+This asymmetry indicates that group level processes contribute to individual level cooperation, while the reverse influence is minimal.
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_1}
-  \caption[Ablation experiments corresponding to Figure~\ref{fig:result1_1}.]{
+  \caption[Ablation experiments corresponding to Figure~\ref{fig:result1_1}]{
 Ablation experiments corresponding to Figure~\ref{fig:result1_1}.
-(a) and (c) show $\phi_C^R$ when agent level games, migration, and strategy updates are disabled.
+(a) and (c) show $\phi_C^R$ when individual level games, migration, and strategy updates are disabled.
 (b) and (d) show $\phi_C^F$ when group level games and strategy updates are disabled.
-Comparison with Figure~\ref{fig:result1_1} reveals that $\phi_C^R$ maintains similar patterns regardless of agent level processes, whereas $\phi_C^F$ is substantially reduced without group level processes.
+Comparison with Figure~\ref{fig:result1_1} reveals that $\phi_C^R$ maintains similar patterns regardless of individual level processes, whereas $\phi_C^F$ is substantially reduced without group level processes.
 Other conditions are identical to Figure~\ref{fig:result1_1}.
   }
   \label{fig:mechanism1_1}
 \end{figure}
 
-The evolution of group-level cooperation by EV can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
-When $p_{EV} = 0$, the resource-rich region remains fixed at group $1$, creating persistent spatial inequality where groups near SoR remain resource-rich and maintain stable strategies, while distant groups experience resource scarcity and undergo frequent strategy updates (Figure~\ref{fig:mechanism1_2}a).
-This spatial segregation prevents the formation of stable cooperative networks across the entire groups.
-In contrast, when $p_{EV} > 0$, the location of the resource-rich region shifts over time, ensuring that all regions experience both resource-rich and resource-poor periods.
-This temporal equity increases the long-term value of maintaining cooperative relationships through inter-regional games.
+The evolution of group level cooperation by EV can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
+
+When $p_{EV} = 0$, the resource-rich region remains fixed at group $1$, creating persistent spatial inequality where groups near the SoR remain resource-rich and maintain stable strategies, while distant groups experience resource scarcity and undergo frequent strategy updates (Figure~\ref{fig:mechanism1_2}a).
+This spatial segregation prevents the formation of stable cooperative networks across all groups.
+
+In contrast, when $p_{EV} > 0$, the location of the resource-rich region shifts over time, ensuring that all groups experience both resource-rich and resource-poor periods.
+This temporal equity increases the long-term value of maintaining cooperative relationships through group level games.
 As shown in Figure~\ref{fig:mechanism1_2}c, cooperative networks gradually form and stabilize throughout the population.
-Groups adopting $C$ strategies build strong reciprocal relationships, while defecting regions become isolated.
-These cooperative networks provide resilience against both resource fluctuations and occasional mutations.
+Groups adopting $C$ strategies build strong reciprocal relationships, while defecting groups become isolated.
+These cooperative networks provide robustness against both resource fluctuations and occasional mutations.
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_2}
-  \caption[Temporal evolution of group-level cooperation.]{
-Temporal evolution of group-level cooperation.
+  \caption[Temporal evolution of group level cooperation]{
+Temporal evolution of group level cooperation.
 The horizontal axis represents generation, and the vertical axis represents group index.
 Blue indicates $C$ and red indicates $D$.
 (a) shows the case where $p_{EV} = 0$ with the resource-rich region fixed at group $1$.
 (b) shows the case where $p_{EV} = 0.1$ with a shifting resource-rich region.
 Occasional mutations introduce $D$, but they quickly revert to $C$.
-(c) shows the the transition of the sum of weights between $C$ and $C$.
+(c) shows the transition of the sum of weights between $C$ and $C$.
 Other conditions are identical to Figure~\ref{fig:result1_1}.
   }
   \label{fig:mechanism1_2}
 \end{figure}
 
-\textcolor{red}{
-ToDo: The evolution of agent-level cooperation by EV can be explained by ...
-}
+The evolution of individual level cooperation by EV can be explained by temporal resource fluctuations in a group and relationship formation between cooperators.
+
+When $p_{EV} = 0$, the resource distribution across groups remains fixed, leading to population concentration around the resource-rich groups.
+Since resources are shared equally among individuals within each group, this concentration equalizes per-capita resources across all groups (Figure~\ref{fig:mechanism1_3}a).
+In this equilibrium state, defectors outcompete cooperators due to PGG rules: cooperators invest resources while defectors receive resources without contributing (Figure~\ref{fig:mechanism1_3}b).
+Consequently, resource-poor cooperators undergo strategy updates and imitate high-resource defectors as role models, leading to the dominance of defectors.
+
+In contrast, when $p_{EV} > 0$, stochastic SoR movement dynamically reshapes the resource distribution and causes previously poor groups to become rich and vice versa.
+Because migration requires time, disparities in per-capita resources between groups occasionally emerge after each SoR movement (Figure~\ref{fig:mechanism1_3}a).
+In newly enriched groups, cooperators' resources exceed the threshold, preventing both migration and strategy updates.
+These stable cooperators repeatedly interact with each other, gradually strengthening their mutual relationships, while defector relationships decline, isolating them from profitable interactions.
+Naturally, the groups can become poor.
+Even in that case, the strong relationships once established between cooperators enable them to maintain high resource levels through high-payoff mutual cooperation, while defectors with weak relationships remain isolated from profitable interactions.
+Through this process, cooperators become robust against resource fluctuations and seldom undergo migration and strategy updates, while defectors undergo migration and strategy updates more frequently (Figure~\ref{fig:mechanism1_3}b).
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_3}
+  \caption[Individual level resource dynamics]{
+Individual level resource dynamics.
+(a) Difference between maximum and minimum per-capita resources across groups over time: when $p_{EV} = 0$, the difference converges to zero as resources equalize across groups, while when $p_{EV} > 0$, stochastic SoR movement maintains persistent fluctuations in resource disparities between groups.
+(b) Difference in mean per-capita resources between cooperators and defectors over time: when $p_{EV} = 0$, defectors maintain higher resources than cooperators (negative difference), while when $p_{EV} > 0$, cooperators maintain higher resources than defectors (positive difference) through strong mutual relationships.
+Other conditions are identical to Figure~\ref{fig:result1_1}.
+  }
+  \label{fig:mechanism1_3}
+\end{figure}
 
 \subsection*{Influence of population-related parameters}
 
@@ -311,7 +338,7 @@ When $p_{EV} = 0.0$ and $p_M = 0.0$, both $N_R$ and $N_F$ have negligible effect
 When $p_{EV} = 0.0$ and $p_M = 0.1$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $N_R$ and $N_F$ (Figure~\ref{fig:result2_1}d).
 
 Under dynamic environmental conditions with $p_{EV} = 0.5$ and $p_M = 0.0$, $\phi_C^R$ decreases slightly with increasing $N_R$ but remains largely unaffected by $N_F$ (Figure~\ref{fig:result2_1}e).
-At the agent level, $\phi_C^F$ decreases slightly with increasing $N_R$ but increases slightly with increasing $N_F$ (Figure~\ref{fig:result2_1}f).
+At the individual level, $\phi_C^F$ decreases slightly with increasing $N_R$ but increases slightly with increasing $N_F$ (Figure~\ref{fig:result2_1}f).
 These patterns remain essentially unchanged when $p_M$ increases to 0.1 (Figure~\ref{fig:result2_1}g,h).
 
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
