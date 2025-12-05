@@ -263,7 +263,7 @@ Ablation experiments corresponding to Figure~\ref{fig:result1_1}.
 (a) and (c) show $\phi_C^R$ when individual level games, migration, and strategy updates are disabled.
 (b) and (d) show $\phi_C^F$ when group level games and strategy updates are disabled.
 Comparison with Figure~\ref{fig:result1_1} reveals that $\phi_C^R$ maintains similar patterns regardless of individual level processes, whereas $\phi_C^F$ is substantially reduced without group level processes.
-Other conditions are identical to Figure~\ref{fig:result1_1}.
+All other conditions are identical to Figure~\ref{fig:result1_1}.
   }
   \label{fig:mechanism1_1}
 \end{figure}
@@ -290,7 +290,7 @@ Blue indicates $C$ and red indicates $D$.
 (b) shows the case where $p_{EV} = 0.1$ with a shifting resource-rich region.
 Occasional mutations introduce $D$, but they quickly revert to $C$.
 (c) shows the transition of the sum of weights between $C$ and $C$.
-Other conditions are identical to Figure~\ref{fig:result1_1}.
+All other conditions are identical to Figure~\ref{fig:result1_1}.
   }
   \label{fig:mechanism1_2}
 \end{figure}
@@ -318,7 +318,7 @@ Evolution of individual level cooperation and resource dynamics.
 (a) Cooperation rate at the individual level ($\phi_C^F$) over time: when $p_{EV} = 0$, $\phi_C^F$ declines to near zero, while when $p_{EV} = 0.1$, $\phi_C^F$ reaches and maintains high levels.
 (b) Standard deviation (SD) of mean individual level resources between groups over time: when $p_{EV} = 0$, the SD converges to near zero as resources equalize across groups, while when $p_{EV} = 0.1$, stochastic SoR movement maintains persistent fluctuations in resource disparities between groups.
 (c) Difference in mean resources between $C$ and $D$ within groups over time: when $p_{EV} = 0$, the difference remains small and negative, while when $p_{EV} = 0.1$, $C$ consistently maintain substantially higher resources than $D$ within the same groups.
-Other conditions are identical to Figure~\ref{fig:result1_1}.
+All other conditions are identical to Figure~\ref{fig:result1_1}.
   }
   \label{fig:mechanism1_3}
 \end{figure}
@@ -337,23 +337,30 @@ These patterns observed under $(p_{EV}, p_M) = (0.5, 0.0)$ remain essentially un
   \includegraphics[width=1.0\textwidth]{figures/3/Result2_1}
   \caption[Effects of population size parameters]{
 Effects of population size parameters $N_R$ and $N_F / N_R$ on the cooperation rates $\phi_C^R$ and $\phi_C^F$.
-The left panels (a,c,e,g) show the group level cooperation rates $\phi_C^R$, and the right panels (b,d,f,h) show the individual level cooperation rates $\phi_C^F$.
+The left panel column (a,c,e,g) shows the group level cooperation rates $\phi_C^R$, and the right panel column (b,d,f,h) shows the individual level cooperation rates $\phi_C^F$.
 Each panel row corresponds to a different parameter setting of $(p_{EV}, p_M)$.
   }
   \label{fig:result2_1}
 \end{figure}
 
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
-
-When $\phi_C^0 = 0$, cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
+When $\phi_C^0 = 0$ (lower area in each panel of Figure~\ref{fig:result2_2}), cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
 In contrast, when $\phi_C^0 = 1$, the patterns change dramatically.
-Both $\phi_C^R$ and $\phi_C^F$ approach 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases.
-Similarly, both cooperation rates approach 1.0 when $p_M$ ranges from 0 to 0.1 and decline as $p_M$ increases beyond this range.
+Both $\phi_C^R$ and $\phi_C^F$ are approximately 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases (upper area in each panel of Figure~\ref{fig:result2_2}a,b).
+Similar patterns are observed as $p_M$ increases (upper area in each panel of Figure~\ref{fig:result2_2}c,d).
 
 \begin{figure}[H]
   \centering
-  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
-  \caption[Placeholder for Figure~\ref{fig:result2_2}]{Placeholder figure for effects of initial cooperation rate $\phi_C^0$.}
+  \includegraphics[width=1.0\textwidth]{figures/3/Result2_2}
+  \caption[Effects of initial cooperation rate]{
+Effects of initial cooperation rate $\phi_C^0$.
+In each panel, the lower area shows the case where $\phi_C^0 = 0$, and the upper area shows the case where $\phi_C^0 = 1$.
+(a) $\phi_C^R$ vs. $p_{EV}$ for different $p_M$ values.
+(b) $\phi_C^F$ vs. $p_{EV}$ for different $p_M$ values.
+(c) $\phi_C^R$ vs. $p_M$ for different $p_{EV}$ values.
+(d) $\phi_C^F$ vs. $p_M$ for different $p_{EV}$ values.
+All other conditions and the color scheme are identical to Figure~\ref{fig:result1_1}.
+  }
   \label{fig:result2_2}
 \end{figure}
 
