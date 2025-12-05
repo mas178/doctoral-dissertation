@@ -313,9 +313,9 @@ Through this process, cooperators become robust against resource fluctuations an
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_3}
-  \caption[Individual level cooperation evolution and resource dynamics]{
-Individual level cooperation evolution and resource dynamics.
-(a) Cooperation rate at the individual level over time ($\phi_C^F$): when $p_{EV} = 0$, $\phi_C^F$ declines to near zero, while when $p_{EV} = 0.1$, $\phi_C^F$ reaches and maintains high levels.
+  \caption[Evolution of individual level cooperation and resource dynamics]{
+Evolution of individual level cooperation and resource dynamics.
+(a) Cooperation rate at the individual level ($\phi_C^F$) over time: when $p_{EV} = 0$, $\phi_C^F$ declines to near zero, while when $p_{EV} = 0.1$, $\phi_C^F$ reaches and maintains high levels.
 (b) Standard deviation (SD) of mean individual level resources between groups over time: when $p_{EV} = 0$, the SD converges to near zero as resources equalize across groups, while when $p_{EV} = 0.1$, stochastic SoR movement maintains persistent fluctuations in resource disparities between groups.
 (c) Difference in mean resources between $C$ and $D$ within groups over time: when $p_{EV} = 0$, the difference remains small and negative, while when $p_{EV} = 0.1$, $C$ consistently maintain substantially higher resources than $D$ within the same groups.
 Other conditions are identical to Figure~\ref{fig:result1_1}.
@@ -325,56 +325,63 @@ Other conditions are identical to Figure~\ref{fig:result1_1}.
 
 \subsection*{Influence of population-related parameters}
 
-Figure~\ref{fig:result2_1} shows the effects of population size parameters $N_R$ and $N_F$ on cooperation rates under different environmental and mobility conditions.
+Figure~\ref{fig:result2_1} shows the effects of population size parameters $N_R$ and $N_F / N_R$ on cooperation rates $\phi_C^R$ and $\phi_C^F$ under different environmental and migration conditions $(p_{EV}, p_M)$.
+When $(p_{EV}, p_M) = (0.0, 0.0)$, both $N_R$ and $N_F / N_R$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
+When $(p_{EV}, p_M) = (0.0, 0.1)$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $N_R$ and $N_F / N_R$ (Figure~\ref{fig:result2_1}d).
+When $(p_{EV}, p_M) = (0.5, 0.0)$, $\phi_C^R$ decreases slightly as $N_F / N_R$ increases but remains largely unaffected by $N_R$ (Figure~\ref{fig:result2_1}e).
+At the individual level, $\phi_C^F$ decreases slightly as $N_R$ increases but increases slightly as $N_F / N_R$ increases (Figure~\ref{fig:result2_1}f).
+These patterns observed under $(p_{EV}, p_M) = (0.5, 0.0)$ remain essentially unchanged when $(p_{EV}, p_M) = (0.5, 0.1)$ (Figure~\ref{fig:result2_1}g,h).
 
 \begin{figure}[H]
   \centering
-  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
-  \caption[Placeholder for Figure~\ref{fig:result2_1}]{Placeholder figure for population size effects ($N
-_R$, $N_F$) under varying $p_{EV}$ and $p_M$.}
+  \includegraphics[width=1.0\textwidth]{figures/3/Result2_1}
+  \caption[Effects of population size parameters]{
+Effects of population size parameters $N_R$ and $N_F / N_R$ on the cooperation rates $\phi_C^R$ and $\phi_C^F$.
+The left panels (a,c,e,g) show the group level cooperation rates $\phi_C^R$, and the right panels (b,d,f,h) show the individual level cooperation rates $\phi_C^F$.
+Each panel row corresponds to a different parameter setting of $(p_{EV}, p_M)$.
+  }
   \label{fig:result2_1}
 \end{figure}
 
-When $p_{EV} = 0.0$ and $p_M = 0.0$, both $N_R$ and $N_F$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
-When $p_{EV} = 0.0$ and $p_M = 0.1$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $N_R$ and $N_F$ (Figure~\ref{fig:result2_1}d).
-
-Under dynamic environmental conditions with $p_{EV} = 0.5$ and $p_M = 0.0$, $\phi_C^R$ decreases slightly with increasing $N_R$ but remains largely unaffected by $N_F$ (Figure~\ref{fig:result2_1}e).
-At the individual level, $\phi_C^F$ decreases slightly with increasing $N_R$ but increases slightly with increasing $N_F$ (Figure~\ref{fig:result2_1}f).
-These patterns remain essentially unchanged when $p_M$ increases to 0.1 (Figure~\ref{fig:result2_1}g,h).
-
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
+
+When $\phi_C^0 = 0$, cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
+In contrast, when $\phi_C^0 = 1$, the patterns change dramatically.
+Both $\phi_C^R$ and $\phi_C^F$ approach 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases.
+Similarly, both cooperation rates approach 1.0 when $p_M$ ranges from 0 to 0.1 and decline as $p_M$ increases beyond this range.
+
 \begin{figure}[H]
   \centering
   \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
   \caption[Placeholder for Figure~\ref{fig:result2_2}]{Placeholder figure for effects of initial cooperation rate $\phi_C^0$.}
   \label{fig:result2_2}
 \end{figure}
-When $\phi_C^0 = 0$, cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
-In contrast, when $\phi_C^0 = 1$, the patterns change dramatically.
-Both $\phi_C^R$ and $\phi_C^F$ approach 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases.
-Similarly, both cooperation rates approach 1.0 when $p_M$ ranges from 0 to 0.1 and decline as $p_M$ increases beyond this range.
 
 \subsection*{Influence of network parameters}
 
 The initial network weight $w_0$ influences cooperation evolution at both levels, with smaller values promoting higher cooperation rates (Figure~\ref{fig:result3_1}).
+
 \begin{figure}[H]
   \centering
   \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
   \caption[Placeholder for Figure~\ref{fig:result3_1}]{Placeholder figure for effects of initial network weight $w_0$.}
   \label{fig:result3_1}
 \end{figure}
+
 This occurs because $w_0$ determines the interaction strength with newcomers introduced through strategy updates or migration.
 When $w_0$ is small, newcomers have weak initial relationships with existing members, limiting their immediate impact on the system.
 If a newcomer adopts defection, the low $w_0$ prevents strong interactions that could disrupt established cooperative networks.
 In contrast, when $w_0$ is large, defecting newcomers immediately engage in strong interactions with cooperative members, potentially destabilizing the cooperative network and reducing overall cooperation rates.
 
 The relation weight update rate $\Delta w$ positively affects cooperation, with higher values promoting cooperation at both levels (Figure~\ref{fig:result3_2}).
+
 \begin{figure}[H]
   \centering
   \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
   \caption[Placeholder for Figure~\ref{fig:result3_2}]{Placeholder figure for effects of relation weight update rate $\Delta w$.}
   \label{fig:result3_2}
 \end{figure}
+
 Higher $\Delta w$ values enable relation weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the differentiation between $C$ and $D$ relationships.
 This rapid differentiation amplifies the benefits of cooperation and the costs of defection, strengthening selection pressures that favor cooperative strategies.
 However, cooperation rates saturate at approximately $\Delta w = 0.3$ as they approach their maximum possible values, beyond which further increases in $\Delta w$ have minimal additional effects.
