@@ -366,39 +366,51 @@ All other conditions and the color scheme are identical to Figure~\ref{fig:resul
 
 \subsection*{Influence of network parameters}
 
-The initial network weight $w_0$ influences cooperation evolution at both levels, with smaller values promoting higher cooperation rates (Figure~\ref{fig:result3_1}).
-
-\begin{figure}[H]
-  \centering
-  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
-  \caption[Placeholder for Figure~\ref{fig:result3_1}]{Placeholder figure for effects of initial network weight $w_0$.}
-  \label{fig:result3_1}
-\end{figure}
-
+The initial network weight $w_0$ influences the evolution of cooperation at both levels, with smaller $w_0$ promoting higher cooperation rates (Figure~\ref{fig:result3}a,b).
 This occurs because $w_0$ determines the interaction strength with newcomers introduced through strategy updates or migration.
 When $w_0$ is small, newcomers have weak initial relationships with existing members, limiting their immediate impact on the system.
-If a newcomer adopts defection, the low $w_0$ prevents strong interactions that could disrupt established cooperative networks.
-In contrast, when $w_0$ is large, defecting newcomers immediately engage in strong interactions with cooperative members, potentially destabilizing the cooperative network and reducing overall cooperation rates.
+If a newcomer adopts $D$, the low $w_0$ prevents strong interactions that could disrupt established cooperative networks.
+In contrast, when $w_0$ is large, defecting newcomers immediately engage in strong interactions with $C$, potentially destabilizing the cooperative network and reducing overall cooperation rates.
 
-The relation weight update rate $\Delta w$ positively affects cooperation, with higher values promoting cooperation at both levels (Figure~\ref{fig:result3_2}).
+The relation weight update rate $\Delta w$ positively affects cooperation, with higher $\Delta w$ promoting cooperation at both levels (Figure~\ref{fig:result3}c,d).
+Higher $\Delta w$ values enable relation weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the differentiation between $C$ and $D$ relationships.
+This rapid differentiation amplifies the benefits of cooperation and the costs of defection, strengthening selection pressures that favor $C$ strategies.
 
 \begin{figure}[H]
   \centering
-  \fbox{\rule{0pt}{2in} \rule{0.9\textwidth}{0pt}}
-  \caption[Placeholder for Figure~\ref{fig:result3_2}]{Placeholder figure for effects of relation weight update rate $\Delta w$.}
-  \label{fig:result3_2}
+  \includegraphics[width=1.0\textwidth]{figures/3/Result3}
+  \caption[Effects of initial network weight $w_0$ and relation weight update rate $\Delta w$ on cooperation rates]{
+Effects of initial network weight $w_0$ and relation weight update rate $\Delta w$ on cooperation rates $\phi_C^R$ and $\phi_C^F$.
+(a) $\phi_C^R$ vs. $w_0$ for different $(p_{EV}, p_M)$ values.
+(b) $\phi_C^F$ vs. $w_0$ for different $(p_{EV}, p_M)$ values.
+(c) $\phi_C^R$ vs. $\Delta w$ for different $(p_{EV}, p_M)$ values.
+(d) $\phi_C^F$ vs. $\Delta w$ for different $(p_{EV}, p_M)$ values.
+All other conditions are identical to Figure~\ref{fig:result1_1}.
+  }
+  \label{fig:result3}
 \end{figure}
-
-Higher $\Delta w$ values enable relation weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the differentiation between $C$ and $D$ relationships.
-This rapid differentiation amplifies the benefits of cooperation and the costs of defection, strengthening selection pressures that favor cooperative strategies.
-However, cooperation rates saturate at approximately $\Delta w = 0.3$ as they approach their maximum possible values, beyond which further increases in $\Delta w$ have minimal additional effects.
 
 \subsection*{Influence of other parameters}
 
 We examined the effects of several additional parameters: the SoR orientation ($p_{SoR}$), the PGG multiplier ($b$), and the mutation rate ($\mu$).
 The parameter $p_{SoR}$ has no significant effect on cooperation rates.
-Higher values of $b$ promote cooperation at both levels, as expected from standard public goods game theory.
+Higher values of $b$ promote cooperation at both levels, as expected from standard PGG theory.
 Higher $\mu$ values blur the patterns observed in mean cooperation rates while reducing inter-trial variability, but do not alter the qualitative patterns.
 Since these results are either trivial or follow directly from model assumptions, detailed results are provided in the \nameref{appendix}.
 
 \section{Summary}\label{sec:3_summary}
+
+This chapter examined how EV and migration jointly influence the evolution of cooperation using a two-level model with group agents and individual agents.
+The results demonstrate that EV promotes cooperation at both levels, though with distinct patterns and mechanisms.
+
+At the group level, cooperation rates increase sharply from approximately $0.5$ to $0.7$ when EV is introduced ($p_{EV} > 0$), and this pattern is independent of migration intensity ($p_M$).
+At the individual level, cooperation rates are suppressed below $0.1$ without EV ($p_{EV} = 0$) but increase substantially when EV is present.
+Unlike group-level cooperation, individual-level cooperation is strongly affected by migration: moderate migration ($p_M \approx 0.1$) maximizes cooperation, while excessive migration reduces it.
+
+Ablation experiments reveal an asymmetric influence between levels: group-level processes contribute to individual-level cooperation, whereas individual-level processes have minimal effect on group-level outcomes.
+EV promotes group-level cooperation by creating temporal equity in resource distribution, which enables all groups to experience both resource-rich and resource-poor periods, thereby increasing the long-term value of cooperative relationships.
+At the individual level, EV maintains resource disparities between groups, allowing cooperators to form stable relationships and outcompete defectors who remain isolated from profitable interactions.
+
+These findings extend the base model in Chapter~\ref{ch:2_base_model} by demonstrating that EV can promote cooperation even when migration is incorporated.
+Furthermore, the results reveal that moderate migration enhances cooperation by facilitating the formation of cooperative networks, while excessive migration disrupts these structures.
+The next chapter, Chapter~\ref{ch:4_2D_model}, examines whether similar patterns emerge in a two-dimensional spatial structure without explicit group boundaries.
