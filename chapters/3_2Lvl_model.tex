@@ -55,7 +55,7 @@ The individuals are initially distributed evenly across all groups and can migra
 The migration results in uneven spatial distributions of individuals over time, and some groups can be empty.
 
 The interaction structures constrain the selection of opponents for cooperative or competitive interactions at two levels, i.e., the group level and the individual level.
-There is a single group level interaction structure in the model, while each group has its own individual level interaction structure and no interactions occur between individuals belonging to different groups.
+There is a single group-level interaction structure in the model, while each group has its own individual-level interaction structure and no interactions occur between individuals belonging to different groups.
 An interaction structure is represented by a weighted, undirected, complete graph whose edge weights are dynamic while its topology remains fixed.
 The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$) denotes the strength of the relationship between nodes $i$ and $j$, where a node represents either a group or an individual, and is proportional to the probability of interaction between them.
 
@@ -177,12 +177,12 @@ As the principal performance indicators, we calculate the cooperation rates $\ph
 \centering
 \caption[Model parameters used in the simulations]{Model parameters used in the simulations.}
 \label{tab:3_params}
-\begin{tabular}{cp{0.5\textwidth}p{0.3\textwidth}}
+\begin{tabular}{cp{0.6\textwidth}p{0.2\textwidth}}
 \toprule
 \textbf{Parameter} & \textbf{Description} & \textbf{Value options} \\
 \midrule
-$N_R$ & Number of group agents & $10 \times 2^{\{0, 1, 2, 3\}}$ \\
-$N_F$ & Number of individual agents & $100 \times 2^{\{0, 1, 2, 3, 4, 5, 6\}}$\\
+$N_R$ & Number of group agents & $\{10, 20, 40, 80\}$ \\
+$N_F$ & Number of individual agents & $\{100, 200, 400, 800,$ $1600, 3200, 6400\}$\\
 $\phi_C^0$ & Initial frequency of cooperators & $\{0, 0.5, 1\}$ \\
 \addlinespace
 $w_0$ & Initial edge weight & $\{0, 0.1, \ldots, 1\}$ \\
@@ -251,39 +251,39 @@ Standard deviations corresponding to Figure~\ref{fig:result1_1}.
 
 \subsection*{Primary drivers of the key results}
 
-To examine the direction of influence between the group level and individual level processes, we conducted ablation experiments by selectively disabling specific model components.
-The results show that disabling individual level games, migration, and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
-This asymmetry indicates that group level processes contribute to individual level cooperation, while the reverse influence is minimal.
+To examine the direction of influence between the group-level and individual-level processes, we conducted ablation experiments by selectively disabling specific model components.
+The results show that disabling individual-level games, migration, and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group-level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
+This asymmetry indicates that group-level processes contribute to individual-level cooperation, while the reverse influence is minimal.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_1}
+  \includegraphics[width=1.0\textwidth]{figures/3/Result1_3}
   \caption[Ablation experiments corresponding to Figure~\ref{fig:result1_1}]{
 Ablation experiments corresponding to Figure~\ref{fig:result1_1}.
-(a) and (c) show $\phi_C^R$ when individual level games, migration, and strategy updates are disabled.
-(b) and (d) show $\phi_C^F$ when group level games and strategy updates are disabled.
-Comparison with Figure~\ref{fig:result1_1} reveals that $\phi_C^R$ maintains similar patterns regardless of individual level processes, whereas $\phi_C^F$ is substantially reduced without group level processes.
+(a) and (c) show $\phi_C^R$ when individual-level games, migration, and strategy updates are disabled.
+(b) and (d) show $\phi_C^F$ when group-level games and strategy updates are disabled.
+Comparison with Figure~\ref{fig:result1_1} reveals that $\phi_C^R$ maintains similar patterns regardless of individual-level processes, whereas $\phi_C^F$ is substantially reduced without group-level processes.
 All other conditions are identical to Figure~\ref{fig:result1_1}.
   }
   \label{fig:mechanism1_1}
 \end{figure}
 
-The evolution of group level cooperation by EV can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
+The evolution of group-level cooperation by EV can be explained by temporal resource distribution patterns (Figure~\ref{fig:mechanism1_2}).
 
 When $p_{EV} = 0$, the resource-rich region remains fixed at group $1$, creating persistent spatial inequality where groups near the SoR remain resource-rich and maintain stable strategies, while distant groups experience resource scarcity and undergo frequent strategy updates (Figure~\ref{fig:mechanism1_2}a).
 This spatial segregation prevents the formation of stable cooperative networks across all groups.
 
 In contrast, when $p_{EV} > 0$, the location of the resource-rich region shifts over time, ensuring that all groups experience both resource-rich and resource-poor periods.
-This temporal equity increases the long-term value of maintaining cooperative relationships through group level games.
+This temporal equity increases the long-term value of maintaining cooperative relationships through group-level games.
 As shown in Figure~\ref{fig:mechanism1_2}c, cooperative networks gradually form and stabilize throughout the population.
 Groups adopting $C$ strategies build strong reciprocal relationships, while defecting groups become isolated.
 These cooperative networks provide robustness against both resource fluctuations and occasional mutations.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_2}
-  \caption[Temporal evolution of group level cooperation]{
-Temporal evolution of group level cooperation.
+  \includegraphics[width=1.0\textwidth]{figures/3/Result1_4}
+  \caption[Temporal evolution of group-level cooperation]{
+Temporal evolution of group-level cooperation.
 The horizontal axis represents generation, and the vertical axis represents group index.
 Blue indicates $C$ and red indicates $D$.
 (a) shows the case where $p_{EV} = 0$ with the resource-rich region fixed at group $1$.
@@ -295,7 +295,7 @@ All other conditions are identical to Figure~\ref{fig:result1_1}.
   \label{fig:mechanism1_2}
 \end{figure}
 
-The evolution of individual level cooperation (Figure~\ref{fig:mechanism1_3}a) by EV can be explained by temporal resource fluctuations in a group and relationship formation between cooperators.
+The evolution of individual-level cooperation (Figure~\ref{fig:mechanism1_3}a) by EV can be explained by temporal resource fluctuations in a group and relationship formation between cooperators.
 
 When $p_{EV} = 0$, the resource distribution across groups remains fixed, leading to population concentration around the resource-rich groups.
 Since resources are shared equally among individuals within each group, this concentration equalizes per-capita resources across all groups (Figure~\ref{fig:mechanism1_3}b).
@@ -310,13 +310,13 @@ Naturally, the groups can become poor.
 Even in that case, the strong relationships once established between cooperators enable them to maintain high resource levels through high-payoff mutual cooperation, while defectors with weak relationships remain isolated from profitable interactions.
 Through this process, cooperators become robust against resource fluctuations and seldom undergo migration and strategy updates, while defectors undergo migration and strategy updates more frequently (Figure~\ref{fig:mechanism1_3}c).
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/3/Mechanism1_3}
-  \caption[Evolution of individual level cooperation and resource dynamics]{
-Evolution of individual level cooperation and resource dynamics.
+  \includegraphics[width=1.0\textwidth]{figures/3/Result1_5}
+  \caption[Evolution of individual-level cooperation and resource dynamics]{
+Evolution of individual-level cooperation and resource dynamics.
 (a) Cooperation rate at the individual level ($\phi_C^F$) over time: when $p_{EV} = 0$, $\phi_C^F$ declines to near zero, while when $p_{EV} = 0.1$, $\phi_C^F$ reaches and maintains high levels.
-(b) Standard deviation (SD) of mean individual level resources between groups over time: when $p_{EV} = 0$, the SD converges to near zero as resources equalize across groups, while when $p_{EV} = 0.1$, stochastic SoR movement maintains persistent fluctuations in resource disparities between groups.
+(b) Standard deviation (SD) of mean individual-level resources between groups over time: when $p_{EV} = 0$, the SD converges to near zero as resources equalize across groups, while when $p_{EV} = 0.1$, stochastic SoR movement maintains persistent fluctuations in resource disparities between groups.
 (c) Difference in mean resources between $C$ and $D$ within groups over time: when $p_{EV} = 0$, the difference remains small and negative, while when $p_{EV} = 0.1$, $C$ consistently maintain substantially higher resources than $D$ within the same groups.
 All other conditions are identical to Figure~\ref{fig:result1_1}.
   }
@@ -329,19 +329,28 @@ Figure~\ref{fig:result2_1} shows the effects of population size parameters $N_R$
 When $(p_{EV}, p_M) = (0.0, 0.0)$, both $N_R$ and $N_F / N_R$ have negligible effects on $\phi_C^R$ and $\phi_C^F$ (Figure~\ref{fig:result2_1}a,b).
 When $(p_{EV}, p_M) = (0.0, 0.1)$, $\phi_C^R$ remains unaffected by population sizes (Figure~\ref{fig:result2_1}c), whereas $\phi_C^F$ increases with both $N_R$ and $N_F / N_R$ (Figure~\ref{fig:result2_1}d).
 When $(p_{EV}, p_M) = (0.5, 0.0)$, $\phi_C^R$ decreases slightly as $N_F / N_R$ increases but remains largely unaffected by $N_R$ (Figure~\ref{fig:result2_1}e).
-At the individual level, $\phi_C^F$ decreases slightly as $N_R$ increases but increases slightly as $N_F / N_R$ increases (Figure~\ref{fig:result2_1}f).
+At the individual level, $\phi_C^F$ decreases slightly with increasing $N_R$, but increases modestly with increasing $N_F / N_R$ (Figure~\ref{fig:result2_1}f).
 These patterns observed under $(p_{EV}, p_M) = (0.5, 0.0)$ remain essentially unchanged when $(p_{EV}, p_M) = (0.5, 0.1)$ (Figure~\ref{fig:result2_1}g,h).
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/3/Result2_1}
+  \includegraphics[width=0.95\textwidth]{figures/3/Result2_1}
   \caption[Effects of population size parameters]{
 Effects of population size parameters $N_R$ and $N_F / N_R$ on the cooperation rates $\phi_C^R$ and $\phi_C^F$.
-The left panel column (a,c,e,g) shows the group level cooperation rates $\phi_C^R$, and the right panel column (b,d,f,h) shows the individual level cooperation rates $\phi_C^F$.
+The left panel column (a,c,e,g) shows the group-level cooperation rates $\phi_C^R$, and the right panel column (b,d,f,h) shows the individual-level cooperation rates $\phi_C^F$.
 Each panel row corresponds to a different parameter setting of $(p_{EV}, p_M)$.
   }
   \label{fig:result2_1}
 \end{figure}
+
+These patterns can be explained as follows.
+The group-level cooperation rate is insensitive to population size parameters for the following reasons.
+Regarding $N_R$, because the resource allocation is normalized such that the group at the SoR receives $1.0$ and the most distant group receives $0.0$ regardless of the number of groups, increasing $N_R$ does not change the range of resource values that groups experience.
+Regarding $N_F / N_R$, group-level dynamics are governed solely by intergroup relationships and EV, independently of the number of individuals within groups.
+At the individual level, larger $N_F / N_R$ generally promotes cooperation because more individuals within each group increases the absolute number of cooperators even if the proportion of cooperators is the same, enabling them to form mutual relationships that are more robust against exploitation by defectors.
+The effect of $N_R$ on $\phi_C^F$ depends on whether EV is present:
+without EV ($p_{EV} = 0$), increasing $N_R$ increases the number of groups with moderate resource levels around the SoR, enabling cooperators to remain in the same group and strengthen the relationships among them.
+with EV ($p_{EV} > 0$), increasing $N_R$ increases the frequency of migration, thereby limiting opportunities for cooperators to form stable networks within their groups.
 
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
 When $\phi_C^0 = 0$ (lower area in each panel of Figure~\ref{fig:result2_2}), cooperation rates are lower overall compared to $\phi_C^0 = 0.5$ (Figure~\ref{fig:result1_1}), but the qualitative patterns remain unchanged.
@@ -349,9 +358,9 @@ In contrast, when $\phi_C^0 = 1$, the patterns change dramatically.
 Both $\phi_C^R$ and $\phi_C^F$ are approximately 1.0 when $p_{EV} = 0$ and decline as $p_{EV}$ increases (upper area in each panel of Figure~\ref{fig:result2_2}a,b).
 Similar patterns are observed as $p_M$ increases (upper area in each panel of Figure~\ref{fig:result2_2}c,d).
 
-\begin{figure}[H]
+\begin{figure}[!ht]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/3/Result2_2}
+  \includegraphics[width=0.95\textwidth]{figures/3/Result2_2}
   \caption[Effects of initial cooperation rate]{
 Effects of initial cooperation rate $\phi_C^0$.
 In each panel, the lower area shows the case where $\phi_C^0 = 0$, and the upper area shows the case where $\phi_C^0 = 1$.
@@ -364,19 +373,22 @@ All other conditions and the color scheme are identical to Figure~\ref{fig:resul
   \label{fig:result2_2}
 \end{figure}
 
+The influence of $\phi_C^0$ reflects the difference between the emergence and maintenance of cooperation.
+When $\phi_C^0 = 0$ or $0.5$, cooperation must emerge through mutation and strategy updating, which EV facilitates.
+In contrast, when $\phi_C^0 = 1$, cooperative networks are already established; in stable environments ($p_{EV} = 0$), these networks persist because few agents fall below the resource threshold and undergo strategy updates, whereas EV and migration can disrupt these pre-existing networks.
+
 \subsection*{Influence of network parameters}
 
-The initial network weight $w_0$ influences the evolution of cooperation at both levels, with smaller $w_0$ promoting higher cooperation rates (Figure~\ref{fig:result3}a,b).
-This occurs because $w_0$ determines the interaction strength with newcomers introduced through strategy updates or migration.
+The initial network weight $w_0$ negatively influences cooperation, with lower $w_0$ promoting cooperation at both levels (Figure~\ref{fig:result3}a,b).
+This occurs because $w_0$ determines the interaction strength with newcomers introduced through migration or strategy updates.
 When $w_0$ is small, newcomers have weak initial relationships with existing members, limiting their immediate impact on the system.
 If a newcomer adopts $D$, the low $w_0$ prevents strong interactions that could disrupt established cooperative networks.
 In contrast, when $w_0$ is large, defecting newcomers immediately engage in strong interactions with $C$, potentially destabilizing the cooperative network and reducing overall cooperation rates.
 
-The relation weight update rate $\Delta w$ positively affects cooperation, with higher $\Delta w$ promoting cooperation at both levels (Figure~\ref{fig:result3}c,d).
-Higher $\Delta w$ values enable relation weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the differentiation between $C$ and $D$ relationships.
-This rapid differentiation amplifies the benefits of cooperation and the costs of defection, strengthening selection pressures that favor $C$ strategies.
+The update rate of relationship weights $\Delta w$ positively affects cooperation, with higher $\Delta w$ promoting cooperation at both levels (Figure~\ref{fig:result3}c,d).
+Higher $\Delta w$ values enable relationship weights between $C$ pairs to rapidly increase and those between $D$ pairs to quickly decline, thereby accelerating the formation of cooperative networks.
 
-\begin{figure}[H]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Result3}
   \caption[Effects of initial network weight $w_0$ and relation weight update rate $\Delta w$ on cooperation rates]{
@@ -400,17 +412,13 @@ Since these results are either trivial or follow directly from model assumptions
 
 \section{Summary}\label{sec:3_summary}
 
-This chapter examined how EV and migration jointly influence the evolution of cooperation using a two-level model with group agents and individual agents.
-The results demonstrate that EV promotes cooperation at both levels, though with distinct patterns and mechanisms.
+This chapter examined how EV and migration jointly influence the evolution of cooperation using a 2-level model with group agents and individual agents.
+The results demonstrate the following key findings:
+(i) the group-level cooperation rate gradually increases with the EV ($p_{EV}$);
+(ii) the individual-level cooperation rate sharply increases by $p_{EV} = 0.1$ and plateaus for $p_{EV} > 0.1$;
+(iii) unlike group-level cooperation, individual-level cooperation is strongly affected by migration: moderate migration ($p_M \approx 0.1$) maximizes cooperation, while excessive migration reduces it.
+At both levels, EV promotes cooperation through the formation of cooperative networks that provide robustness against resource fluctuations, migration, and strategy updates, similar to the mechanism in the base model in Chapter~\ref{ch:2_base_model}.
+A detailed comparison between the models is provided in Chapter~\ref{ch:5_conclusion}.
 
-At the group level, cooperation rates increase sharply from approximately $0.5$ to $0.7$ when EV is introduced ($p_{EV} > 0$), and this pattern is independent of migration intensity ($p_M$).
-At the individual level, cooperation rates are suppressed below $0.1$ without EV ($p_{EV} = 0$) but increase substantially when EV is present.
-Unlike group-level cooperation, individual-level cooperation is strongly affected by migration: moderate migration ($p_M \approx 0.1$) maximizes cooperation, while excessive migration reduces it.
-
-Ablation experiments reveal an asymmetric influence between levels: group-level processes contribute to individual-level cooperation, whereas individual-level processes have minimal effect on group-level outcomes.
-EV promotes group-level cooperation by creating temporal equity in resource distribution, which enables all groups to experience both resource-rich and resource-poor periods, thereby increasing the long-term value of cooperative relationships.
-At the individual level, EV maintains resource disparities between groups, allowing cooperators to form stable relationships and outcompete defectors who remain isolated from profitable interactions.
-
-These findings extend the base model in Chapter~\ref{ch:2_base_model} by demonstrating that EV can promote cooperation even when migration is incorporated.
-Furthermore, the results reveal that moderate migration enhances cooperation by facilitating the formation of cooperative networks, while excessive migration disrupts these structures.
-The next chapter, Chapter~\ref{ch:4_2D_model}, examines whether similar patterns emerge in a two-dimensional spatial structure without explicit group boundaries.
+These findings demonstrate that EV can promote cooperation even when migration is incorporated.
+The next chapter, Chapter~\ref{ch:4_2D_model}, examines the effects of EV and migration in a two-dimensional spatial structure without explicit group definitions.
