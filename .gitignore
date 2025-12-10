@@ -4,3 +4,5 @@ build/**
 !build/chapters/
 !build/chapters/.keep
 *.synctex.gz
+diff.pdf
+diff.tex

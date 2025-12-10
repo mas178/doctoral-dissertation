@@ -28,7 +28,7 @@ Migration occurs at the individual level between groups.
 \subsection*{Structural overview}\label{sec:structure}
 
 We consider the model composed of multiple regional groups, each inhabited by a number of humans who may migrate between the groups in response to environmental or social pressures.
-Within this world, the population is represented by group agents and individual agents, and their interaction (see Subsection~\ref{sec:game}) and migration (see Subsection~\ref{sec:migration}) are governed by the geographical and interaction structures (see Figure~\ref{fig:3_model}).
+Within this world, the population is represented by group agents and individual agents, and their interaction (see \nameref{sec:game}) and migration (see \nameref{sec:migration}) are governed by the geographical and interaction structures (see Figure~\ref{fig:3_model}).
 
 \begin{figure}[htbp]
   \centering
@@ -195,7 +195,7 @@ $b$ & Multiplication factor for PGG & $\{1, 1.1, \ldots, 2\}$ \\
 \addlinespace
 $\Delta w$ & Update rate of edge weights & $\{0, 0.1, \ldots, 1\}$ \\
 \addlinespace
-$p_M$ & Probability factor multiplied by resource deficit for migration events, controlling the individual mobility (direct probability for agents below threshold in Chapter~\ref{ch:4_2D_model}) & $\{0, 0.1, \ldots, 1\}$ \\
+$p_M$ & Probability factor multiplied by resource deficit for migration events, controlling the individual mobility & $\{0, 0.1, \ldots, 1\}$ \\
 \addlinespace
 $p_{SoR}$ & Probability of migrating toward SoR & $\{0, 0.1, \ldots, 1\}$ \\
 \addlinespace
@@ -419,6 +419,7 @@ The results demonstrate the following key findings:
 (iii) unlike group-level cooperation, individual-level cooperation is strongly affected by migration: moderate migration ($p_M \approx 0.1$) maximizes cooperation, while excessive migration reduces it.
 At both levels, EV promotes cooperation through the formation of cooperative networks that provide robustness against resource fluctuations, migration, and strategy updates, similar to the mechanism in the base model in Chapter~\ref{ch:2_base_model}.
 A detailed comparison between the models is provided in Chapter~\ref{ch:5_conclusion}.
+In addition, smaller initial relationship strength ($w_0$) and faster updating of relationship weights ($\Delta w$) further facilitate the formation and maintenance of cooperative networks.
 
 These findings demonstrate that EV can promote cooperation even when migration is incorporated.
 The next chapter, Chapter~\ref{ch:4_2D_model}, examines the effects of EV and migration in a two-dimensional spatial structure without explicit group definitions.

@@ -10,11 +10,10 @@ Inaba, M. (2026). *Evolution of Cooperation under Environmental Variability* [Do
 
 ```text
 doctoral-dissertation/
-├── main.tex          # Main LaTeX document
-├── main.pdf          # LaTeX-generated PDF output
-├── dissertation.pdf  # Compressed PDF for submission
-├── compress_pdf.sh   # PDF compression script
-├── chapters/         # Chapter and ancillary files
+├── main.tex            # Main LaTeX document
+├── main.pdf            # LaTeX-generated PDF output
+├── dissertation.pdf    # Compressed PDF for submission
+├── chapters/           # Chapter and ancillary files
 │   ├── 1_introduction.tex
 │   ├── 2_base_model.tex
 │   ├── 3_2Lvl_model.tex
@@ -23,14 +22,17 @@ doctoral-dissertation/
 │   ├── abstract.tex
 │   ├── appendix.tex
 │   └── acknowledgments.tex
-├── figures/          # Figure files organized by chapter
+├── figures/            # Figure files organized by chapter
 │   ├── 2/
 │   ├── 3/
 │   └── 4/
-├── references.bib    # Bibliography database
-├── latexmkrc         # LaTeX build configuration
-├── build/            # Build files directory
-├── LICENSE           # License file
+├── references.bib      # Bibliography database
+├── util/               # Utility scripts
+│   ├── latexdiff.sh    # Script for generating diff PDF between Git commits
+│   └── compress_pdf.sh # PDF compression script
+├── latexmkrc           # LaTeX build configuration
+├── build/              # Build files directory
+├── LICENSE             # License file
 └── README.md
 ```
 
