@@ -36,6 +36,21 @@ doctoral-dissertation/
 └── README.md
 ```
 
+## Command
+
+```sh
+cd doctoral-dissertation
+
+# Clean build files
+latexmk -C main.tex
+
+# Compile
+latexmk -pdf main.tex
+
+# Compress
+./util/compress_pdf.sh
+```
+
 ## License
 
 Copyright (c) 2025-2026 Masaaki Inaba

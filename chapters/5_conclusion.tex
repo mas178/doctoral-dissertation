@@ -2,12 +2,13 @@
 
 \section{Summary and cross-model comparison}\label{sec:5_summary}
 
-This section synthesizes the results from the three models, highlighting their commonalities and distinctions.
-The central research question addressing all chapters is whether and how environmental variability (EV) facilitates the evolution of cooperation.
-Chapter~\ref{ch:2_base_model} examined the effects of EV on cooperation in the absence of migration, which is another important factor that can influence the evolution of cooperation.
-Building on this, Chapter~\ref{ch:3_2Lvl_model} investigated the joint effects of EV and migration on cooperation.
-Chapter~\ref{ch:4_2D_model} also investigated the joint effects of EV and migration on cooperation on more common spatial structure.
-Table~\ref{tab:3_models} summarizes the model features, key findings, and underlying mechanisms of the findings.
+This section synthesizes the results from the three models presented in this dissertation, highlighting their commonalities and distinctions.
+The central research question underlying this dissertation is whether and how environmental variability (EV) facilitates the evolution of cooperation.
+Chapter~\ref{ch:2_base_model} examined the effects of EV on cooperation in the absence of migration.
+Although migration is a significant factor in the Middle Stone Age (MSA) context, it was excluded in this chapter to isolate the direct impact of EV.
+Building on this, Chapter~\ref{ch:3_2Lvl_model} investigated the joint effects of EV and migration on cooperation by introducing migration into the group-structured model.
+Finally, Chapter~\ref{ch:4_2D_model} extended the analysis to a two-dimensional spatial framework, a widely established structure in the literature.
+Table~\ref{tab:3_models} summarizes the key features, findings, and underlying mechanisms identified in each model.
 
 \begin{landscape}
 \begin{table}[htbp]
@@ -20,84 +21,94 @@ Chapter & Model overview & Effects of EV and migration & Mechanisms \\
 \midrule
 \ref{ch:2_base_model}~\nameref{ch:2_base_model} &
 % Model 1
-1-level (only group agents) model;
-agents on a 1D circular structure; no migration;
-dynamic interaction network by rewiring;
-three types of EV: RV (regional variability by shifting SoR), UV (universal variability by fluctuating threshold), and CV (combined variability by RV and UV) &
+1-level model (group agents only);
+agents on a 1D circular structure;
+no migration;
+dynamic interaction network via rewiring;
+EV types: RV (regional variability by shifting SoR), UV (universal variability by fluctuating threshold), and CV (combined variability by RV and UV). &
 % Results 1
 (1) RV promotes cooperation.\newline
 (2) UV has weak effect. &
 % Mechanisms 1
 (1) RV increases fluctuations in strategy distribution via strategy updating with mutation.\newline
-(2) Network heterogeneity maintains cooperation which occasionally emerges. \\
-\addlinespace
+(2) Heterogeneity of network degree maintains occasionally emerging cooperation. \\
+\cmidrule{1-4}
 \ref{ch:3_2Lvl_model}~\nameref{ch:3_2Lvl_model} &
 % Model 2
-2-level (groups and individual agents) model;
+2-level model (group and individual agents);
 groups on a 1D circular structure;
-individuals within a group migrate between neighboring groups;
-dynamic interaction networks by weight updating at both levels;
-EV by shifting SoR &
+individuals migrate between neighboring groups;
+dynamic interaction networks (weight updating) at both levels;
+EV by shifting SoR. &
 % Results 2
 (1) EV promotes cooperation at both levels.\newline
-(2) Migration does not affect group-level cooperation.\newline
-(3) Moderate migration promotes individual-level cooperation, but too much migration disrupts it. &
+(2) Migration has negligible effect on group-level cooperation.\newline
+(3) Moderate migration promotes individual-level cooperation, whereas excessive migration hinders it. &
 % Mechanisms 2
-EV creates temporal equity in resource distribution;
-cooperators form stable mutual relationships providing robustness against fluctuations;
-group-level processes drive individual-level cooperation. \\
-\addlinespace
+\textbf{Group-level:}\newline
+EV causes all groups to experience rich and poor periods, increasing the relative value of mutual cooperation for survival.\newline
+\newline
+\textbf{Individual-level:}\newline
+(1) EV creates per-capita resource-rich groups (preventing migration and strategy updates).\newline
+(2) $C$s in these groups can stabilize and strengthen cooperative relationships.\\
+\cmidrule{1-4}
 \ref{ch:4_2D_model}~\nameref{ch:4_2D_model} &
 % Model 3
-1-level (only individual agents) model;
+1-level model (individual agents only);
 agents on a 2D lattice;
-agents interact with neighbors and migrate based on local resource thresholds;
-EV by shifting SoRs &
+interact with neighbors;
+migration based on local resource thresholds;
+EV by shifting SoRs. &
 % Results 3
-(1) EV promotes cooperation.\newline
-(2) Migration promotes cooperation. &
+(1) EV promotes cooperation (given sufficient migration).\newline
+(2) Migration promotes cooperation (given sufficient EV). &
 % Mechanisms 3
-Three-stage process:
-(1) defector groups form in stable resource-rich areas;
-(2) EV disrupts these structures;
-(3) cooperator groups emerge at vacated sites \\
+(1) Large $D$ clusters emerge in stable resource-rich areas.\newline
+(2) EV disrupts these structures.\newline
+(3) Mobility facilitates the emergence of small $C$ clusters at vacated sites.\\
 \bottomrule
 \end{tabular}
 \end{table}
 \end{landscape}
 
-% 2_base_model
+Beyond the direct comparison provided in Table~\ref{tab:3_models}, a deeper synthesis reveals the fundamental dynamics governing the evolution of cooperation under EV.
+The following subsections address three critical questions: why EV promotes cooperation across the three structurally different models, why the impact of migration differs between the 2-level model and the 2D model, and how the 2D model relates to the previous literature on cooperation and migration.
 
-Two mechanisms drove these results.
-First, RV increased fluctuations in strategy distribution through the interaction of mutation and environmental change.
-Agents in resource-poor regions frequently underwent reformations and mutations; when RV was large, these mutated agents could become resource-rich in subsequent generations, enabling them to serve as role models for other agents and thereby propagate cooperative strategies.
-This relationship was captured analytically: the expected number of mutated role models increased linearly with RV intensity.
-Second, once cooperation emerged, it was sustained through a positive feedback loop involving the coevolution of cooperation and network structure.
-As the frequency of cooperators increased, mutual support among cooperators strengthened, leading to resource heterogeneity, which in turn induced network degree heterogeneity.
-This heterogeneous network structure facilitated the maintenance of cooperation.
+\subsection*{The universal driver: How EV promotes cooperation}\label{subsec:5_universal_driver}
 
-UV failed to promote cooperation effectively for two reasons: it did not generate sufficient fluctuations in strategy distribution, and when intense, it caused nearly all agents to undergo reformation simultaneously, thereby disrupting the network heterogeneity essential for sustaining cooperation.
+Despite the structural differences among the three models---ranging from static groups (Chapter~\ref{ch:2_base_model}) to mobile individuals in continuous space (Chapter~\ref{ch:4_2D_model})---a consistent pattern emerged: environmental variability facilitates the evolution of cooperation.
+The cross-model analysis reveals a common underlying mechanism: the \textit{disruption of static exploitation}.
 
-% 3_2Lvl_model
+In static environments with constant resource availability, defectors ($D$) inevitably exploit cooperators ($C$) within their local interaction range.
+Once $D$s dominate a resource-rich area or group, the population typically settles into a stable defector-dominated equilibrium, often referred to as an evolutionary dead-end.
+EV fundamentally alters this dynamic by preventing the system from settling into such static equilibria.
+By periodically shifting the distribution of resources, EV destabilizes established clusters of $D$s.
+This environmental fluctuation creates temporal or spatial "vacancies"---resource-rich niches that are not yet dominated by $D$s.
+These openings provide $C$s with a window of opportunity to re-emerge, establish new clusters, and accumulate benefits before $D$s can invade and exploit the new structure.
+Thus, in all models, EV acts as a chaotic force that paradoxically sustains order (cooperation) by continuously breaking the dominance of exploitation.
 
-Importantly, ablation experiments revealed that group-level processes influenced individual-level cooperation, whereas the reverse influence was minimal.
+\subsection*{The distinct roles of migration: Boundary maintenance vs. Spatial segregation}\label{subsec:5_migration_roles}
 
-The mechanisms underlying these findings centered on the formation of cooperative networks and resource distribution dynamics.
-At the group level, EV ensured that all groups experienced both resource-rich and resource-poor periods over time, creating temporal equity that increased the long-term value of maintaining cooperative relationships.
-Groups adopting cooperation built strong reciprocal relationships, while defecting groups became isolated.
-At the individual level, EV prevented the equilibrium state in which defectors outcompeted cooperators by equalizing per-capita resources across all groups.
-Instead, stochastic SoR movement created temporary disparities in per-capita resources, allowing cooperators in newly enriched groups to form stable relationships that provided robustness against future resource fluctuations.
+While EV promotes cooperation universally, the effect of migration varies significantly between the Multi-level Model (Chapter~\ref{ch:3_2Lvl_model}) and the 2D Spatial Model (Chapter~\ref{ch:4_2D_model}).
+In Chapter~\ref{ch:3_2Lvl_model}, excessive migration hinders cooperation, whereas in Chapter~\ref{ch:4_2D_model}, migration consistently promotes it.
+This discrepancy arises from the different functional roles migration plays in each structural context.
 
-Additional findings showed that smaller initial relationship strength ($w_0$) and faster updating of relationship weights ($\Delta w$) facilitated cooperation by enabling cooperative networks to form more readily while limiting the disruptive impact of defecting newcomers.
+In the group-structured model (Chapter~\ref{ch:3_2Lvl_model}), cooperation relies on "boundary maintenance."
+High migration rates blur the boundaries between groups, homogenizing the population and diluting the assortativity necessary for group selection to operate.
+Therefore, migration acts as a dispersive force that must be kept moderate to maintain group integrity.
 
-% 4_2D_model
+In contrast, in the 2D spatial model (Chapter~\ref{ch:4_2D_model}), which lacks explicit group boundaries, migration serves as a mechanism for "spatial segregation" and "escape."
+Mobility allows $C$s to physically distance themselves from $D$s and aggregate with other $C$s in resource-rich areas.
+Without mobility, $C$s are trapped with neighbors; with mobility, they can self-organize into clusters.
+Consequently, in the absence of fixed group boundaries, migration acts as a constructive force that enables the spontaneous formation of cooperative structures.
 
-The underlying mechanism involved a three-stage process.
-First, in stable environments ($p_{EV} = 0$), agents in resource-rich areas had no need to cooperate or migrate, while those in resource-poor areas either cooperated or migrated toward prosperous regions.
-This created ``walls'' of defectors at boundaries between resource-rich and resource-poor areas.
-Second, when EV was introduced, environmental changes forced boundary agents to change strategies or migrate, leading to the collapse of these stable defector structures.
-Third, in place of the collapsed defector groups, agents formed numerous small cooperator groups to survive under fluctuating conditions.
-Sufficient mobility was required for agents to keep pace with environmental changes and form cooperator groups; insufficient mobility relative to EV intensity prevented both defector structures and cooperator groups from forming, resulting in strategic chaos.
+\subsection*{Structural robustness and the 2D spatial model}\label{subsec:5_structural_robustness}
+
+The adoption of the 2D spatial model in Chapter~\ref{ch:4_2D_model} serves to validate the robustness of our findings against standard literature.
+Most existing theoretical studies on spatial games suggest that "viscosity" (low mobility) is key to the evolution of cooperation because it maintains clusters of relatives or cooperators.
+However, our results from Chapter~\ref{ch:4_2D_model} challenge this view in the context of EV.
+We demonstrated that under significant environmental fluctuations, high mobility is not detrimental but rather beneficial for cooperation.
+This alignment between the group-based results (Chapter~\ref{ch:3_2Lvl_model}) and the standard spatial lattice results (Chapter~\ref{ch:4_2D_model}) confirms that the positive effect of EV is not an artifact of specific group assumptions but a robust phenomenon applicable to general spatial dynamics.
 
 \subsection*{Common findings across the three models}
 
