@@ -154,36 +154,118 @@ Notably, in the 2-level model (Chapter~\ref{ch:3_2Lvl_model}), excessive migrati
 
 \section{Implications and significance}\label{sec:5_implications}
 
-The results of this dissertation have several implications for understanding the evolution of cooperation and human behavior.
+The findings of this dissertation carry implications and significance for the theoretical understanding of cooperation, the variability selection hypothesis (VSH) and related debates in human evolution (the cognitive buffer hypothesis (CBH) and the social brain hypothesis (SBH)), and potential applications to broader contexts.
 
-First, our research extends the variability selection hypothesis (VSH) beyond individual cognitive adaptations.
-EV during the Middle Stone Age (MSA) has been primarily understood as a selective pressure on individual-level cognitive abilities, particularly brain expansion.
-Our research demonstrates that EV may have also directly influenced group-level social structures, extending the scope of VSH to encompass collective behavioral patterns.
-\textcolor{red}{[TODO: Elaborate this paragraph]}
+This dissertation advances the theoretical understanding of cooperation by establishing EV as a robust driver of cooperative behavior.
+While previous research has examined mechanisms under static conditions, the role of environmental dynamics has remained understudied.
+The consistent finding across three structurally distinct models suggests that environmental factors deserve greater attention in theoretical frameworks of cooperation.
+The universal mechanism identified in Section \ref{sec:5_summary} reveals a fundamental interplay between environmental dynamics and network dynamics, suggesting that cooperation cannot be fully understood by examining social interactions in isolation from environmental context.
+This perspective integrates with, rather than replaces, established cooperation mechanisms.
+Specifically, EV does not introduce an entirely new mechanism but rather modulates the effectiveness of existing mechanisms by altering the environmental conditions under which they operate.
 
-Second, this dissertation identifies variability selection as a previously underexplored mechanism in cooperation theory.
-While numerous mechanisms for the evolution of cooperation have been proposed, variability selection has received limited attention as a potential driver of cooperation.
-Our findings demonstrate that variability selection can promote cooperation.
-\textcolor{red}{[TODO: Elaborate this paragraph]}
+The VSH \cite{Potts1996, Potts1998} posits that intensified environmental fluctuations during the MSA in Africa favored versatilists capable of rapid adaptation.
+While this hypothesis has been supported by temporal correlations between environmental changes and the emergence of modern human behavior, the causal mechanisms linking EV to specific behavioral traits have remained unclear.
+The findings of this dissertation provide theoretical support for one component of this link by demonstrating plausible mechanisms through which EV could have promoted cooperative behavior.
 
-Third, the theoretical insights from this research may inform future empirical work in evolutionary anthropology and archaeology.
-\textcolor{red}{[TODO: Elaborate this paragraph]}
+Furthermore, these findings contribute to the ongoing debate between the CBH \cite{Schuck-Paim2008, Sol2008, Sol2009} and the SBH \cite{Whiten1988, Dunbar1998, Barrett2007, Grove2008, Knight2011, Hayes2014, Faith2021, Dunbar2024}.
+The CBH proposes that EV selected for enhanced cognitive abilities, providing a theoretical basis for the VSH.
+The SBH, often presented as an alternative, argues that social complexity was the primary driver of cognitive evolution.
+The present findings suggest that EV may have promoted cooperative behavior---a core element of the social complexity emphasized by the SBH.
+If EV drove not only individual cognitive abilities but also cooperative social behavior, the CBH and the SBH may be complementary rather than competing.
+
+While this dissertation is primarily motivated by questions concerning human evolution in the MSA, the findings have broader implications for understanding cooperation in other contexts.
+The fundamental mechanism whereby EV promotes cooperation by disrupting defector dominance and enabling cooperator clustering may operate across diverse biological and social systems.
+Although direct application to other domains is not straightforward, the identified mechanisms hold potential for shedding light on ecological systems or contemporary human societies facing increased environmental risks due to climate change and other factors.
 
 \section{Limitations and future directions}\label{sec:5_limitations}
 
-While this dissertation provides insights into the relationship between EV and cooperation, several limitations warrant acknowledgment and suggest directions for future research.
+While this dissertation provides theoretical support for the role of environmental variability in promoting cooperation, several limitations should be acknowledged.
+These limitations also point toward productive directions for future research.
 
-First, our theoretical findings lack direct empirical validation.
-Cooperative behaviors leave limited archaeological traces, making it challenging to test predictions against paleoenvironmental and archaeological data.
-Future empirical work integrating paleoclimatic records with archaeological evidence of social organization and resource sharing could test whether cooperation patterns correlate with periods of environmental variability.
-\textcolor{red}{[TODO: Elaborate this paragraph.]}
+\subsection*{Limitations of model abstraction}
 
-Second, the models employed in this research are too simple as representations of reality.
-The spatial structures, migration patterns, interaction mechanisms, and strategy updating rules could be modeled in numerous alternative ways.
-While the three modeling approaches serve as appropriate starting points, they are far from exhaustive, and substantial room remains for developing more diverse and realistic models.
-\textcolor{red}{[TODO: Elaborate this paragraph.]}
+The models presented in this dissertation are deliberately abstract, prioritizing the identification of fundamental mechanisms over the reproduction of specific historical scenarios.
+However, this abstraction entails trade-offs.
+The spatial structures employed, whether one-dimensional circular arrangements or two-dimensional lattices, represent simplifications of the complex topographies that characterized Middle Stone Age Africa.
+Real landscapes feature irregular terrain, varying connectivity between regions, and heterogeneous resource distributions that cannot be fully captured by regular grid structures.
+Similarly, the representation of environmental variability through stochastically moving Sources of Resources, while conceptually capturing the unpredictability of resource availability, does not incorporate the full complexity of paleoenvironmental dynamics, including seasonal cycles, multi-year climate oscillations, or cascading ecological effects.
 
-Third, the models are too complex for full analytical treatment.
-The three models examined in this dissertation incorporate sufficient detail to capture realistic dynamics but are consequently difficult to analyze mathematically.
-Future research could benefit from developing simpler, analytically tractable models that isolate key mechanisms identified in this work.
-\textcolor{red}{[TODO: Elaborate this paragraph.]}
+The models also employ a single abstract resource type, whereas real environments present multiple resource categories with different spatial and temporal distributions.
+The interactions between these resource types, such as trade-offs between water availability and food sources, or between safety and resource abundance, likely shaped behavioral decisions in ways not captured by the present models.
+Extending the framework to incorporate multiple resource dimensions represents an important direction for future work.
+
+\subsection*{Limitations in behavioral representation}
+
+The binary strategy space of cooperation and defection, while analytically tractable, oversimplifies the behavioral repertoire available to real organisms.
+Human cooperation in particular exhibits graduated forms, conditional strategies, and context-dependent modulation that cannot be reduced to a simple dichotomy.
+The strategy update mechanisms employed in the models, based on imitation of successful neighbors, represent only one of many possible learning rules.
+Alternative mechanisms including reinforcement learning, conformist transmission, payoff-biased transmission, and prestige-biased transmission may yield different dynamics under environmental variability.
+
+Furthermore, the models do not incorporate cognitive constraints that would have limited information processing and decision-making in ancestral populations.
+The assumption that agents can accurately assess neighbor fitness and optimally choose migration destinations or role models may overestimate the rationality of real decision-makers.
+Incorporating bounded rationality and incomplete information would enhance the realism of the models.
+
+\subsection*{Limitations regarding migration}
+
+The migration mechanisms in Chapters 3 and 4 are triggered exclusively by resource scarcity.
+While resource-seeking migration is undoubtedly important, human mobility decisions are also influenced by social factors including conflict avoidance, mate-seeking, kinship obligations, and information exchange.
+The models do not capture these alternative migration drivers, which may interact with environmental variability in ways not explored here.
+The finding that the impact of migration differs between the two-level model and the two-dimensional model suggests that the specific implementation of migration mechanisms significantly affects outcomes, warranting systematic exploration of alternative formulations.
+
+The unit of migration is also abstractly defined, particularly in Chapter 3, where individuals may represent families or small kin groups.
+The internal dynamics of these migration units, including decision-making processes and differential impacts on unit members, are not modeled.
+Future work could explicitly incorporate household or kin-group structures to examine how intra-unit dynamics interact with environmental variability.
+
+\subsection*{Limitations in evolutionary representation}
+
+This dissertation focuses on cultural evolution rather than biological evolution, treating strategies as culturally transmitted traits subject to social learning rather than genetic inheritance.
+While this framing is appropriate for understanding behavioral change on timescales relevant to the Middle Stone Age, it does not address the biological evolution of cognitive capacities that would have enabled sophisticated cooperation.
+The relationship between environmental variability, brain evolution, and cooperative capacity remains an open question that requires integration across biological and cultural evolutionary frameworks.
+
+The treatment of groups as units of adaptation, employed particularly in Chapter 2, remains contested in evolutionary biology.
+Although the models frame group-level dynamics in terms of cultural rather than genetic evolution, the conceptual challenges associated with group selection apply in modified form to cultural group selection.
+The conditions under which cultural group selection can operate effectively, and whether the models presented here satisfy those conditions, merit further theoretical scrutiny.
+
+\subsection*{Absence of empirical validation}
+
+The findings of this dissertation are derived entirely from computational simulations and lack direct empirical validation.
+While the models are designed to capture plausible features of Middle Stone Age environments and behaviors, the absence of quantitative calibration to archaeological or paleoenvironmental data limits the specificity of the conclusions.
+The models can identify qualitative patterns and mechanisms but cannot predict, for example, the specific magnitude of environmental variability required to produce a given level of cooperation, or the timescales over which cooperative behavior would emerge under particular conditions.
+
+\subsection*{Future directions}
+
+Several promising directions for future research emerge from these limitations.
+
+First, enriching the environmental representation would enhance the realism and applicability of the models.
+This includes incorporating multiple resource types with distinct spatial and temporal dynamics, modeling intrinsic environmental variability where human activities feed back to affect resource availability, and calibrating model parameters to paleoenvironmental reconstructions from specific archaeological sites.
+Such calibration could enable more specific predictions about the conditions under which cooperation would have been favored in particular regions during particular time periods.
+
+Second, expanding the behavioral strategy space beyond binary cooperation and defection would allow examination of more nuanced cooperative dynamics.
+This could include graduated contribution levels, conditional strategies that respond to partner behavior or environmental conditions, and reputation-based strategies that track interaction histories.
+Incorporating these richer strategy spaces would enable investigation of how environmental variability affects the evolution of specific cooperative mechanisms such as indirect reciprocity and generalized exchange.
+
+Third, developing analytical approaches to complement the simulation studies would strengthen the theoretical foundation.
+While simulations can explore parameter spaces and identify patterns, mathematical analysis can identify critical thresholds, establish stability conditions, and provide general results that hold across model variants.
+Techniques from evolutionary game theory, adaptive dynamics, and statistical mechanics could be brought to bear on the questions addressed here.
+
+Fourth, empirical testing of the theoretical predictions represents an essential next step.
+Archaeological evidence could potentially test predictions about the co-occurrence of environmental variability, population mobility, and markers of cooperative behavior.
+Laboratory experiments with human participants could examine whether individuals adjust cooperative strategies in response to resource variability under controlled conditions.
+Natural experiments in contemporary societies facing environmental change could provide additional evidence regarding the relationship between resource variability and cooperative institutions.
+
+Fifth, extending the framework to other contexts would test the generality of the findings.
+While this dissertation is motivated by questions concerning human evolution, the fundamental mechanisms may apply to cooperation in other species facing environmental variability, to organizational behavior under resource uncertainty, and to community responses to climate change.
+Such extensions would both test the robustness of the theoretical insights and contribute to understanding cooperation in diverse contemporary settings.
+
+Sixth, integrating the environmental variability perspective with other factors known to influence cooperation would provide a more complete picture.
+The models presented here focus on the direct effects of environmental variability operating through resource dynamics and migration patterns.
+Future work could examine how environmental variability interacts with reputation systems, punishment mechanisms, communication networks, and cultural institutions.
+Such integration would move toward comprehensive models that capture the multiple interacting factors shaping the evolution of human cooperation.
+
+Finally, addressing the cognitive dimensions of cooperation under environmental variability remains an open frontier.
+The variability selection hypothesis and the social brain hypothesis offer complementary perspectives on human cognitive evolution, and cooperation provides a potential nexus connecting environmental challenges to social complexity to cognitive demands.
+Computational models that incorporate cognitive constraints, learning dynamics, and memory limitations could help clarify how environmental variability might have selected for the cognitive capacities underlying human ultrasociality.
+
+Despite the limitations outlined above, this dissertation establishes environmental variability as a robust factor promoting the evolution of cooperation across structurally distinct models.
+The consistent findings across different spatial structures, interaction rules, and migration mechanisms suggest that the relationship between environmental variability and cooperation reflects a fundamental principle rather than a model-specific artifact.
+Future research building on this foundation can refine the theoretical framework, test its predictions empirically, and extend its applications to diverse contexts where the interplay of environmental dynamics and social behavior shapes evolutionary outcomes.
