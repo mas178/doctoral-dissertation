@@ -133,7 +133,7 @@ This comparison suggests a general insight: excessive mobility hinders cooperati
 
 The relationship between migration and cooperation has been a subject of debate in evolutionary game theory.
 Classical literature generally posits that mobility hinders cooperation.
-Dugatkin and Wilson (1991) \cite{Dugatkin1991} showed that Rover---a mobile All-D agent---can overtake cooperative strategies (e.g., All-C and TFT) if the migration cost is low.
+Dugatkin and Wilson (1991) \cite{Dugatkin1991} showed that Rover---a mobile All-D agent---can overtake cooperative strategies (e.g., All-C and Tit-for-Tat (TFT)) if the migration cost is low.
 Cohen et al. (2001) \cite{Cohen2001} theoretically demonstrated that stable interaction structure, which they termed ``context preservation'', is necessary for the sustainability of cooperative relationships.
 According to this view, migration is detrimental because it disrupts the stable social context required for cooperation.
 
@@ -185,102 +185,52 @@ These limitations, however, point toward productive directions for future resear
 
 \subsection*{Empirical validation}
 
-The first limitation is the insufficient empirical data to directly validate the simulation models and results.
+The first limitation concerns the insufficiency of empirical data to directly validate the simulation models and results.
 This limitation reflects the inherent scarcity of detailed archaeological and paleoenvironmental data from the MSA in Africa.
 The models can identify qualitative patterns and mechanisms but cannot predict, for example, the specific magnitude of EV required to produce a given level of cooperation, or the timescales over which cooperative behavior would emerge under particular conditions.
-That said, this very scarcity underscores the value of computational simulations: where direct observation of evolutionary processes is infeasible and empirical data remain fragmentary, simulations provide a principled approach to exploring plausible mechanisms and generating testable predictions.
+Nevertheless, this very scarcity underscores the value of computational simulations: where direct observation of evolutionary processes is infeasible and empirical data remain fragmentary, simulations provide a principled approach to exploring plausible mechanisms and generating testable predictions.
 
 Moreover, the theoretical predictions generated here may guide future empirical investigations by directing attention to specific patterns.
-The same archaeological or paleoenvironmental data may yield different insights depending on whether researchers approach them with hypotheses about the relationship between EV and cooperation.
-For instance, evidence of long-distance resource transport during the MSA has traditionally been interpreted primarily as indicating expanded home ranges or trading capabilities.
+The same archaeological or paleoenvironmental data may yield different insights depending on whether researchers approach them with hypotheses regarding the relationship between EV and cooperation.
+For instance, evidence of long-distance resource transport during the MSA has traditionally been interpreted primarily as an indicator of expanded home ranges or trading capabilities.
 With the hypothesis that EV promotes cooperation, however, the same evidence might be re-examined for temporal correlations with periods of intensified climate instability, potentially revealing that such cooperative behaviors emerged specifically during environmentally variable periods.
 
 \subsection*{Model simplification}
 
 The second limitation concerns the intentional simplifications made to the models.
-To isolate the fundamental mechanisms by which EV promotes cooperation, we employed several abstractions as follows.
+To isolate the fundamental mechanisms by which EV promotes cooperation, we employed several abstractions in each model component: spatial structure, population structure, EV, interaction, migration, and strategy update.
 
-Regarding spatial structures, the models employed regular arrangements—a one-dimensional circle (Chapters 2 and 3) and a two-dimensional lattice (Chapter 4)—rather than the irregular topographies that characterized MSA Africa.
-Future work could incorporate more realistic landscapes with heterogeneous connectivity between regions.
+Regarding the spatial structure, regular topologies, specifically 1-dimensional cycle graphs and 2-dimensional lattices, were employed.
+These idealized structures are standard in theoretical investigations, as they facilitate the identification of universal evolutionary mechanisms independent of specific geographic idiosyncrasies.
+Potential avenues for extending this work include the adoption of more complex network architectures or the integration of spatially explicit models grounded in paleoenvironmental reconstructions of the MSA in Africa.
 
-Regarding population structures, the models assumed either homogeneous groups (Chapter 2) or simple two-level hierarchies (Chapter 3), without accounting for the nested, fractal-like social structures observed in human societies.
-Future extensions could incorporate multi-level group structures with varying degrees of relatedness and social roles.
+Regarding the population structure, the models employed either non-hierarchical structures (homogeneous group- or individual-level agents) or a minimal 2-level hierarchical structure.
+Although real-world human social structures exhibit complex fractal organizations, restricting the model to simple structures represents a standard methodological approach.
+This reflects the heuristic that greater complexity diminishes interpretability and tractability while increasing arbitrariness, often obscuring essential mechanisms without significantly altering the results.
+It is not inconceivable, however, that introducing greater demographic realism, such as life history stages or a 3-tiered social architecture consisting of individuals, families, and bands, might add some nuances to the evolutionary dynamics.
 
-Regarding EV, variability was represented through stochastically moving SoRs, capturing spatial unpredictability but omitting seasonal cycles, multi-year climate oscillations, or cascading ecological effects.
-The models also employed a single abstract resource type, whereas real environments present multiple resource categories with distinct spatial and temporal distributions.
-Future models could incorporate richer environmental dynamics calibrated to paleoenvironmental reconstructions.
+Regarding the EV, the stochastic movement of SoRs effectively captures the landscape dynamics and the consequent unpredictability of resource availability, which are characteristic of the MSA in Africa.
+While this abstraction provides a robust foundation for future research, subsequent models could incorporate greater environmental realism, for example by calibrating the dynamics to paleoclimatic proxy data from relevant MSA sites.
 
-Regarding interaction, the models employed binary strategies (C and D) and simple pairwise games, whereas real organisms exhibit graduated cooperation levels, conditional strategies, and reputation-based behaviors.
-Expanding the strategy space would enable investigation of more nuanced cooperative dynamics such as indirect reciprocity and generalized exchange.
+Regarding the interaction, the models adopted a fundamental pairwise game framework restricted to binary strategies of unconditional cooperation or defection.
+Given the active discourse within evolutionary game theory, however, numerous extensions are conceivable.
+Future research could explore multi-player games, more complex strategic repertoires such as TFT, reputation-based mechanisms, and social norms.
+Furthermore, interaction structures and relationship update rules could be refined based on empirical research and laboratory experiments.
 
-Regarding migration, movement was triggered exclusively by resource scarcity, yet human mobility decisions are also influenced by social factors including conflict avoidance, mate-seeking, and kinship obligations.
-The finding that the impact of migration differs between the 2-level model and the 2D model suggests that specific implementations significantly affect outcomes, warranting systematic exploration of alternative formulations.
+Regarding the migration, the process was triggered by resource scarcity and migration probability, assuming zero migration costs.
+However, human mobility decisions in the real world are influenced by social factors and other environmental factors.
+Future models could thus incorporate migration costs and more realistic migration dynamics, for example by accounting for conflict avoidance, mate-seeking, kinship obligations, and predator avoidance.
 
-Regarding evolutionary behavior inheritance, strategy updating relied on imitation of successful neighbors, representing only one of many possible learning mechanisms.
-Alternative rules such as reinforcement learning, conformist transmission, and payoff-biased learning may yield different dynamics under EV.
+Regarding the strategy update, the process has been extensively examined within the framework of cultural evolution.
+Within this context, learning mechanisms for strategy updating are mainly classified into social learning (SL), individual learning (IL), and their interplay.
+The models adopted payoff-biased imitation where agents copy the most successful strategies observed within their communication range.
+This is a specific form of SL.
+Subsequent models could therefore broaden this scope by incorporating other SL mechanisms such as conformity bias, or integrating IL mechanisms such as reinforcement learning.
+Furthermore, the fundamental unit of agency warrants further scrutiny, specifically regarding whether adaptation could operate effectively at the level of the group or should be strictly restricted to the individual.
 
 While these simplifications were necessary to reveal general principles, future research should examine whether the identified patterns persist under more realistic conditions.
 
-===============================================
-
-While these abstractions were necessary for this initial investigation, they limit the direct applicability of the results to specific historical contexts.
-Future research should aim to bridge this gap by developing more realistic models.
-Incorporating heterogeneous landscapes, multiple resource types, and sophisticated learning mechanisms—such as reinforcement learning or bounded rationality—would allow for a more nuanced understanding of how human ancestors adapted to complex environments.
-
-The models employ deliberate abstractions to isolate fundamental mechanisms.
-The spatial structures—one-dimensional circular arrangements and two-dimensional lattices—represent simplifications of the complex topographies that characterized MSA Africa.
-The binary strategy space of cooperation and defection oversimplifies the behavioral repertoire available to real organisms, which exhibit graduated forms of cooperation, conditional strategies, and context-dependent modulation.
-The models also employ a single abstract resource type, whereas real environments present multiple resource categories with different spatial and temporal distributions.
-Migration is triggered exclusively by resource scarcity, yet human mobility decisions are also influenced by social factors including conflict avoidance, mate-seeking, and kinship obligations.
-While these simplifications were intentional to reveal general principles, future research should examine whether the identified patterns persist in models incorporating more realistic features.
-This includes multiple interacting resource types, graduated contribution levels, diverse learning mechanisms beyond simple imitation, and complex social factors influencing migration decisions.
-
-Model simplifications and realism
-
-
-\subsection*{Limitations of model abstraction}
-
-The models presented in this dissertation are deliberately abstract, prioritizing the identification of fundamental mechanisms over the reproduction of specific historical scenarios.
-However, this abstraction entails trade-offs.
-The spatial structures employed, whether one-dimensional circular arrangements or two-dimensional lattices, represent simplifications of the complex topographies that characterized MSA Africa.
-Real landscapes feature irregular terrain, varying connectivity between regions, and heterogeneous resource distributions that cannot be fully captured by regular grid structures.
-Similarly, the representation of EV through stochastically moving Sources of Resources, while conceptually capturing the unpredictability of resource availability, does not incorporate the full complexity of paleoenvironmental dynamics, including seasonal cycles, multi-year climate oscillations, or cascading ecological effects.
-
-The models also employ a single abstract resource type, whereas real environments present multiple resource categories with different spatial and temporal distributions.
-The interactions between these resource types, such as trade-offs between water availability and food sources, or between safety and resource abundance, likely shaped behavioral decisions in ways not captured by the present models.
-Extending the framework to incorporate multiple resource dimensions represents an important direction for future work.
-
-\subsection*{Limitations in behavioral representation}
-
-The binary strategy space of cooperation and defection, while analytically tractable, oversimplifies the behavioral repertoire available to real organisms.
-Human cooperation in particular exhibits graduated forms, conditional strategies, and context-dependent modulation that cannot be reduced to a simple dichotomy.
-The strategy update mechanisms employed in the models, based on imitation of successful neighbors, represent only one of many possible learning rules.
-Alternative mechanisms including reinforcement learning, conformist transmission, payoff-biased transmission, and prestige-biased transmission may yield different dynamics under EV.
-
-Furthermore, the models do not incorporate cognitive constraints that would have limited information processing and decision-making in ancestral populations.
-The assumption that agents can accurately assess neighbor fitness and optimally choose migration destinations or role models may overestimate the rationality of real decision-makers.
-Incorporating bounded rationality and incomplete information would enhance the realism of the models.
-
-\subsection*{Limitations regarding migration}
-
-The migration mechanisms in Chapters 3 and 4 are triggered exclusively by resource scarcity.
-While resource-seeking migration is undoubtedly important, human mobility decisions are also influenced by social factors including conflict avoidance, mate-seeking, kinship obligations, and information exchange.
-The models do not capture these alternative migration drivers, which may interact with EV in ways not explored here.
-The finding that the impact of migration differs between the two-level model and the two-dimensional model suggests that the specific implementation of migration mechanisms significantly affects outcomes, warranting systematic exploration of alternative formulations.
-
-The unit of migration is also abstractly defined, particularly in Chapter 3, where individuals may represent families or small kin groups.
-The internal dynamics of these migration units, including decision-making processes and differential impacts on unit members, are not modeled.
-Future work could explicitly incorporate household or kin-group structures to examine how intra-unit dynamics interact with EV.
-
-\subsection*{Limitations in evolutionary representation}
-
-This dissertation focuses on cultural evolution rather than biological evolution, treating strategies as culturally transmitted traits subject to social learning rather than genetic inheritance.
-While this framing is appropriate for understanding behavioral change on timescales relevant to the Middle Stone Age, it does not address the biological evolution of cognitive capacities that would have enabled sophisticated cooperation.
-The relationship between EV, brain evolution, and cooperative capacity remains an open question that requires integration across biological and cultural evolutionary frameworks.
-
-The treatment of groups as units of adaptation, employed particularly in Chapter 2, remains contested in evolutionary biology.
-Although the models frame group-level dynamics in terms of cultural rather than genetic evolution, the conceptual challenges associated with group selection apply in modified form to cultural group selection.
-The conditions under which cultural group selection can operate effectively, and whether the models presented here satisfy those conditions, merit further theoretical scrutiny.
+% ToDo: The unit of migration, 人口増減, interaction が本当に group 単位でも起こっていたのか、individual 単位でも起こっていたのか。適応の単位はgroupで起こるのか？
 
 \subsection*{Model complexity}
 
@@ -297,44 +247,7 @@ The reliance on numerical simulations makes it difficult to analytically derive 
 To address this, future work should complement simulation studies with analytically tractable models.
 Developing simpler mathematical frameworks, perhaps utilizing mean-field approximations or evolutionary game theory on graphs, would enable a more rigorous elucidation of the mechanisms governing the co-evolution of cooperation and EV.
 
-==================
+------------------------------------------------------------------------------------------------
 
 Despite these limitations, the consistent finding across three structurally distinct models—that EV promotes cooperation through the disruption of defector dominance and the selective retention of cooperative networks—suggests this relationship reflects a fundamental principle rather than a model-specific artifact.
-Future research building on this foundation can refine the theoretical framework, test its predictions empirically, and extend its applications to diverse contexts where the interplay of environmental dynamics and social behavior shapes evolutionary outcomes.
-
-
-
-
-\subsection*{Future directions}
-
-Several promising directions for future research emerge from these limitations.
-
-First, enriching the environmental representation would enhance the realism and applicability of the models.
-This includes incorporating multiple resource types with distinct spatial and temporal dynamics, modeling intrinsic EV where human activities feed back to affect resource availability, and calibrating model parameters to paleoenvironmental reconstructions from specific archaeological sites.
-Such calibration could enable more specific predictions about the conditions under which cooperation would have been favored in particular regions during particular time periods.
-
-Second, expanding the behavioral strategy space beyond binary cooperation and defection would allow examination of more nuanced cooperative dynamics.
-This could include graduated contribution levels, conditional strategies that respond to partner behavior or environmental conditions, and reputation-based strategies that track interaction histories.
-Incorporating these richer strategy spaces would enable investigation of how EV affects the evolution of specific cooperative mechanisms such as indirect reciprocity and generalized exchange.
-
-Third, developing analytical approaches to complement the simulation studies would strengthen the theoretical foundation.
-While simulations can explore parameter spaces and identify patterns, mathematical analysis can identify critical thresholds, establish stability conditions, and provide general results that hold across model variants.
-Techniques from evolutionary game theory, adaptive dynamics, and statistical mechanics could be brought to bear on the questions addressed here.
-
-
-Fifth, extending the framework to other contexts would test the generality of the findings.
-While this dissertation is motivated by questions concerning human evolution, the fundamental mechanisms may apply to cooperation in other species facing EV, to organizational behavior under resource uncertainty, and to community responses to climate change.
-Such extensions would both test the robustness of the theoretical insights and contribute to understanding cooperation in diverse contemporary settings.
-
-Sixth, integrating the EV perspective with other factors known to influence cooperation would provide a more complete picture.
-The models presented here focus on the direct effects of EV operating through resource dynamics and migration patterns.
-Future work could examine how EV interacts with reputation systems, punishment mechanisms, communication networks, and cultural institutions.
-Such integration would move toward comprehensive models that capture the multiple interacting factors shaping the evolution of human cooperation.
-
-Finally, addressing the cognitive dimensions of cooperation under EV remains an open frontier.
-The variability selection hypothesis and the social brain hypothesis offer complementary perspectives on human cognitive evolution, and cooperation provides a potential nexus connecting environmental challenges to social complexity to cognitive demands.
-Computational models that incorporate cognitive constraints, learning dynamics, and memory limitations could help clarify how EV might have selected for the cognitive capacities underlying human ultrasociality.
-
-Despite the limitations outlined above, this dissertation establishes EV as a robust factor promoting the evolution of cooperation across structurally distinct models.
-The consistent findings across different spatial structures, interaction rules, and migration mechanisms suggest that the relationship between EV and cooperation reflects a fundamental principle rather than a model-specific artifact.
 Future research building on this foundation can refine the theoretical framework, test its predictions empirically, and extend its applications to diverse contexts where the interplay of environmental dynamics and social behavior shapes evolutionary outcomes.
