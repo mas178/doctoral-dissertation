@@ -12,6 +12,10 @@
 % Page layout
 \usepackage[top=25mm, bottom=20mm, left=20mm, right=20mm]{geometry}
 
+% Line spacing
+\usepackage{setspace}
+\setstretch{1.3}
+
 % Graphics and figures
 \usepackage{graphicx}
 \usepackage{float}
@@ -45,10 +49,6 @@
 \renewbibmacro{in:}{}
 \AtEveryBibitem{\clearlist{language}}
 
-% Line spacing
-\usepackage{setspace}
-\setstretch{1.3}
-
 % Headers and footers
 \usepackage{fancyhdr}
 \setlength{\headheight}{16pt}
@@ -65,7 +65,6 @@
 
 % Hyperlinks
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,breaklinks=true]{hyperref}
-% \usepackage[hidelinks]{hyperref}
 
 % ========================================
 % Document Information
@@ -85,20 +84,6 @@
 % ========================================
 % Cover Page
 % ========================================
-% \begin{titlepage}
-%     \centering
-%     \vspace*{5cm}
-%     {\fontsize{24}{26}\selectfont\bfseries \dissertationtitle\par}
-%     \vspace*{\fill}
-%     {\fontsize{20}{22}\selectfont \authorname\par}
-%     \vspace{1cm}
-%     {\fontsize{20}{22}\selectfont \submissiondate\par}
-%     \vspace*{3cm}
-% \end{titlepage}
-
-% ========================================
-% Inside Cover
-% ========================================
 \newpage
 \thispagestyle{empty}
 \begin{center}
@@ -116,22 +101,18 @@
 \end{center}
 \newpage
 
-% ========================================
-% Abstract
-% ========================================
 % Start roman page numbers from i.
 \pagenumbering{roman}
 \setcounter{page}{1}
 
+% ========================================
+% Abstract
+% ========================================
 \include{chapters/abstract}
 
 % ========================================
 % Table of contents
 % ========================================
-% \tableofcontents
-% \listoffigures
-% \listoftables
-
 \begingroup
 \setstretch{1.25}
 \tableofcontents
@@ -140,14 +121,14 @@
 \listoffigures
 \listoftables
 
-% ========================================
-% Contents
-% ========================================
 % Start arabic page numbers from 1.
 \clearpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
+% ========================================
+% Contents
+% ========================================
 \include{chapters/1_introduction}
 \include{chapters/2_base_model}
 \include{chapters/3_2Lvl_model}

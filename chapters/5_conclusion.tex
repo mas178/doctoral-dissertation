@@ -198,56 +198,59 @@ With the hypothesis that EV promotes cooperation, however, the same evidence mig
 \subsection*{Model simplification}
 
 The second limitation concerns the intentional simplifications made to the models.
-To isolate the fundamental mechanisms by which EV promotes cooperation, we employed several abstractions in each model component: spatial structure, population structure, EV, interaction, migration, and strategy update.
+To isolate the fundamental mechanisms through which EV promotes cooperation, we employed several abstractions in each model component: spatial structure, population structure, EV, interaction, migration, and strategy update.
 
-Regarding the spatial structure, regular topologies, specifically 1-dimensional cycle graphs and 2-dimensional lattices, were employed.
+The spatial structure was represented by regular topologies, specifically 1-dimensional cycle graphs and 2-dimensional lattices.
 These idealized structures are standard in theoretical investigations, as they facilitate the identification of universal evolutionary mechanisms independent of specific geographic idiosyncrasies.
 Potential avenues for extending this work include the adoption of more complex network architectures or the integration of spatially explicit models grounded in paleoenvironmental reconstructions of the MSA in Africa.
 
-Regarding the population structure, the models employed either non-hierarchical structures (homogeneous group- or individual-level agents) or a minimal 2-level hierarchical structure.
+The population structure was represented by non-hierarchical structures (homogeneous group- or individual-level agents) or a minimal 2-level hierarchical structure.
 Although real-world human social structures exhibit complex fractal organizations, restricting the model to simple structures represents a standard methodological approach.
 This reflects the heuristic that greater complexity diminishes interpretability and tractability while increasing arbitrariness, often obscuring essential mechanisms without significantly altering the results.
 It is not inconceivable, however, that introducing greater demographic realism, such as life history stages or a 3-tiered social architecture consisting of individuals, families, and bands, might add some nuances to the evolutionary dynamics.
+Furthermore, the current models assume a constant population size; incorporating demographic fluctuations, such as variations in birth and death rates, could significantly impact the long-term stability of cooperation.
 
 Regarding the EV, the stochastic movement of SoRs effectively captures the landscape dynamics and the consequent unpredictability of resource availability, which are characteristic of the MSA in Africa.
 While this abstraction provides a robust foundation for future research, subsequent models could incorporate greater environmental realism, for example by calibrating the dynamics to paleoclimatic proxy data from relevant MSA sites.
 
-Regarding the interaction, the models adopted a fundamental pairwise game framework restricted to binary strategies of unconditional cooperation or defection.
+In terms of interaction, the models adopted a fundamental pairwise game framework restricted to binary strategies of unconditional cooperation or defection.
 Given the active discourse within evolutionary game theory, however, numerous extensions are conceivable.
 Future research could explore multi-player games, more complex strategic repertoires such as TFT, reputation-based mechanisms, and social norms.
 Furthermore, interaction structures and relationship update rules could be refined based on empirical research and laboratory experiments.
+Additionally, the unit of interaction---whether it occurs between individuals or groups---warrants deeper investigation to determine how different levels of agency affect the results.
 
-Regarding the migration, the process was triggered by resource scarcity and migration probability, assuming zero migration costs.
+The migration process was triggered by resource scarcity and migration probability, assuming zero migration costs.
 However, human mobility decisions in the real world are influenced by social factors and other environmental factors.
 Future models could thus incorporate migration costs and more realistic migration dynamics, for example by accounting for conflict avoidance, mate-seeking, kinship obligations, and predator avoidance.
+Another critical dimension is the unit of migration; while the models treat migration as an individual decision, real-world mobility often operates at the level of collective social units rather than individual.
 
-Regarding the strategy update, the process has been extensively examined within the framework of cultural evolution.
-Within this context, learning mechanisms for strategy updating are mainly classified into social learning (SL), individual learning (IL), and their interplay.
-The models adopted payoff-biased imitation where agents copy the most successful strategies observed within their communication range.
+Finally, the strategy updating process has been extensively examined within the framework of cultural evolution.
+Within this field, learning mechanisms for strategy updating are primarily categorized into social learning (SL), individual learning (IL), and their interplay.
+The models in this dissertation adopted payoff-biased imitation where agents copy the most successful strategies observed within their communication range.
 This is a specific form of SL.
 Subsequent models could therefore broaden this scope by incorporating other SL mechanisms such as conformity bias, or integrating IL mechanisms such as reinforcement learning.
 Furthermore, the fundamental unit of agency warrants further scrutiny, specifically regarding whether adaptation could operate effectively at the level of the group or should be strictly restricted to the individual.
 
-While these simplifications were necessary to reveal general principles, future research should examine whether the identified patterns persist under more realistic conditions.
-
-% ToDo: The unit of migration, 人口増減, interaction が本当に group 単位でも起こっていたのか、individual 単位でも起こっていたのか。適応の単位はgroupで起こるのか？
+While these strategic simplifications were indispensable for isolating the fundamental mechanisms of cooperation, future research should evaluate the robustness of these findings by systematically integrating the social and environmental complexities inherent in human evolutionary history.
 
 \subsection*{Model complexity}
 
-Despite their conceptual simplicity, the models remain too complex for analytical treatment.
-The simulation-based approach, while enabling exploration of parameter spaces and identification of patterns, cannot establish rigorous stability conditions or identify critical thresholds with mathematical precision.
-Techniques from evolutionary game theory, adaptive dynamics, and statistical mechanics could potentially be brought to bear on the questions addressed here.
-Future theoretical work should develop analytically tractable models that capture the essential dynamics identified in this dissertation.
-Such models would enable formal proofs of the conditions under which EV promotes cooperation, provide general results that hold across model variants, and offer deeper insight into the mathematical structure of the underlying mechanisms.
-The analytical solution presented in Chapter 2, which aligned closely with simulation results for the relationship between regional variability and mutated role models, suggests that further analytical progress may be achievable.
+While the previous section addressed the limitations of model simplification regarding the empirical realities of the MSA, there exists a converse methodological limitation: the models employed in this dissertation are, in another sense, too complex for rigorous analytical solution.
+As a constructive approach, our multi-agent simulations allowed for the reproduction of broad qualitative patterns and the identification of a robust mechanism across different model structures.
+However, the interplay between EV, agent mobility, and dynamic interaction structures involves high-dimensional, non-linear interactions that resist straightforward mathematical formulation.
 
-Model complexity and analytical tractability The third limitation lies in the complexity of the agent-based simulations.
-Although the models are simplified representations of reality, they are still too complex for rigorous mathematical analysis.
-The reliance on numerical simulations makes it difficult to analytically derive the precise conditions under which cooperation evolves, leaving some mechanisms as qualitative descriptions rather than mathematical proofs.
-To address this, future work should complement simulation studies with analytically tractable models.
-Developing simpler mathematical frameworks, perhaps utilizing mean-field approximations or evolutionary game theory on graphs, would enable a more rigorous elucidation of the mechanisms governing the co-evolution of cooperation and EV.
+Because of this complexity, while we have provided a qualitative description of how EV disrupts defector dominance and allows network effects to retain cooperation, we have not yet formalized these dynamics into a set of closed-form analytical equations.
+Consequently, we cannot yet provide precise quantitative predictions, such as the exact mathematical threshold for the magnitude of EV or the specific migration probability required to flip a system from defection to cooperation.
+The current simulation-based approach identifies that a mechanism works, but analytical modeling is needed to define the exact logical boundaries of where and why it fails or succeeds.
 
-------------------------------------------------------------------------------------------------
+Future research should therefore aim to bridge this gap by developing ``minimalist'' analytical models.
+It may be possible to isolate the relationship between EV and the evolution of cooperation in its purest form by reducing the model complexity and utilizing standard analytical tools in evolutionary game theory, such as replicator dynamics or Markov chain analysis, and more broadly, the framework of non-equilibrium statistical mechanics.
+Such models would not replace the simulations presented here but would complement them by providing a more rigorous logical foundation.
+Combining the constructive insights from multi-agent simulations with the precision of formal mathematical analysis will ultimately lead to a more sophisticated understanding of the mechanisms that drove the evolution of modern human sociality.
+
+\begin{center}
+$\ast$ \quad $\ast$ \quad $\ast$
+\end{center}
 
 Despite these limitations, the consistent finding across three structurally distinct models—that EV promotes cooperation through the disruption of defector dominance and the selective retention of cooperative networks—suggests this relationship reflects a fundamental principle rather than a model-specific artifact.
 Future research building on this foundation can refine the theoretical framework, test its predictions empirically, and extend its applications to diverse contexts where the interplay of environmental dynamics and social behavior shapes evolutionary outcomes.
