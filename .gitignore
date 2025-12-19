@@ -6,3 +6,4 @@ build/**
 *.synctex.gz
 diff.pdf
 diff.tex
+.vscode/
