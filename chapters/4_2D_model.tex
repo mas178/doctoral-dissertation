@@ -23,7 +23,7 @@ Through extensive simulations, we examine whether and how these factors jointly 
 In this chapter, we developed a multiagent simulation model to examine how agent mobility and environmental variability jointly influence the evolution of cooperation in spatially structured populations.
 Due to the limited availability of archaeological data on spatial resource distributions and hominin behavioral patterns during the MSA, we adopted an abstracted approach that prioritizes the identification of fundamental mechanisms over reproducing specific historical scenarios.
 This model incorporates four key processes, i.e.,
-(i) environmental variability on a 2D lattice, 
+(i) environmental variability on a 2D lattice,
 (ii) pairwise game interactions,
 (iii) conditional agent migration driven by resource availability, and
 (iv) strategy updating.
@@ -38,7 +38,7 @@ We define a Source of Resources (SoR) as a focal point that generates spatial re
 Each SoR creates a gradient where resource availability typically decreases with increasing distance from the SoR.
 In addition, multiple SoRs may coexist, thereby forming overlapping zones of resource abundance.
 
-In this model, each agent accumulates resources (represented by the agent’s fitness value) through interactions, and local prosperity is defined by a resource threshold $\theta_{x,y}$ for each cell $(x, y)$, where $0 \leq \theta_{x,y} \leq 1$.
+In this model, each agent accumulates resources (represented by the agent's fitness value) through interactions, and local prosperity is defined by a resource threshold $\theta_{x,y}$ for each cell $(x, y)$, where $0 \leq \theta_{x,y} \leq 1$.
 Agents with fitness values that are less than the threshold $\theta_{x,y}$ are more likely to migrate and update their strategies, and agents with fitness values greater than the threshold remain unchanged.
 Therefore, locations with lower thresholds impose less pressure for behavioral change, indicating that these locations are prosperous and rich in resources.
 Here, the threshold $\theta_{x,y}$ is determined by the cumulative influence of all SoRs and is calculated as follows:
@@ -158,7 +158,7 @@ $\mu$ & Mutation probability in strategy update & $\{0, 0.01\}$ \\
 \subsection*{Influence of environmental variability and agent mobility}\label{sec:4_key_results}
 
 Figure~\ref{fig:4_key_result} shows the combined effects of environmental variability ($p_{EV}$) and agent mobility ($p_M$) on the cooperation rate $\phi_C$.
-As can be seen, in stable environments ($p_{EV} = 0$) or with low agent mobility ($p_M \lesssim 0.2$), cooperation fails to evolve. 
+As can be seen, in stable environments ($p_{EV} = 0$) or with low agent mobility ($p_M \lesssim 0.2$), cooperation fails to evolve.
 In contrast, with sufficient agent mobility ($p_M \gtrsim 0.2$), even modest environmental variability ($p_{EV} = 0.1$) promotes cooperation; however, further variability ($p_{EV} > 0.1$) does not enhance cooperation.
 In addition, agent mobility promotes cooperation with any level of environmental variability ($p_{EV} > 0$).
 
@@ -198,7 +198,7 @@ Parameter settings: $N = 1000$, $\phi_C^0 = 0.0$, 2-SoR, $T = 1.2$, $S = -0.2$, 
 The observed dynamics can be understood as a three-stage process:
 (i) the formation of a few large defector groups fixed in resource-rich areas,
 (ii) their collapse induced by environmental variability, and
-(iii) subsequent emergence of several small cooperator groups. 
+(iii) subsequent emergence of several small cooperator groups.
 Figures~\ref{fig:4_temporal_01_10}b--f show snapshots from the simulation presented in Figure~\ref{fig:4_temporal_01_10}a.
 A full video showing this process is provided in the \nameref{appendix}.
 In the first stable phase as shown in Figure~\ref{fig:4_temporal_01_10}b, the agents in prosperous areas have no need to cooperate or move, whereas those in less prosperous areas must cooperate or move to prosperous areas.

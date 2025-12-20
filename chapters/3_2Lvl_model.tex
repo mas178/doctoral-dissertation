@@ -106,7 +106,7 @@ P(j|i) = \frac{w_{i,j}}{\sum_{k \neq i} w_{i,k}} .
 \end{equation}
 
 Each selected pair then engages in a pairwise PGG.
-Here, we employ a pairwise PGG rather than traditional pairwise games such as the Prisoner’s Dilemma Game and the Stag Hunt Game in order to incorporate both the resource value of each agent and the relationships into the game.
+Here, we employ a pairwise PGG rather than traditional pairwise games such as the Prisoner's Dilemma Game and the Stag Hunt Game in order to incorporate both the resource value of each agent and the relationships into the game.
 In the game between agent $i$ and $j$, both contribute their respective amounts $c_i$ and $c_j$; the total contribution is multiplied by a constant factor $b$, and the amplified resources are then shared equally between them.
 Specifically, $c_i$ is defined as
 \begin{equation}
@@ -129,14 +129,14 @@ D & \frac{c_i b}{2}, \frac{c_j b}{2} - c_j & 0, 0 .
 
 Finally, the edge weights of the interaction structure are updated to reflect the outcomes of the pairwise games.
 Because agents benefit from being connected to $C$ but not to $D$, the direction of change depends on the combination of strategies.
-When $C$–$C$, each has an incentive to strengthen the tie, and the relationship becomes stronger.
-When $C$–$D$ or $D$–$C$, one side tends to strengthen while the other tends to weaken the tie; these opposing tendencies cancel out, and the relationship remains unchanged.
-When $D$–$D$, each has an incentive to weaken the tie, and the relationship becomes weaker.
+When $C$--$C$, each has an incentive to strengthen the tie, and the relationship becomes stronger.
+When $C$--$D$ or $D$--$C$, one side tends to strengthen while the other tends to weaken the tie; these opposing tendencies cancel out, and the relationship remains unchanged.
+When $D$--$D$, each has an incentive to weaken the tie, and the relationship becomes weaker.
 Formally, the update of the edge weights is given by
 \begin{equation}
 w_{i,j}' = w_{i,j} + (T - w_{i,j}) \Delta w ,
 \end{equation}
-where $\Delta w$ ($0 \leq \Delta w \leq 1$) denotes the update rate, and the target value $T$ is set to $1$ if $C$–$C$, $w_{i,j}$ if $C$–$D$ or $D$–$C$, and $0$ if $D$–$D$.
+where $\Delta w$ ($0 \leq \Delta w \leq 1$) denotes the update rate, and the target value $T$ is set to $1$ if $C$--$C$, $w_{i,j}$ if $C$--$D$ or $D$--$C$, and $0$ if $D$--$D$.
 
 \subsection*{Migration}\label{sec:migration}
 
@@ -170,7 +170,7 @@ After the update, all edges of the updated agent are reset to the baseline weigh
 \subsection*{Evaluation}\label{sec:evaluation}
 
 To examine how EV and migration influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:3_params}.
-For each setting, $100$ independent runs of $10000$ generations are carried out. 
+For each setting, $100$ independent runs of $10000$ generations are carried out.
 As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and individuals, respectively, employing strategy $C$ during the last $5000$ generations and averaged over all runs.
 
 \begin{table}[!ht]
