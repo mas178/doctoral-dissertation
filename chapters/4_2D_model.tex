@@ -20,10 +20,10 @@ Through extensive simulations, we examine whether and how these factors jointly 
 
 \section{Model}\label{sec:4_model}
 
-In this chapter, we developed a multiagent simulation model to examine how agent mobility and environmental variability jointly influence the evolution of cooperation in spatially structured populations.
+In this chapter, we developed a multiagent simulation model to examine how agent mobility and EV jointly influence the evolution of cooperation in spatially structured populations.
 Due to the limited availability of archaeological data on spatial resource distributions and hominin behavioral patterns during the MSA, we adopted an abstracted approach that prioritizes the identification of fundamental mechanisms over reproducing specific historical scenarios.
 This model incorporates four key processes, i.e.,
-(i) environmental variability on a 2D lattice,
+(i) EV on a 2D lattice,
 (ii) pairwise game interactions,
 (iii) conditional agent migration driven by resource availability, and
 (iv) strategy updating.
@@ -63,9 +63,9 @@ The colors indicate the resource threshold $\theta_{x,y}$.
 }\label{fig:ev}
 \end{figure}
 
-Environmental variability is modeled through the stochastic movement of SoRs, reflecting the unpredictable nature of the landscape dynamics observed during the MSA in Africa.
+EV is modeled through the stochastic movement of SoRs, reflecting the unpredictable nature of the landscape dynamics observed during the MSA in Africa.
 Each SoR moves to a randomly selected adjacent cell within the Moore neighborhood with a probability $p_{EV} \, (0 \leq p_{EV} \leq 1)$ at each time step, and the direction is selected uniformly at random from the eight neighboring cells.
-In this process, the parameter $p_{EV}$ governs the intensity of the environmental variability, where $p_{EV} = 0$ corresponds to a static environment, and higher $p_{EV}$ values represent more intense environmental variability.
+In this process, the parameter $p_{EV}$ governs the intensity of the EV, where $p_{EV} = 0$ corresponds to a static environment, and higher $p_{EV}$ values represent more intense EV.
 
 Throughout this chapter, the neighborhood is defined as the Moore neighborhood (i.e., eight neighboring cells).
 This choice better approximates the continuous spatial movement of SoRs and mobile agents than the von Neumann neighborhood (i.e., four orthogonal cells), where movement is restricted to only cardinal directions.
@@ -118,7 +118,7 @@ This sparsity reduces the interdependence between neighboring strategy updates, 
 
 \subsection*{Evaluation}
 
-To investigate the effects of environmental variability and agent mobility on the evolution of cooperation, simulations are performed under a range of parameter configurations, as shown in Table~\ref{tab:4_params}.
+To investigate the effects of EV and agent mobility on the evolution of cooperation, simulations are performed under a range of parameter configurations, as shown in Table~\ref{tab:4_params}.
 
 Each configuration is evaluated through $100$ independent trials of $10000$ generations each.
 As the primary outcome measure, we compute the cooperation rate $\phi_C$, which is defined as the average proportion of agents employing the $C$ strategy during the final $5000$ generations averaged over all trials.
@@ -157,16 +157,16 @@ $\mu$ & Mutation probability in strategy update & $\{0, 0.01\}$ \\
 
 \subsection*{Influence of environmental variability and agent mobility}\label{sec:4_key_results}
 
-Figure~\ref{fig:4_key_result} shows the combined effects of environmental variability ($p_{EV}$) and agent mobility ($p_M$) on the cooperation rate $\phi_C$.
+Figure~\ref{fig:4_key_result} shows the combined effects of EV ($p_{EV}$) and agent mobility ($p_M$) on the cooperation rate $\phi_C$.
 As can be seen, in stable environments ($p_{EV} = 0$) or with low agent mobility ($p_M \lesssim 0.2$), cooperation fails to evolve.
-In contrast, with sufficient agent mobility ($p_M \gtrsim 0.2$), even modest environmental variability ($p_{EV} = 0.1$) promotes cooperation; however, further variability ($p_{EV} > 0.1$) does not enhance cooperation.
-In addition, agent mobility promotes cooperation with any level of environmental variability ($p_{EV} > 0$).
+In contrast, with sufficient agent mobility ($p_M \gtrsim 0.2$), even modest EV ($p_{EV} = 0.1$) promotes cooperation; however, further variability ($p_{EV} > 0.1$) does not enhance cooperation.
+In addition, agent mobility promotes cooperation with any level of EV ($p_{EV} > 0$).
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.7\linewidth]{figures/4/Fig2.png}
 \caption[Influence of environmental variability ($p_{EV}$) and agent mobility ($p_M$) on the cooperation rate ($\phi_C$)]{
-Influence of environmental variability ($p_{EV}$) and agent mobility ($p_M$) on the cooperation rate ($\phi_C$).
+Influence of EV ($p_{EV}$) and agent mobility ($p_M$) on the cooperation rate ($\phi_C$).
 The figure shows that cooperation emerges only when both $p_{EV} \gtrsim 0.1$ and $p_M \gtrsim 0.2$, with neither factor alone being sufficient to promote cooperation.
 Each cell shows the mean value over 100 independent runs.
 The results are shown for a representative parameter set ($N = 1000$, $\phi_C^0 = 0.0$, 2-SoR, $T = 1.2$, $S = -0.2$, $p_{SoR} = 0.1$, $\mu = 0.01$).
@@ -175,18 +175,18 @@ The standard deviations across runs are less than $0.15$ for all cells.
 }\label{fig:4_key_result}
 \end{figure}
 
-Figure~\ref{fig:4_temporal_01_10} shows the role of environmental variability in the evolution of cooperation.
+Figure~\ref{fig:4_temporal_01_10} shows the role of EV in the evolution of cooperation.
 This representative simulation is presented to understand the temporal dynamics underlying the statistical patterns displayed in Figure~\ref{fig:4_key_result}.
 Whereas Figure~\ref{fig:4_key_result} considers fixed variability levels throughout the simulation, here we apply a cyclic $p_{EV}$ alternating between stable and variable conditions every $2000$ generations over a total of $10000$ generations.
 Under these cyclic conditions, cooperation initially increases to slightly less than $50\%$ during the first stable phase and then plateaus, as shown in Figure~\ref{fig:4_temporal_01_10}a.
-A pronounced increase is observed once the system enters the variable phase, which reinforces the conclusion that environmental variability plays a pivotal role in promoting cooperation.
+A pronounced increase is observed once the system enters the variable phase, which reinforces the conclusion that EV plays a pivotal role in promoting cooperation.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.0\linewidth]{figures/4/Fig3.png}
 \caption[Temporal dynamics under cyclic environmental variability]{
-Temporal dynamics under cyclic environmental variability.
-The figure demonstrates that environmental variability drives cooperation by disrupting stable defector groups in resource-rich areas and facilitating the formation of multiple small cooperator groups.
+Temporal dynamics under cyclic EV.
+The figure demonstrates that EV drives cooperation by disrupting stable defector groups in resource-rich areas and facilitating the formation of multiple small cooperator groups.
 (a) Cooperation rate over $10000$ generations with $p_{EV}$ alternating between stable ($p_{EV} = 0$) and variable ($p_{EV} = 0.1$) phases every $2000$ generations.
 (b)--(f) Spatial snapshots at each generation.
 Blue and red dots represent cooperators and defectors, respectively.
@@ -197,7 +197,7 @@ Parameter settings: $N = 1000$, $\phi_C^0 = 0.0$, 2-SoR, $T = 1.2$, $S = -0.2$, 
 
 The observed dynamics can be understood as a three-stage process:
 (i) the formation of a few large defector groups fixed in resource-rich areas,
-(ii) their collapse induced by environmental variability, and
+(ii) their collapse induced by EV, and
 (iii) subsequent emergence of several small cooperator groups.
 Figures~\ref{fig:4_temporal_01_10}b--f show snapshots from the simulation presented in Figure~\ref{fig:4_temporal_01_10}a.
 A full video showing this process is provided in the \nameref{appendix}.
@@ -207,16 +207,16 @@ During the next variable phase as shown in Figures~\ref{fig:4_temporal_01_10}c--
 In place of the defector group, the agents form several small cooperator groups to survive even in severe environmental conditions (Figure~\ref{fig:4_temporal_01_10}d).
 Then, the same process occurs in the areas at both ends of the figure (Figures~\ref{fig:4_temporal_01_10}e and f).
 
-In contrast, cooperation cannot evolve if the agent mobility is insufficient relative to the intensity of the environmental variability (refer to the lower area of Figure~\ref{fig:4_key_result}),
+In contrast, cooperation cannot evolve if the agent mobility is insufficient relative to the intensity of the EV (refer to the lower area of Figure~\ref{fig:4_key_result}),
 which occurs because excessively rapid SoR movement prevents the formation of both defector structures and small cooperator groups, as shown in Figure~\ref{fig:4_temporal_01_01}.
-Thus, environmental variability and sufficient agent mobility promote cooperation by preventing fixed defector structures and encouraging the agents to form cooperator groups for survival.
+Thus, EV and sufficient agent mobility promote cooperation by preventing fixed defector structures and encouraging the agents to form cooperator groups for survival.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.0\linewidth]{figures/4/Fig4.png}
 \caption[Temporal dynamics under cyclic environmental variability with low agent mobility]{
-Temporal dynamics under cyclic environmental variability with low agent mobility.
-In contrast to Figure~\ref{fig:4_temporal_01_10} ($p_M = 1.0$), here lower mobility ($p_M = 0.1$) prevents agents from keeping up with the environmental variability.
+Temporal dynamics under cyclic EV with low agent mobility.
+In contrast to Figure~\ref{fig:4_temporal_01_10} ($p_M = 1.0$), here lower mobility ($p_M = 0.1$) prevents agents from keeping up with the EV.
 As a result, cooperation fails to evolve.
 All other parameters and the interpretation of the visual elements are the same as in Figure~\ref{fig:4_temporal_01_10}.
 }\label{fig:4_temporal_01_01}
@@ -231,15 +231,15 @@ To gain further insights into the findings presented above and assess their robu
 Larger population size promotes cooperation to some extent, as shown in Figure~\ref{fig:4_population}, because the cooperators can more easily find other cooperators when the population size is sufficiently large.
 
 Another notable observation is that the cooperation rates for $(p_{EV}, p_M) = (0.0, 0.1)$ (red dashed line) and $(0.1, 0.1)$ (blue dashed line) exhibit a crossover at approximately $N = 2000$.
-For small populations ($N < 2000$) with low agent mobility, cooperation evolves more readily without environmental variability.
+For small populations ($N < 2000$) with low agent mobility, cooperation evolves more readily without EV.
 In stable environments ($(p_{EV}, p_M) = (0.0, 0.1)$), both the defector and cooperator groups persist once established, although the formation of these groups is slow due to the low agent mobility.
-In contrast, environmental variability with low agent mobility ($(p_{EV}, p_M) = (0.1, 0.1)$) creates perpetual fluidity that prevents the formation of both structures.
+In contrast, EV with low agent mobility ($(p_{EV}, p_M) = (0.1, 0.1)$) creates perpetual fluidity that prevents the formation of both structures.
 
 Larger populations alter this relationship.
-Larger populations increase the encounter rate among cooperators, which allows for the formation of cooperator groups even under environmental variability.
+Larger populations increase the encounter rate among cooperators, which allows for the formation of cooperator groups even under EV.
 In stable environments, the structures remain fixed, thereby limiting the impact of the higher encounter rate.
 In contrast, the higher encounter rate in fluid environments facilitates group formation.
-Thus, environmental variability becomes advantageous for cooperation above the critical population size.
+Thus, EV becomes advantageous for cooperation above the critical population size.
 
 A less prominent but similar crossover occurs at approximately $N = 8000$ between $(p_{EV}, p_M) = (0.0, 0.1)$ (red dashed line) and $(p_{EV}, p_M) = (0.0, 1.0)$ (red solid line).
 This crossover reflects the spatial constraints of the defector groups in stable environments ($p_{EV} = 0$).
@@ -261,7 +261,7 @@ Consequently, the effect of mobility on the cooperation rate ($\phi_C$) reverses
 \caption[Influence of population size ($N$) on cooperation rate ($\phi_C$)]{
 Influence of population size ($N$) on cooperation rate ($\phi_C$).
 The figure shows two crossovers: at $N \approx 2000$ between $(p_{EV}, p_M) = (0.0, 0.1)$ (red dashed) and $(0.1, 0.1)$ (blue dashed), and at $N \approx 8000$ between $(0.0, 0.1)$ (red dashed) and $(0.0, 1.0)$ (red solid).
-These crossovers reflect how population size alters the relative benefits of environmental variability and mobility through changes in cooperator encounter rates and spatial resource distribution.
+These crossovers reflect how population size alters the relative benefits of EV and mobility through changes in cooperator encounter rates and spatial resource distribution.
 Parameter settings: $\phi_C^0 = 0.0$, 2-SoR, $T = 1.2$, $S = -0.2$, $p_{SoR} = 0.1$, $\mu = 0.01$.
 The results for $N = 32000$ are omitted because they exhibited negligible differences from $N = 16000$.
 }\label{fig:4_population}
@@ -285,7 +285,7 @@ Essentially, the formation of large defector groups in stable environments is th
 \centering
 \includegraphics[width=1.0\linewidth]{figures/4/Fig6.png}
 \caption[Temporal dynamics under cyclic environmental variability in the 1-SoR configuration]{
-Temporal dynamics under cyclic environmental variability in the 1-SoR configuration.
+Temporal dynamics under cyclic EV in the 1-SoR configuration.
 The figure shows that the 1-SoR configuration forms only a small circular resource-rich area, resulting in a less pronounced impact of defector group collapse on overall cooperation levels compared to Figure~\ref{fig:4_temporal_01_10} (2-SoR).
 All other parameters and the interpretation of the visual elements are the same as in Figure~\ref{fig:4_temporal_01_10}.
 }\label{fig:4_1sor}
@@ -327,11 +327,12 @@ For completeness, the corresponding results are provided in the \nameref{appendi
 
 \section{Summary}\label{sec:4_summary}
 
-In this chapter, we examined the joint effects of environmental variability and agent mobility on the evolution of cooperation to understand the causal dynamics of these factors in spatially structured populations.
-The model incorporates unpredictable environmental variability by implementing SoRs that move randomly across a 2D space, generating dynamic spatial heterogeneity in resource availability.
-Agents accumulate resources through cooperative or competitive interactions, and the agents with lower resource levels are more likely to migrate to neighboring cells and update their strategies. With this model, we identified three key findings.
-First, with sufficient agent mobility, even modest environmental variability promotes cooperation; however, further variability does not enhance cooperation.
-Second, with any level of environmental variability, agent mobility promotes cooperation.
-Third, these effects occur because environmental variability disrupts a few large stable defector groups that form in resource-rich areas, and agent mobility effectively enables the formation of numerous small cooperator groups at those sites.
+In this chapter, we examined the joint effects of EV and agent mobility on the evolution of cooperation to understand the causal dynamics of these factors in spatially structured populations.
+The model incorporates unpredictable EV by implementing SoRs that move randomly across a 2D space, generating dynamic spatial heterogeneity in resource availability.
+Agents accumulate resources through cooperative or competitive interactions, and the agents with lower resource levels are more likely to migrate to neighboring cells and update their strategies.
+With this model, we identified three key findings.
+First, with sufficient agent mobility, even modest EV promotes cooperation; however, further variability does not enhance cooperation.
+Second, with any level of EV, agent mobility promotes cooperation.
+Third, these effects occur because EV disrupts a few large stable defector groups that form in resource-rich areas, and agent mobility effectively enables the formation of numerous small cooperator groups at those sites.
 
-The next chapter, Chapter~\ref{ch:5_conclusion}, synthesizes and compares the findings from all three models to identify common mechanisms and discuss the broader implications for understanding the evolution of cooperation under environmental variability.
+The next chapter, Chapter~\ref{ch:5_conclusion}, synthesizes and compares the findings from all three models to identify common mechanisms and discuss the broader implications for understanding the evolution of cooperation under EV.
