@@ -57,7 +57,9 @@ The migration results in uneven spatial distributions of individuals over time, 
 The interaction structures constrain the selection of opponents for cooperative or competitive interactions at two levels, i.e., the group level and the individual level.
 There is a single group-level interaction structure in the model, while each group has its own individual-level interaction structure and no interactions occur between individuals belonging to different groups.
 An interaction structure is represented by a weighted, undirected, complete graph whose edge weights are dynamic while its topology remains fixed.
+Importantly, the geographical structure and the interaction structures are completely independent; the geographical distance between nodes does not influence the probability of their interaction or the weights of their relationships.
 The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$) denotes the strength of the relationship between nodes $i$ and $j$, where a node represents either a group or an individual, and is proportional to the probability of interaction between them.
+In a social context, this weight represents the level of mutual trust accumulated through repeated interactions.
 
 Given these structural foundations, the simulation proceeds in four stages: EV, game, migration, and strategy update.
 Game and strategy updates occur at both the group and individual levels, in that order.
@@ -107,6 +109,7 @@ P(j|i) = \frac{w_{i,j}}{\sum_{k \neq i} w_{i,k}} .
 
 Each selected pair then engages in a pairwise PGG.
 Here, we employ a pairwise PGG rather than traditional pairwise games such as the Prisoner's Dilemma Game and the Stag Hunt Game in order to incorporate both the resource value of each agent and the relationships into the game.
+This setup reflects collective activities in MSA societies at two distinct scales: individual-level games correspond to localized cooperation such as large-game hunting or commons maintenance, whereas group-level games represent broader inter-communal interactions like long-distance trade.
 In the game between agent $i$ and $j$, both contribute their respective amounts $c_i$ and $c_j$; the total contribution is multiplied by a constant factor $b$, and the amplified resources are then shared equally between them.
 Specifically, $c_i$ is defined as
 \begin{equation}
@@ -128,7 +131,7 @@ D & \frac{c_i b}{2}, \frac{c_j b}{2} - c_j & 0, 0 .
 \end{equation}
 
 Finally, the edge weights of the interaction structure are updated to reflect the outcomes of the pairwise games.
-Because agents benefit from being connected to $C$ but not to $D$, the direction of change depends on the combination of strategies.
+Because agents benefit from being connected to $C$ but not to $D$, the direction of change depends on the combination of strategies  \cite{Liu2020, Xiong2024}.
 When $C$--$C$, each has an incentive to strengthen the tie, and the relationship becomes stronger.
 When $C$--$D$ or $D$--$C$, one side tends to strengthen while the other tends to weaken the tie; these opposing tendencies cancel out, and the relationship remains unchanged.
 When $D$--$D$, each has an incentive to weaken the tie, and the relationship becomes weaker.
@@ -166,12 +169,15 @@ Q(j|i) = \frac{r_j}{\sum_{\substack{k \neq i \\ r_k > \theta}} r_k}
 where $\theta$ denotes the relevant threshold, i.e., $\theta_R$ at the group level and $\theta_F$ at the individual level.
 The adopted strategy is then subject to mutation with probability $\mu$, resulting in a stochastic switch between $C$ and $D$.
 After the update, all edges of the updated agent are reset to the baseline weight $w_0$.
+This process models success-biased cultural transmission, where agents improve survival by imitating the norms of more prosperous agents (e.g., successful hunters, thriving neighboring regions) and resetting their social ties.
 
 \subsection*{Evaluation}\label{sec:evaluation}
 
 To examine how EV and migration influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:3_params}.
 For each setting, $100$ independent runs of $10000$ generations are carried out.
-As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and individuals, respectively, employing strategy $C$ during the last $5000$ generations and averaged over all runs.
+As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and individuals, respectively, employing strategy $C$.
+Specifically, $\phi_R^C$ is the mean of the proportions of the $N_R$ groups employing strategy $C$ at the end of each generation (following the strategy update stage), averaged over the last $5000$ generations and $100$ independent runs.
+$\phi_F^C$ is calculated in the same manner, using the proportions of the $N_F$ individuals employing strategy $C$.
 
 \begin{table}[!ht]
 \centering

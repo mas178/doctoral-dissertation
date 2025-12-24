@@ -4,7 +4,7 @@ This repository is used for managing my doctoral dissertation project.
 
 ## Citation
 
-Inaba, M. (2026). *Evolution of Cooperation under Environmental Variability* [Doctoral dissertation, University of Tsukuba]. https://doi.org/10.15068/(to_be_assigned)
+Inaba, M. (2026). *Evolution of Cooperation under Environmental Variability* [Doctoral dissertation, University of Tsukuba]. (DOI will be assigned)
 
 ## File Structure
 
@@ -12,6 +12,8 @@ Inaba, M. (2026). *Evolution of Cooperation under Environmental Variability* [Do
 doctoral-dissertation/
 ├── main.tex            # Main LaTeX document
 ├── main.pdf            # LaTeX-generated PDF output
+├── summary.tex         # Summary LaTeX document (Japanese)
+├── summary.pdf         # Summary PDF output
 ├── dissertation.pdf    # Compressed PDF for submission
 ├── chapters/           # Chapter and ancillary files
 │   ├── 1_introduction.tex
@@ -19,9 +21,9 @@ doctoral-dissertation/
 │   ├── 3_2Lvl_model.tex
 │   ├── 4_2D_model.tex
 │   ├── 5_conclusion.tex
-│   ├── abstract.tex
 │   ├── appendix.tex
-│   └── acknowledgments.tex
+│   ├── acknowledgments.tex
+│   └── summary.tex     # Summary content (included by summary.tex)
 ├── figures/            # Figure files organized by chapter
 │   ├── 2/
 │   ├── 3/
@@ -43,9 +45,11 @@ cd doctoral-dissertation
 
 # Clean build files
 latexmk -C main.tex
+latexmk -C summary.tex
 
 # Compile
 latexmk -pdf main.tex
+latexmk -xelatex summary.tex
 
 # Compress
 ./util/compress_pdf.sh

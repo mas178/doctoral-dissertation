@@ -1,0 +1,220 @@
+% !TEX program = xelatex
+\documentclass[12pt,a4paper,oneside]{report}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{Hiragino Mincho Pro}[BoldFont=Hiragino Mincho Pro W6]
+\usepackage[top=25mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage{setspace}
+\setstretch{1.3}
+\usepackage{amsmath} % 数式記号用
+\usepackage{xcolor} % 色指定用
+
+% ========================================
+% Document Information (ご提示の定義を使用)
+% ========================================
+\newcommand{\dissertationtitle}{Evolution of Cooperation under Environmental Variability}
+\newcommand{\dissertationtitleja}{環境変動下における協力の進化}
+\newcommand{\authorname}{稲葉 理晃}
+\newcommand{\submissiondate}{2026/01/06}
+
+% ========================================
+% Document Body
+% ========================================
+\begin{document}
+
+\begin{center}
+    {\fontsize{16}{18}\selectfont\bfseries 予備審査における講評・コメントへの対応 \par}
+\end{center}
+
+\begin{center}
+    {\fontsize{16}{18}\selectfont\dissertationtitle \par}
+    {\fontsize{14}{16}\selectfont\dissertationtitleja \par}
+\end{center}
+
+\begin{flushright}
+    \submissiondate \authorname \par
+\end{flushright}
+
+\vspace{10mm}
+
+\noindent 2025年11月7日に行われた予備審査における講評・コメントに対して以下の通り対応しました。
+
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+
+\section*{講評者 1}
+
+\subsection*{コメント 1-1}
+
+シミュレーション結果から一般的な知見を主張する場合には、その仕組みを説明することが重要と思います。2章のスライドp.12の説明は明確でよいと思います。3章 (スライドp.23) の調査中の部分についても説得力を強化する分析を期待します。
+
+\subsubsection*{\textcolor{red}{コメント 1-1 への対応}}
+
+\subsection*{コメント 1-2}
+
+4章は、2章で強調したネットワーク効果が発生しない (相互リンクの強化という要素のない) 環境と思います。ただ、移動が疑似的なネットワーク効果 (良い相手に隣接して関係を作る・嫌な相手に隣接していたら移動して関係を切る) を生んでいるようにも見えま
+す。2章の分析と関連させ、環境変動とネットワーク形成の2要素が重要という一貫した主張としてもよいと思います。
+
+\subsubsection*{\textcolor{red}{コメント 1-2 への対応}}
+
+\subsection*{コメント 1-3}
+
+環境変動は、その時のエージェントの行動を変えるという意味では突然変異の役割と似ているようにも思います。突然変異にはなく、環境変動に存在する要素で協力行動の形成に重要と思われる要素は論文で議論するとよいと思います。 (行動を変動させる突然変異は既存研究でよく使われていると思いますので、環境変動を考える新規性を際立たせておくのがよいと思います)
+
+\subsubsection*{\textcolor{red}{コメント 1-3 への対応}}
+
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+
+\section*{講評者 2}
+
+\subsection*{コメント 2-1}
+
+The base model (スライド＃８) でSoR③が仮に左に移動すると② (0.8) はどこに移動するのか、図を見てよくわからなかったので、最終発表でもっと説明があるとよい。
+
+\subsubsection*{\textcolor{red}{コメント 2-1 への対応}}
+
+\subsection*{コメント 2-2}
+
+シミュレーションで用いた「公共財ゲーム (PGG)」はなぜなのかの背景を少し説明するとよい。他のゲームを用いる場合は結果が変わるのか？
+
+\subsubsection*{\textcolor{red}{コメント 2-2 への対応}}
+
+\subsection*{コメント 2-3}
+
+平均協力率の計算をする際に１万世代の後半の５千世代のものを使って計算しているが、その根拠を議論するとよい。また、別の区間を用いた場合、結論が変わるかを少し議論するとよい。
+
+\subsubsection*{\textcolor{red}{コメント 2-3 への対応}}
+
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+
+\section*{講評者 3}
+
+\subsection*{コメント 3-1}
+
+Chapter3のモデルは構造としてはマルチレベルセレクションと近いものがあります。本モデルの特徴と学術的な位置づけを明確にするためにも、一般的なマルチレベルセレクションとの共通点と違いを整理することが有用と思います。
+
+\subsubsection*{\textcolor{red}{コメント 3-1 への対応}}
+
+\subsection*{コメント 3-2}
+
+Chapter4の知見ですが、空間囚人のジレンマの研究では「移動がないこと」が協力のコロニーの生成を可能にするという知見が提出されており、一見すると本モデルとは異なる結果となっています。
+既存研究との違いがどのようなメカニズムによって生じるのかを議論することで本研究が適切に既存研究群の上に位置づけられると思います。
+Cohen, M. D., Riolo, R. L., \& Axelrod, R. (2001). the Role of Social Structure in
+the Maintenance of Cooperative Regimes. Rationality And Society, 13(1), 5-32.
+https://doi.org/10.1177/104346301013001001
+
+\subsubsection*{\textcolor{red}{コメント 3-2 への対応}}
+
+\subsection*{コメント 3-3}
+
+また、Chapter3ではレギュラーネットワーク上にグループがあり、その中にエージェントが複数存在するという階層モデルを採用しています。Chapter4では、移動のモデルを扱う際により一般的なモデルとして2次元トーラスに拡張しています。直観的には、2次元トーラス上にグループが存在し、その中に複数のエージェントが存在するという設定のほうが自然な拡張に思われます。エージェントのみを考える非階層構造を採用した動機と妥当性を論文中に明記することで、拡張が妥当かつ自然なものであることを明確にできると思います。
+
+\subsubsection*{\textcolor{red}{コメント 3-3 への対応}}
+
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+
+\section*{講評者 4}
+
+\subsection*{コメント 4-1}
+
+Base modelにおいて円環で表された地理的構造は、実際には必須ではないと思うので、一般性を失うように見えるのは損ではないかと思った。
+
+\subsubsection*{\textcolor{red}{コメント 4-1 への対応}}
+
+\subsection*{コメント 4-2}
+
+10,000世代のシミュレーションを行うことの適否については、文献の中でよく採用される基準であるのかもしれないが、なぜこれを採用するのかを一言説明してもらえるとありがたかった。
+
+\subsubsection*{\textcolor{red}{コメント 4-2 への対応}}
+
+\subsection*{コメント 4-3}
+
+スライド35に書いているようなモチベーションについては、もっと前のページでより詳しく記述する努力をしてもらえるとより良いと思います。難しいことだとは思いますが、モチベーティング・イグザンプル (中期旧石器時代の"環境"と呼んでいるもの) とモデルの間の関連がよりクリアとなるよう努力をしてもらえたらより良くなると思います。
+
+\subsubsection*{\textcolor{red}{コメント 4-3 への対応}}
+
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+
+\section*{講評者 5}
+
+\subsection*{コメント 5-1}
+
+○ EV と 協力 の定義
+本論文の二つのキーワード、「EV」と「協力」の定義、及び、変数 ($p_{EV}$など)の
+意味が、章ごとに異なるので、章が切り替わる時に読み手が混乱する可能性がある。
+環境変動 (EV)の定義が、
+・第2章:「RV (資源源の移動範囲 $\sigma_R$)」と「UV (閾値の変動 $\sigma_{\theta}$)」
+の2種類 (p. 8-9)。
+・第3章:「SoRが1ステップ移動する確率 $p_{EV}$」 (p. 21)。
+・第4章:「SoRが隣接セルに移動する確率 $p_{EV}$」 (p. 32)。
+つまり、第2章の $\sigma_R$ は変動の大きさで、第3・4章の $p_{EV}$ は変動(移動)の
+頻度となっている。
+また、協力 (Cooperation)の定義は:
+・第2章: 「グループ (エージェント)」の戦略 (p. 7)。
+・第3章: 「グループ」の戦略 かつ 「エージェント」の戦略 (p. 22)。
+・第4章: 「エージェント」の戦略 (p. 33)。
+となっている。
+例えば、第1章の最後に、本論文で用いる主要概念 (EV, 協力, 移動, 戦略更新)が、各
+章でどのように異なる形で操作的定義されているかを比較表等であらかじめ一覧化すると
+良いと思う。
+
+\subsubsection*{\textcolor{red}{コメント 5-1 への対応}}
+
+\subsection*{コメント 5-2}
+
+○ 第3章のDiscussion/SummaryのSection
+第3章のDiscussion/SummaryのSectionはこれから追加されると思うが、第2章から拡張さ
+れた点と新規の知見、つまり、個体レベルの移動を導入したことで協力進化に何が変化し
+たのか、第2章の結果と対比させながら議論し、それが序章の研究質問にどう答えるかを示
+すと良いと思う。
+
+\subsubsection*{\textcolor{red}{コメント 5-2 への対応}}
+
+\subsection*{コメント 5-3}
+
+○ 第3章のグループ間での協力進化について
+第3章のモデルでは、グループ間のゲームとエージェント間のゲームは独立している。従って、第2章のモデルで (1) UVをなくす (2) RVの範囲を1にすると設定をして、さらに、第3章のグループ間ネットワークと第2章のエージェント間ネットワークを揃えると同等のモデルになると思う。このときに、第2章のエージェントと第3章のグループの協力率がほぼ同等になることを確認できると、第2，3章のモデルのつながりが確認できて良いと思う。
+
+\subsubsection*{\textcolor{red}{コメント 5-3 への対応}}
+
+\subsection*{コメント 5-4}
+
+○ タイポなど
+以下、タイポと思われるものをリストアップする。
+p.8 「All agents are suited within a geographic structure, …」
+suited → situated
+p.9 の EV の定義節
+before: 「In our study, EV to refers to resource variability, …」
+after: 「In our study, EV refers to resource variability, …」
+p.9 の AR(1) の説明
+before: 「AR(1) process [53–55], $\theta_{t+1} = \mu_\theta(1 - \beta) + \theta_t\beta + \epsilon$」
+after: 「first-order autoregressive [AR(1)] process [53–55], $\theta_{t+1} = \mu_\theta(1 - \beta)
++ \beta\theta_t + \epsilon$ ($|\beta|\leq 1$, $\epsilon\sim N(0,\sigma_\theta^2)$)」
+初出のAR(1) を正式名称で導入し、母数の範囲と雑音の分布を一行で明示する方が分かりやすい。
+p.19
+before: 「… their interaction (see Subsection 3.1) and migration (see Subsection
+3.1) …」
+after: 「… their interaction (see ‘Game’ in Subsection 3.1) and migration (see
+‘Migration’ in Subsection 3.1) …」
+あるいは、見出しを「3.1.1 Game」「3.1.2 Migration」のように付番する。
+p.23
+eqn. (3.8) の$Q(j|i)$の右辺ですが、$R_j(k)$は $r_j(k)$ でしょうか?
+p.32 「SoR(s) server as simplified representations…」
+server → serve
+
+\subsubsection*{\textcolor{red}{コメント 5-4 への対応}}
+
+
+\vspace{10mm}
+\noindent 以上
+\end{document}
