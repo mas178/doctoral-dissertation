@@ -121,14 +121,21 @@ This assumption is inconsistent with our research context. Therefore, we have de
 
 \subsection*{Reformation}
 
-If, as a result of the games, an agent's resource falls below the threshold $\theta$, it is considered to have failed to adapt to the environment, triggering a reformation of its strategy and network connections.
-An agent $i$ that falls below $\theta$ randomly selects a role model.
-The probability that $j$ is chosen as its role model is $p^R_j = \frac{r_j}{\sum_{k \in [1, .., N]} r_k}$.
-Agent $i$ imitates $j$'s strategy, with mutation occurring at a probability $\mu$.
+When an agent's resource level falls below the threshold $\theta$ as a result of the games, the agent is deemed to have failed to adapt to the environment, prompting a reformation of both its strategy and network connections.
+An agent $i$ whose resource level falls below $\theta$ randomly selects a role model.
+The probability of agent $j$ being selected as a role model is $p^R_j = \frac{r_j}{\sum_{k \in [1, .., N]} r_k}$.
+Agent $i$ then imitates agent $j$'s strategy, with mutation occurring with probability $\mu$.
+
 Additionally, agents that fall below the threshold disconnect all of their current relationships.
 They then randomly select the same number of new neighbors as the number of disconnections and establish new connections.
-The probability that agent $j$ is chosen as a new neighbor is proportional to $p^R_j$.
-In other words, the higher the resource, the more likely an agent is to be chosen as a role model and a new neighbor.
+The probability of agent $j$ being selected as a new neighbor is $p^R_j$.
+In other words, agents with higher resources are more likely to be selected as both role models and new neighbors.
+
+Note that mutation and EV are similar in that both introduce disturbances into the system.
+Mutation represents noise in strategy updating, whereas EV represents noise in resource levels.
+Mutation directly affects the internal state of agents.
+In contrast, EV does not directly affect agents; rather, it affects resource levels in the environment surrounding the agents, thereby indirectly influencing their behavior.
+For this reason, understanding how EV affects the collective behavior of agents is a more complex problem that warrants separate investigation.
 
 \subsection*{Evaluation}
 
