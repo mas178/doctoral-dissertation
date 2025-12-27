@@ -56,6 +56,7 @@ The two forms of variability are termed regional variability (RV) and universal 
 RV is a type of EV in which the distribution of resource-rich and resource-poor regions changes over time; specifically, the SoR moves randomly.
 The SoR's index $p_t$ at time $t$ fluctuates according to a stochastic process expressed as $p_{t+1} = ( p_t + \Delta_t ) \mod N$.
 Here, $\Delta_t$ is a random integer step uniformly distributed within the range $[ -\sigma_R, \sigma_R ]$, where $0 \leq \sigma_R \leq N / 2$.
+This implies that the entire resource distribution shifts geographically in tandem with the movement of the SoR.
 UV represents another form of EV in which the total resource quantity fluctuates randomly over time, while the resource distribution between regions remains fixed.
 This variability reflects large-scale fluctuations in resource availability across a wide area encompassing all regions.
 However, to simplify the implementation, we fix the resource values and instead model UV by varying the threshold value $\theta$, which determines when reformation occurs.
@@ -143,6 +144,11 @@ The simulation runs for $10,000$ generations, with $100$ independent simulations
 Resource allocation and interactions, including games and reformations, occur once per generation.
 The proportion of agents employing strategy C at the end of each generation (following the reformation process) is referred to as the cooperation rate.
 The average cooperation rate is calculated as the mean of cooperation rates averaged over both the last $5,000$ generations and the $100$ independent trials.
+
+The cooperation rate in a single trial does not always reach a steady state within $10,000$ generations and can fluctuate depending on the chosen evaluation window.
+However, the aggregate mean over the final $5,000$ generations across $100$ independent trials provides a robust and sufficiently converged measure to identify consistent qualitative patterns.
+This approach of utilizing late-stage averages to ensure statistical stability and mitigate initial transient effects is widely adopted in evolutionary simulation research.
+
 To assess the effect of EV on the evolution of cooperation we compared the average cooperation rates across different parameters controlling RV and UV, along with other factors (Table \ref{tab:2_params}).
 
 \begin{table}[ht]

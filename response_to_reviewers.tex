@@ -29,7 +29,7 @@
 
 \begin{center}
     {\fontsize{16}{18}\selectfont\dissertationtitle \par}
-    {\fontsize{14}{16}\selectfont\dissertationtitleja \par}
+    {\fontsize{14}{16}\selectfont(\dissertationtitleja) \par}
 \end{center}
 
 \begin{flushright}
@@ -84,19 +84,42 @@ Chapter 5 の「5.1 Summary and cross-model comparison -- (i) Why does EV promot
 
 The base model (スライド＃８) でSoR③が仮に左に移動すると② (0.8) はどこに移動するのか、図を見てよくわからなかったので、最終発表でもっと説明があるとよい。
 
-\subsubsection*{\textcolor{red}{コメント 2-1 への対応}}
+\subsubsection*{コメント 2-1 への対応}
+
+コメントありがとうございます。
+論文本体の方にも、``This implies that the entire resource distribution shifts geographically in tandem with the movement of the SoR.'' という説明を追加しました。(Ch.2 p.10 -- EV)
 
 \subsection*{コメント 2-2}
 
 シミュレーションで用いた「公共財ゲーム (PGG)」はなぜなのかの背景を少し説明するとよい。他のゲームを用いる場合は結果が変わるのか？
 
-\subsubsection*{\textcolor{red}{コメント 2-2 への対応}}
+\subsubsection*{コメント 2-2 への対応}
+
+Pairwise PGG の初出時に、以下の様に説明しました。(Ch.2 p.11 -- Game)
+
+\begin{quote}
+We have chosen this game model instead of classic pairwise games to implement the condition that only agents with surplus resources can contribute to other agents.
+In classic pairwise games, such as the prisoner's dilemma or the snowdrift game, benefits and costs are fixed at constant values.
+This implies that agents would cooperate identically, regardless of resource abundance or scarcity, even under uncertain survival conditions.
+This assumption is inconsistent with our research context.
+Therefore, we have developed and adopted a novel pairwise PGG model that accounts for resource availability.
+\end{quote}
+
+他のゲーム、例えば、協力者が全リソースを拠出するゲームや、常に一定量のリソースを拠出するようなゲームでは、協力者が不利になりすぎるため、協力がほとんど成り立たなくなります。
 
 \subsection*{コメント 2-3}
 
 平均協力率の計算をする際に１万世代の後半の５千世代のものを使って計算しているが、その根拠を議論するとよい。また、別の区間を用いた場合、結論が変わるかを少し議論するとよい。
 
-\subsubsection*{\textcolor{red}{コメント 2-3 への対応}}
+\subsubsection*{コメント 2-3 への対応}
+
+協力率の計算方法の初出時に、以下の説明を追加しました。(Ch.2 p.12 -- Evaluation)
+
+\begin{quote}
+The cooperation rate in a single trial does not always reach a steady state within $10,000$ generations and can fluctuate depending on the chosen evaluation window.
+However, the aggregate mean over the final $5,000$ generations across $100$ independent trials provides a robust and sufficiently converged measure to identify consistent qualitative patterns.
+This approach of utilizing late-stage averages to ensure statistical stability and mitigate initial transient effects is widely adopted in evolutionary simulation research.
+\end{quote}
 
 \vspace{5mm}
 \hrule
