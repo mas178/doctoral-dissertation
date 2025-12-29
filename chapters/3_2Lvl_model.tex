@@ -17,13 +17,17 @@ In the MSA context, individual humans would rarely migrate alone due to survival
 In this chapter, we do not strictly define what the unit of migration corresponds to in the real world, but conceptualize it as a small kin-based unit, such as a family or extended family group.
 For convenience, we refer to this unit of migration as an individual, even though this unit is not necessarily a single person.
 
-Third and fourth, migration triggers and destination selection mechanisms determine when and where individuals migrate.
-In this chapter, individuals migrate, triggered by resource scarcity, toward resource-rich areas, as this research conceptualizes EV as fluctuations in resource availability.
+Regarding migration triggers and destination selection mechanisms, individuals migrate, triggered by resource scarcity, toward resource-rich areas, as this research conceptualizes EV as fluctuations in resource availability.
 
 These design choices result in a two-level hierarchical structure with group agents and individual agents.
 EV affects resource allocation at both levels.
 Game and strategy update occur independently at both levels.
 Migration occurs at the individual level between groups.
+
+While Traulsen and Nowak (2006) \cite{Traulsen2006} is widely recognized as a seminal study on the evolution of cooperation in a 2-level structure, the model presented in this chapter adopts a fundamentally different approach.
+Their model primarily analyzes the tension between individual-level interaction favoring defectors ($D$s) and group-level interaction favoring groups with higher proportions of cooperators ($C$s).
+In contrast, the 2-level model in this chapter is structured such that the payoff rules of the game (see Subsection \nameref{sec:game}) inherently define $D$s as the advantageous strategy at both the individual and group levels.
+Given this structural disadvantage for $C$s, the primary objective of this chapter is to investigate whether and how the interplay of EV and migration can facilitate the emergence and maintenance of cooperative behavior.
 
 \subsection*{Structural overview}\label{sec:structure}
 
@@ -32,7 +36,7 @@ Within this world, the population is represented by group agents and individual 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/3/Model}
+  \includegraphics[width=0.8\textwidth]{figures/3/Model}
   \caption[Illustration of the model structure]{
 Illustration of the model structure.
 Regional groups are arranged on a circular geographic structure, where the SoR stochastically moves between groups.
@@ -62,7 +66,7 @@ The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$
 In a social context, this weight represents the level of mutual trust accumulated through repeated interactions.
 
 Given these structural foundations, the simulation proceeds in four stages: EV, game, migration, and strategy update.
-Game and strategy updates occur at both the group and individual levels, in that order.
+Game and strategy update occur at both the group and individual levels, in that order.
 Each stage is described in the following subsections.
 
 \subsection*{Environmental variability}\label{sec:ev}
@@ -285,7 +289,7 @@ As shown in Figure~\ref{fig:mechanism1_2}c, cooperative networks gradually form 
 Groups adopting $C$ strategies build strong reciprocal relationships, while defecting groups become isolated.
 These cooperative networks provide robustness against both resource fluctuations and occasional mutations.
 
-\begin{figure}[!ht]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Result1_4}
   \caption[Temporal evolution of group-level cooperation]{
@@ -316,7 +320,7 @@ Naturally, the groups can become poor.
 Even in that case, the strong relationships once established between cooperators enable them to maintain high resource levels through high-payoff mutual cooperation, while defectors with weak relationships remain isolated from profitable interactions.
 Through this process, cooperators become robust against resource fluctuations and seldom undergo migration and strategy updates, while defectors undergo migration and strategy updates more frequently (Figure~\ref{fig:mechanism1_3}c).
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=1.0\textwidth]{figures/3/Result1_5}
   \caption[Evolution of individual-level cooperation and resource dynamics]{

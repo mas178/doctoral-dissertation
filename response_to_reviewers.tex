@@ -131,7 +131,17 @@ This approach of utilizing late-stage averages to ensure statistical stability a
 
 Chapter3のモデルは構造としてはマルチレベルセレクションと近いものがあります。本モデルの特徴と学術的な位置づけを明確にするためにも、一般的なマルチレベルセレクションとの共通点と違いを整理することが有用と思います。
 
-\subsubsection*{\textcolor{red}{コメント 3-1 への対応}}
+\subsubsection*{コメント 3-1 への対応}
+
+ご指摘ありがとうございます。
+以下のパラグラフを追加しました。(Ch.3 3.1 Model p.20)
+
+\begin{quote}
+While Traulsen and Nowak (2006) \textbackslash cite\{Traulsen2006\} is widely recognized as a seminal study on the evolution of cooperation in a 2-level structure, the model presented in this chapter adopts a fundamentally different approach.
+Their model primarily analyzes the tension between individual-level interaction favoring defectors ($D$s) and group-level interaction favoring groups with higher proportions of cooperators ($C$s).
+In contrast, the 2-level model in this chapter is structured such that the payoff rules of the game (see Subsection \textbackslash nameref\{sec:game\}) inherently define $D$s as the advantageous strategy at both the individual and group levels.
+Given this structural disadvantage for $C$s, the primary objective of this chapter is to investigate whether and how the interplay of EV and migration can facilitate the emergence and maintenance of cooperative behavior.
+\end{quote}
 
 \subsection*{コメント 3-2}
 
@@ -143,14 +153,21 @@ https://doi.org/10.1177/104346301013001001
 
 \subsubsection*{コメント 3-2 への対応}
 
-コメントありがとうございます。
 ご教示頂いた文献を追加し、Chapter 5 の「5.1 Summary and cross-model comparison -- (ii) Why does migration promote cooperation? および (iii) How does the 2D model relate to the previous literature on cooperation and migration?」にて、議論しました。
 
 \subsection*{コメント 3-3}
 
 また、Chapter3ではレギュラーネットワーク上にグループがあり、その中にエージェントが複数存在するという階層モデルを採用しています。Chapter4では、移動のモデルを扱う際により一般的なモデルとして2次元トーラスに拡張しています。直観的には、2次元トーラス上にグループが存在し、その中に複数のエージェントが存在するという設定のほうが自然な拡張に思われます。エージェントのみを考える非階層構造を採用した動機と妥当性を論文中に明記することで、拡張が妥当かつ自然なものであることを明確にできると思います。
 
-\subsubsection*{\textcolor{red}{コメント 3-3 への対応}}
+\subsubsection*{コメント 3-3 への対応}
+
+予備審査の説明では誤解を与えてしまったかも知れませんが、Chapter 4 は Chapter 3 の拡張ではありません。
+Chapter 4 は先行研究と比較するために、先行研究で多く採用されている2D空間モデルを採用しています。
+これらの点を明確にするために、以下の様な説明を追加しました。(Ch.4 p.36)
+
+\begin{quote}
+In this chapter, we adopt a 2-dimensional (2D) space, which is widely used in the literature, diverging from the group-structured frameworks of Chapters 2 and 3 to prioritize comparability with prior works.
+\end{quote}
 
 \vspace{5mm}
 \hrule
@@ -162,7 +179,22 @@ https://doi.org/10.1177/104346301013001001
 
 Base modelにおいて円環で表された地理的構造は、実際には必須ではないと思うので、一般性を失うように見えるのは損ではないかと思った。
 
-\subsubsection*{\textcolor{red}{コメント 4-1 への対応}}
+\subsubsection*{コメント 4-1 への対応}
+
+コメントありがとうございます。
+ご指摘の通り、円環構造自体は必須ではなく、また現実の地理的構造を網羅する一般的なものではありません。
+しかし、Chapter 2 の目的は、地理的隔離が存在する条件下で環境変動が協力に与えるメカニズムをできるだけ基礎的な条件の元で解明し、研究のスタートラインを提供することにあります。
+円環構造は、地理的隔離を表現する最も単純な枠組みであり、境界効果を排除しすべての地域の条件を均一に保つため、妥当な枠組みであると考えています。
+
+Ch.2 では、「our model adopts a highly abstracted approach, aiming to reveal the general effects of EV based on reasonable assumptions while excluding specific details. (Ch.2 p.8)」や「the one-dimensional spatial structure is used for simplicity (Ch.2 p.9)」と説明しています。
+
+また、「5.3 Limitations and future directions -- Model simplification」にて、以下の様に説明しました。(Ch.5 p.55)
+
+\begin{quote}
+The spatial structure was represented by regular topologies, specifically 1-dimensional cycle graphs and 2-dimensional lattices.
+These idealized structures are standard in theoretical investigations, as they facilitate the identification of universal evolutionary mechanisms independent of specific geographic idiosyncrasies.
+Potential avenues for extending this work include the adoption of more complex network architectures \textbackslash cite\{Wang2015, Masuda2020, Inaba2023\} or the integration of spatially explicit models grounded in paleoenvironmental reconstructions of the MSA in Africa.
+\end{quote}
 
 \subsection*{コメント 4-2}
 
