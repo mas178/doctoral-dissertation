@@ -1,14 +1,93 @@
 \chapter*{Appendix}\label{appendix}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+\renewcommand{\theHtable}{A.\arabic{table}}
 \addcontentsline{toc}{chapter}{Appendix}
+\addtocontents{lot}{\protect\addvspace{10pt}}
 
-\section*{Appendix for Chapter \ref{ch:2_base_model} \nameref{ch:2_base_model}}
+\section*{Detailed comparison of the three simulation models}
 
-All data, as well as the code required to run the simulations and generate the figures, are available at \url{https://github.com/mas178/Inaba2024}
+Table~\ref{tab:model_comparison_detail} summarizes the key specifications and comparative features of the three simulation models analyzed in Chapters~\ref{ch:2_base_model}, \ref{ch:3_2Lvl_model}, and \ref{ch:4_2D_model}.
+For details on each model, please refer to the respective chapters in the main text.
 
-\section*{Appendix for Chapter \ref{ch:3_2Lvl_model} \nameref{ch:3_2Lvl_model}}
+\section*{Data and Code Availability}
 
-All data, as well as the code required to run the simulations and generate the figures, are available at \url{https://github.com/mas178/Inaba2026-2Lvl}
+All data, simulation code, and scripts for generating the figures for each chapter are available at the following repositories:
 
-\section*{Appendix for Chapter \ref{ch:4_2D_model} \nameref{ch:4_2D_model}}
+\begin{itemize}
+\item Chapter \ref{ch:2_base_model}: \url{https://github.com/mas178/Inaba2024}
+\item Chapter \ref{ch:3_2Lvl_model}: \url{https://github.com/mas178/Inaba2026-2Lvl}
+\item Chapter \ref{ch:4_2D_model}: \url{https://github.com/mas178/Inaba2025-2D}
+\end{itemize}
 
-All data, as well as the code required to run the simulations and generate the figures, are available at \url{https://github.com/mas178/Inaba2025-2D}
+\begin{landscape}
+\begin{table}
+\centering
+\caption[Detailed comparison of the three simulation models]{Detailed comparison of the three simulation models}
+\label{tab:model_comparison_detail}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}}
+\toprule
+Component &
+Ch.\ref{ch:2_base_model} Base Model &
+Ch.\ref{ch:3_2Lvl_model} 2-Level Model &
+Ch.\ref{ch:4_2D_model} 2D Model \\
+\midrule
+Agent &
+Group agents ($N$) only  &
+Groups ($N_R$) and Individuals ($N_F$)  &
+Individual agents ($N$) only  \\
+\cmidrule(lr){1-4}
+Spatial Structure &
+1D circular structure &
+1D circular structure &
+2D lattice with periodic boundary conditions\\
+\cmidrule(lr){1-4}
+Interaction Structure &
+Dynamic network (undirected, unweighted) via rewiring;\newline
+Initial degree $k_0$ &
+Dynamic weights $w_{i,j}$ (init: $w_0$) on a complete network &
+Spatial adjacency (Moore neighborhood) \\
+\cmidrule(lr){1-4}
+Environmental Variability (EV) &
+RV (SoR shift): Shift range $\sigma_R$;\newline
+UV (Threshold $\theta$ fluctuation); AR(1) with autoregressive coefficient ($\beta$) and SD of the noise term ($\sigma_\theta$);\newline
+CV: RV + UV &
+Shift of an SoR between groups: 1-step shift probability $p_{EV}$ &
+Shift of SoR(s) on 2D space (Moore neighborhood): 1-step shift probability $p_{EV}$\\
+\cmidrule(lr){1-4}
+Game &
+Pairwise PGG;\newline
+Multiplier $b$;\newline
+Contribution $M_i = \max(r_i - \theta, 0)$ & 
+Executed at two levels:\newline
+Pairwise PGG;\newline
+Multiplier $b$;\newline
+Contribution $c_i = r_i \times w_{i,j}$ & 
+Classic pairwise games based on $2\times2$ payoff table \\
+\cmidrule(lr){1-4}
+Migration &
+Not incorporated &
+Scarcity-triggered migration between neighboring groups;\newline
+Migration probability: $\max(1 - r_i^F/\theta_F, 0) \cdot p_M$;\newline
+Direction: with probability $p_{SoR}$ toward SoR, otherwise random  & 
+Scarcity-triggered migration across the Moore neighborhood;\newline
+Migration probability: $p_M$ if $\omega_j < \theta_{x,y}$;\newline
+Direction: with probability $p_{SoR}$ toward lowest $\theta_{x,y}$, otherwise random  \\
+\cmidrule(lr){1-4}
+Strategy Update \newline (Reformation in Ch.2) &
+Update probability: $1$ if $r_i < \theta$, otherwise $0$;\newline
+Imitate a successful agent's strategy with probability $p^R_j$;\newline
+Reconnect with successful agents with probability $p^R_j$;\newline
+Mutation rate: $\mu$  &
+Executed at two levels:\newline
+Update probability: $\max \left( 1 - \frac{r_i}{\theta}, 0 \right) \cdot p_{SU}$;\newline
+Imitate a successful agent's strategy with probability $Q(j|i)$;\newline
+Reset weights of updated agents to $w_0$;\newline
+Mutation rate: $\mu$ &
+Update probability: $1$ if $\omega_j < \theta_{x,y}$, otherwise $0$;\newline
+Imitate the most successful neighbor's strategy;\newline
+Mutation rate: $\mu$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
