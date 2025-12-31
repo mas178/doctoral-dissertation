@@ -31,7 +31,7 @@ While these components are defined specifically within each model, they share a 
 \begin{itemize}
     \item Each agent has either a cooperative or a non-cooperative strategy.
     \item Spatial structure establishes the topological framework which defines agent placement and the spatial resource gradients.
-    \item EV is implemented through the stochastic movement of the source of resources (SoR) on the spatial structure, driving dynamic shifts in resource distribution.
+    \item EV is usually implemented through the stochastic movement of the source of resources (SoR) on the spatial structure, driving dynamic shifts in resource distribution.
     \item Interactions are conducted within a game-theoretic framework according to the interaction structure, leading to the increase or decrease of resource levels.
     \item Migration and strategy updating function as adaptive mechanisms to environmental pressure, where the probability of their execution increases as an agent's resource levels diminish.
     Note that migration is not incorporated in the base model presented in Chapter 2.
@@ -74,7 +74,7 @@ Agents accumulate resources through cooperative or competitive interactions, and
 
 The results demonstrate the following key findings:
 (i) with sufficient agent mobility, even modest levels of EV promote cooperation; however, further variability does not enhance cooperation;
-(ii) with any level of EV, agent mobility promotes cooperation;
+(ii) agent mobility promotes cooperation in the presence of EV;
 (iii) these effects occur because EV disrupts a small number of large stable defector groups that form in resource-rich areas, and agent mobility enables the formation of numerous small cooperator groups at those sites.
 These findings demonstrate that EV and agent mobility jointly promote cooperation by preventing fixed defector structures and encouraging the formation of cooperator groups for survival.
 
@@ -85,12 +85,12 @@ This chapter synthesizes the results across these models to answer the central r
 Subsequently, we discuss the broader theoretical implications and significance.
 Finally, we acknowledge the limitations of the study and outline potential directions for future research.
 
-The core results indicate that EV consistently promotes cooperation across all three structurally distinct models; however, the impact of migration differs between the 2-level model and the 2D model.
+The core results indicate that EV by stochastic SoR movement consistently promotes cooperation across all three structurally distinct models; however, the impact of migration differs between the 2-level model and the 2D model.
 
 The common mechanism through which EV promotes cooperation is as follows:
 In static environments, defectors exploit cooperators and establish dominant structures.
-However, EV disrupts this stable dominance by creating stochastic opportunities where either cooperators or defectors may become resource-rich by chance.
-Network effects then selectively maintain the dominance of cooperators that emerges stochastically, whereas the dominance of defectors is not sustained.
+However, EV disrupts this stable dominance, generating stochastic opportunities for not only defectors but also cooperators to become resource-rich.
+Subsequently, network effects---driven by relationship updating or spatial clustering---selectively maintain the dominance of cooperators that emerges stochastically, whereas the dominance of defectors is not sustained.
 This interplay implies that environmental dynamics are as critical as network dynamics in unlocking the evolution of cooperation.
 
 The divergent impact of migration, on the other hand, stems from the time required to establish cooperative relationships within each structural framework.
