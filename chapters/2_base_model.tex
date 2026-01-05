@@ -25,13 +25,13 @@ In this chapter, each agent represents a single group and has a strategy of eith
 Initially, all agents are set to $D$, as intergroup cooperation is considered extremely unlikely \cite{DeDreu2022a, Rodrigues2023}.
 This chapter focuses exclusively on intergroup interactions and does not consider intragroup interactions.
 While a 2-level model would be necessary to analyze the tension between intergroup and intragroup interactions, as seen in multilevel selection studies, a 1-level model is suitable here given our focus on intergroup interactions.
-All agents are situated within a geographic structure, forming an interaction structure.
+All agents are situated within a geographic structure and an interaction structure.
 
 The geographic structure is modeled as a line segment with periodic boundary conditions, represented visually as a circle (Figure~\ref{fig:model}).
 $N$ agents are evenly spaced along the circle.
 Although the 1-dimensional spatial structure is used for simplicity, more realistic structures can be explored as empirical studies progress.
 Migration is not considered in this chapter to keep the model simple as an initial approach.
-We incorporate migration in Chapters \ref{ch:3_2Lvl_model} and \ref{ch:4_2D_model}, as it is reasonable to assume that a group might move to a resource-rich region when its resources become scarce.
+We incorporate migration in Chapters \ref{ch:3_2Lvl_model} and \ref{ch:4_2D_model}, as it is reasonable to assume that individuals might move to a resource-rich region when their resources become scarce.
 However, the assumption of no migration is not entirely unrealistic, as some studies have highlighted the tendency for settlement during the MSA \cite{Marean2010, Wadley2011, Kandel2012}.
 
 The interaction structure defines the relationships between agents, which are not limited by the geographic arrangement.
@@ -62,7 +62,7 @@ This variability reflects large-scale fluctuations in resource availability acro
 However, to simplify the implementation, we fix the resource values and instead model UV by varying the threshold value $\theta$, which determines when reformation occurs.
 The fluctuation is modeled by a first-order autoregressive process, or AR(1) \cite{Hasselmann1976, Vyushin2012, Salcedo2022}, $\theta_{t+1} = \mu_\theta (1 - \beta) + \theta_t \beta + \epsilon$ with $0 \leq \beta < 1$ and $\epsilon \sim N(0, \sigma_\theta^2)$, where $\mu_\theta$ is the expected value of $\theta$, $\beta$ is the autoregressive coefficient, and $\epsilon$ is a normally distributed noise term with mean $0$ and standard deviation (SD) $\sigma_\theta$.
 The intensity of RV is determined by the shift range of the SoR ($\sigma_R$), while the intensity of UV is influenced by the autoregressive coefficient ($\beta$) and the SD of the noise term ($\sigma_\theta$).
-We examine the impact of EV on the evolution of cooperation under three scenarios: RV, UV, and combined variability (CV), where both the SoR shifts and the threshold $\theta$ fluctuates.
+We examine the impact of EV on the evolution of cooperation under three scenarios: RV, UV, and combined variability (CV), where both the SoR and the threshold $\theta$ fluctuate stochastically.
 
 \begin{figure}[ht]
     \centering
@@ -109,8 +109,8 @@ T_i &= \frac{b}{2} M_j \\
 P_i &= 0
 \end{align}
 
-The social optimum, which maximizes the sum of both payoffs, is $C--C$ under $b > 1$.
-The Nash equilibrium is $D--D$ when $b < 2$.
+The social optimum, which maximizes the sum of both payoffs, is $C$--$C$ under $b > 1$.
+The Nash equilibrium is $D$--$D$ when $b < 2$.
 Thus, a social dilemma exists across the defined range of $b$, except at the boundaries.
 Additionally, by solving $T_i > R_i > P_i > S_i$, the condition for the game to qualify as a prisoner's dilemma is $b > 1 + \frac{M_i - M_j}{M_i + M_j}$.
 If this condition is not met, then $T_i > P_i > R_i > S_i$.

@@ -10,7 +10,7 @@ cd "$PROJECT_ROOT"
 command gs \
     -sDEVICE=pdfwrite \
     -dCompatibilityLevel=1.4 \
-    -dPDFSETTINGS=/ebook \
+    -dPDFSETTINGS=/prepress \
     -dNOPAUSE \
     -dQUIET \
     -dBATCH \
