@@ -8,21 +8,21 @@ However, the 2-level model is relatively unique and limits clear comparison with
 In this chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025b}, published in \textit{Chaos, Solitons \& Fractals}.}, we adopt a 2-dimensional (2D) space, which is widely used in the literature, diverging from the group-structured frameworks of Chapters \ref{ch:2_base_model} and \ref{ch:3_2Lvl_model} to prioritize comparability with prior works.
 
 The evolution of cooperation among mobile agents has been studied actively.
-Dugatkin and Wilson (1991) \cite{Dugatkin1991} performed pioneering work in this area, demonstrating that the effectiveness of Axelrod's Tit-for-Tat strategy \cite{Axelrod1981} can be undermined by mobile defectors (Rover strategy) when migration costs are low, although their model employed a patch structure rather than a 2D space.
+Dugatkin and Wilson (1991) \cite{Dugatkin1991} conducted pioneering work in this area, demonstrating that the effectiveness of Axelrod's Tit-for-Tat strategy \cite{Axelrod1981} can be undermined by mobile defectors (Rover strategy) when migration costs are low, although their model employed a patch structure rather than a 2D space.
 More contemporary research in 2D spatial settings, where both cooperators and defectors can migrate, was initiated by Vainstein and Arenzon (2001) \cite{Vainstein2001} and established by Vainstein et al. (2007) \cite{Vainstein2007}.
-They demonstrated that mobility can have contrasting effects: under certain conditions, it promotes cooperation by facilitating cooperator clustering and separation from defectors, while under other conditions, it hinders cooperation by generating strategic chaos.
+They demonstrated that mobility can have contrasting effects: under certain conditions, it promotes cooperation by facilitating cooperator clustering and separation from defectors, while under other conditions, it hinders cooperation by inducing strategic instability.
 These developments are reviewed in Perc and Szolnoki (2010) \cite{Perc2010}.
 Building on Vainstein's framework, various migration strategies \cite{Cong2012, Chen2012, He2020, Dhakal2020, Ren2021, Yang2023, Zhang2025} differing in trigger conditions and migration distance have been proposed more recently.
 However, to the best of our knowledge, no study has examined the effects of extrinsic EV on the evolution of cooperation among mobile agents.
 
-This chapter addresses this gap within Vainstein's framework by modeling EV as randomly moving resource-rich spots (Sources of Resources; SoRs) across a 2D space and agent mobility as resource-seeking migration.
+This chapter addresses this gap within Vainstein's framework by modeling EV as randomly moving resource-rich spots (\textit{Sources of Resources} (SoRs)) across a 2D space and agent mobility as resource-seeking migration.
 Through extensive simulations, we examine whether and how these factors jointly promote cooperation.
 
 \section{Model}\label{sec:4_model}
 
-In this chapter, we developed a multiagent simulation model to examine how agent mobility and EV jointly influence the evolution of cooperation in spatially structured populations.
-Due to the limited availability of archaeological data on spatial resource distributions and hominin behavioral patterns during the MSA, we adopted an abstracted approach that prioritizes the identification of fundamental mechanisms over reproducing specific historical scenarios.
-This model incorporates four key processes, i.e.,
+In this chapter, we developed a multi-agent simulation model to examine how agent mobility and EV jointly influence the evolution of cooperation in spatially structured populations.
+Due to the limited availability of archaeological data on spatial resource distributions and hominin behavioral patterns during the Middle Stone Age (MSA), we adopted an abstracted approach that prioritizes the identification of fundamental mechanisms over reproducing specific historical scenarios.
+This model incorporates four key processes:
 (i) EV on a 2D lattice,
 (ii) pairwise game interactions,
 (iii) conditional agent migration driven by resource availability, and
@@ -34,7 +34,7 @@ These processes are described in the following subsections.
 The spatial structure is represented by a 2D lattice with periodic boundary conditions.
 Here, $N$ agents are distributed randomly across the cells, and each cell contains at most one agent.
 Each cell maintains a resource level that varies both spatially and temporally.
-We define a Source of Resources (SoR) as a focal point that generates spatial resource gradients in the environment, and these SoRs serve as simplified representations of the natural foraging areas commonly found near rivers, lakes, and coastlines.
+We define an SoR as a focal point that generates spatial resource gradients in the environment, and these SoRs serve as simplified representations of the natural foraging areas commonly found near rivers, lakes, and coastlines.
 Each SoR creates a gradient where resource availability typically decreases with increasing distance from the SoR.
 In addition, multiple SoRs may coexist, thereby forming overlapping zones of resource abundance.
 

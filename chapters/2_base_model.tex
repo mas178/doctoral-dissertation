@@ -1,15 +1,15 @@
 \chapter{The base model}\label{ch:2_base_model}
 
 This chapter\protect\footnote{This chapter is based on Inaba and Akiyama (2025) \cite{Inaba2025a}, published in \textit{PLOS Complex Systems}.} introduces a base model to examine our research questions: whether and how environmental variability (EV) promotes the evolution of cooperation.
-Although migration is a reasonable response to EV for people during the Middle Stone Age (MSA), we exclude it here to focus on the direct effects of EV on cooperation.
+Although migration is a reasonable response to EV for humans during the Middle Stone Age (MSA), we exclude it here to focus on the direct effects of EV on cooperation.
 The combined effects of EV and migration are examined in Chapters \ref{ch:3_2Lvl_model} and \ref{ch:4_2D_model}.
 
 \section{Model}\label{sec:2_model}
 
-We use an agent-based simulation model within the framework of evolutionary game theory to investigate how increasing EV influences the evolution of cooperation.
+We use a multi-agent simulation model within the framework of evolutionary game theory to investigate how increasing EV influences the evolution of cooperation.
 Given the limited availability of detailed data on EV and the spatial distribution of hominid groups during the MSA in Africa, our model adopts a highly abstracted approach, aiming to reveal the general effects of EV based on reasonable assumptions while excluding specific details.
 The model operates as follows: several geographically separated regions, each with varying levels of resource accessibility, experience fluctuating resource availability over time (EV).
-Each region hosts a single group (agent), and interactions between groups, such as resource exchanges (game) and behavioral pattern transmission (reformation), affect and adjust their relationships.
+Each region hosts a single group (agent), and interactions between groups, such as resource exchanges (game) and behavioral pattern transmission (reformation), shape their relationships.
 
 There are several points of concern when using the term ``group''.
 First, groups within the complex social environment described by the social brain hypothesis (SBH) are nested in a series of fractal-structured networks \cite{Bird2019, Dunbar2020, Dunbar2024}.
@@ -21,15 +21,15 @@ Here, autonomy suggests that the basic behavioral patterns for a group regarding
 
 \subsection*{Agent and structure}
 
-In this chapter, each agent represents a single group and has a strategy of either cooperation or defection (``C'' represents a cooperation strategy or a cooperator, while ``D'' represents a defection strategy or a defector).
-Initially, all agents are set to D, as intergroup cooperation is considered extremely unlikely \cite{DeDreu2022a, Rodrigues2023}.
+In this chapter, each agent represents a single group and has a strategy of either cooperation or defection ($C$ represents a cooperation strategy or a cooperator, while $D$ represents a defection strategy or a defector).
+Initially, all agents are set to $D$, as intergroup cooperation is considered extremely unlikely \cite{DeDreu2022a, Rodrigues2023}.
 This chapter focuses exclusively on intergroup interactions and does not consider intragroup interactions.
-While a two-level model would be necessary to analyze the tension between intergroup and intragroup interactions, as seen in multilevel selection studies, a one-level model is suitable here given our focus on intergroup interactions.
+While a 2-level model would be necessary to analyze the tension between intergroup and intragroup interactions, as seen in multilevel selection studies, a 1-level model is suitable here given our focus on intergroup interactions.
 All agents are situated within a geographic structure, forming an interaction structure.
 
-The geographic structure is modeled as a line segment with periodic boundary conditions, represented visually as a circle (Fig \ref{fig:model}).
+The geographic structure is modeled as a line segment with periodic boundary conditions, represented visually as a circle (Figure~\ref{fig:model}).
 $N$ agents are evenly spaced along the circle.
-Although the one-dimensional spatial structure is used for simplicity, more realistic structures can be explored as empirical studies progress.
+Although the 1-dimensional spatial structure is used for simplicity, more realistic structures can be explored as empirical studies progress.
 Migration is not considered in this chapter to keep the model simple as an initial approach.
 We incorporate migration in Chapters \ref{ch:3_2Lvl_model} and \ref{ch:4_2D_model}, as it is reasonable to assume that a group might move to a resource-rich region when its resources become scarce.
 However, the assumption of no migration is not entirely unrealistic, as some studies have highlighted the tendency for settlement during the MSA \cite{Marean2010, Wadley2011, Kandel2012}.
@@ -47,7 +47,7 @@ The node with the highest resource allocation is referred to as the \textit{Sour
 The further an agent is located from the SoR geographically, the less resource it receives, as determined by the resource decrement factor, $f_{RD}$.
 Specifically, the resource allocated to agent $i$ is calculated as $r_i = r_p - |i - p| f_{RD}$.
 Here, $r_i$ represents the resource allocated to agent $i$, $p$ is the index of the SoR, and $|i - p|$ represents the distance between $i$ and $p$, accounting for the boundary conditions, rather than the usual absolute value.
-Additionally, there is a universal resource threshold, $\theta$, for all agents; any agent falling below this threshold must reformulate its strategy and relationships.
+Additionally, there is a universal resource threshold, $\theta$, for all agents; any agent falling below this threshold must reform its strategy and relationships.
 
 In this dissertation, EV refers to resource variability, represented by stochastic models.
 EV can be divided into variability in distribution of resources among regions and in total quantity of resources across all regions.
@@ -87,8 +87,8 @@ The probability that agent $i$ selects agent $j$ as its game opponent from its n
 $n$ is the number of neighbors of $i$, and neighbors refer to agents directly connected to $i$ in the interaction structure network.
 The game procedure follows a pairwise public goods game (PGG) \cite{Hardin1968, Binmore1994, Kollock1998, Santos2008} with resource threshold considerations.
 First, assume that agent $i$ selects agent $j$.
-If the agent is C, it contributes a surplus resource $M_i = \max(r_i - \theta, 0)$.
-If the agent is D, it does not contribute any resource.
+If the agent is $C$, it contributes a surplus resource $M_i = \max(r_i - \theta, 0)$.
+If the agent is $D$, it does not contribute any resource.
 The contributed resources are multiplied by a factor $b$ ($1 \leq b \leq 2$) and then equally divided between $i$ and $j$.
 The payoff table is as follows:
 \begin{equation}
@@ -109,8 +109,8 @@ T_i &= \frac{b}{2} M_j \\
 P_i &= 0
 \end{align}
 
-The social optimum, which maximizes the sum of both payoffs, is CC under $b > 1$.
-The Nash equilibrium is DD when $b < 2$.
+The social optimum, which maximizes the sum of both payoffs, is $C--C$ under $b > 1$.
+The Nash equilibrium is $D--D$ when $b < 2$.
 Thus, a social dilemma exists across the defined range of $b$, except at the boundaries.
 Additionally, by solving $T_i > R_i > P_i > S_i$, the condition for the game to qualify as a prisoner's dilemma is $b > 1 + \frac{M_i - M_j}{M_i + M_j}$.
 If this condition is not met, then $T_i > P_i > R_i > S_i$.
@@ -140,16 +140,16 @@ For this reason, understanding how EV affects the collective behavior of agents 
 
 \subsection*{Evaluation}
 
-The simulation runs for $10,000$ generations, with $100$ independent simulations conducted for each parameter set (Table \ref{tab:2_params}).
+The simulation runs for $10000$ generations, with $100$ independent simulations conducted for each parameter set (Table \ref{tab:2_params}).
 Resource allocation and interactions, including games and reformations, occur once per generation.
-The proportion of agents employing strategy C at the end of each generation (following the reformation process) is referred to as the cooperation rate.
-The average cooperation rate is calculated as the mean of cooperation rates averaged over both the last $5,000$ generations and the $100$ independent trials.
+The proportion of agents employing strategy $C$ at the end of each generation (following the reformation process) is referred to as the cooperation rate.
+The average cooperation rate is calculated as the mean of cooperation rates averaged over both the last $5000$ generations and the $100$ independent trials.
 
-The cooperation rate in a single trial does not always reach a steady state within $10,000$ generations and can fluctuate depending on the chosen evaluation window.
-However, the aggregate mean over the final $5,000$ generations across $100$ independent trials provides a robust and sufficiently converged measure to identify consistent qualitative patterns.
+The cooperation rate in a single trial does not always reach a steady state within $10000$ generations and can fluctuate depending on the chosen evaluation window.
+However, the aggregate mean over the final $5000$ generations across $100$ independent trials provides a robust and sufficiently converged measure to identify consistent qualitative patterns.
 This approach of utilizing late-stage averages to ensure statistical stability and mitigate initial transient effects is widely adopted in evolutionary simulation research.
 
-To assess the effect of EV on the evolution of cooperation we compared the average cooperation rates across different parameters controlling RV and UV, along with other factors (Table \ref{tab:2_params}).
+To assess the effect of EV on the evolution of cooperation, we compared the average cooperation rates across different parameters controlling RV and UV, along with other factors (Table \ref{tab:2_params}).
 
 \begin{table}[ht]
 \centering
@@ -192,14 +192,14 @@ We first examined the impact of RV in isolation, without considering UV.
 Specifically, in each generation, the SoR randomly shifts within the range of $[-\sigma_R, \sigma_R]$, accounting for the periodic boundary condition.
 The threshold $\theta$, which universally affects the resource welfare of all agents, is fixed at $0.5$.
 
-The results (Fig \ref{Fig:Regional}a) suggest that RV can promote the evolution of cooperation.
+The results (Figure~\ref{Fig:Regional}a) suggest that RV can promote the evolution of cooperation.
 To elaborate, when the SoR is fixed ($\sigma_R = 0$), cooperation does not evolve.
 As variability slightly increases ($\sigma_R = 1$), the cooperation rate rises to around $10\%$.
 For $b \leq 1.7$, further increases in variability do not promote additional cooperation, although the cooperation rate remains higher than when $\sigma_R = 0$ or $1$.
 However, for $b \ge 1.8$, greater variability further enhances cooperation.
 
 Despite the overall positive effect of higher variability on cooperation, cooperation is not completely stable and fluctuates with temporary environmental changes.
-For example, when $b = 1.8$ and $\sigma_R \in [1, 4, 16]$, the temporal transition (Fig \ref{Fig:Regional}b) shows that the cooperation rate rises and falls dramatically.
+For example, when $b = 1.8$ and $\sigma_R \in [1, 4, 16]$, the temporal transition (Figure~\ref{Fig:Regional}b) shows that the cooperation rate rises and falls dramatically.
 
 \begin{figure}[ht]
     \centering
@@ -208,7 +208,7 @@ For example, when $b = 1.8$ and $\sigma_R \in [1, 4, 16]$, the temporal transiti
 The effect of RV.
 (a) The effect of RV across $b \in [1.0, ..., 2.0]$.
 The horizontal axis represents the intensity of RV, $\sigma_R$,
-and the vertical axis shows the mean cooperation rate over the last $5,000$ generations, averaged across $100$ trials.
+and the vertical axis shows the mean cooperation rate over the last $5000$ generations, averaged across $100$ trials.
 (b) Examples of cooperation rate transitions when $b = 1.8$ and $\sigma_R \in [1, 4, 16]$.
 The horizontal axis represents generations, and the vertical axis shows the cooperation rate.
 Higher RV tends to result in fluctuations of the cooperation rate at higher levels, though convergence is not observed.
@@ -224,8 +224,8 @@ The intensity of this variability is controlled by the autoregressive coefficien
 With the SoR fixed at $p = 1$, resources are allocated less as the distance from this node increases.
 
 We found that while UV promotes the evolution of cooperation to some extent, its effect is considerably more limited than that of RV.
-For $\sigma_\theta = 0.1$, the cooperation rate gradually increases when $\beta$ exceeds 0.5, but it peaks at just $30\%$ (Fig \ref{Fig:Universal}a).
-For $\sigma_\theta = 0.2$, the cooperation rate remains between $20\%$ and $30\%$, regardless of $\beta$, and increasing variability further does not affect these outcomes (Fig \ref{Fig:Universal}a).
+For $\sigma_\theta = 0.1$, the cooperation rate gradually increases when $\beta$ exceeds 0.5, but it peaks at just $30\%$ (Figure~\ref{Fig:Universal}a).
+For $\sigma_\theta = 0.2$, the cooperation rate remains between $20\%$ and $30\%$, regardless of $\beta$, and increasing variability further does not affect these outcomes (Figure~\ref{Fig:Universal}a).
 
 \begin{figure}[ht]
     \centering
@@ -234,8 +234,8 @@ For $\sigma_\theta = 0.2$, the cooperation rate remains between $20\%$ and $30\%
 The effect of UV.
 (a) The effect of UV across $b \in [1.0, ..., 2.0]$ and $\sigma_\theta \in [0.1, 0.2]$.
 The horizontal axis represents the intensity of UV, $\beta$,
-and the vertical axis shows the mean cooperation rate over the last $5,000$ generations across $100$ trials.
-(The line color scheme of these lines is same as in Fig \ref{Fig:Regional}a.)
+and the vertical axis shows the mean cooperation rate over the last $5000$ generations across $100$ trials.
+(The line color scheme of these lines is the same as in Figure~\ref{Fig:Regional}a.)
 (b) Examples of the cooperation rate transition when $b = 1.8$ and $(\beta, \sigma_\theta) \in [(0.1, 0.1), (0.1, 0.2), (0.9, 0.1)]$.
 The horizontal axis represents generations, and the vertical axis shows the cooperation rate.
 Higher UV tends to result in the cooperation rate fluctuating at higher levels, but convergence is not observed.
@@ -246,7 +246,7 @@ Higher UV tends to result in the cooperation rate fluctuating at higher levels, 
 \subsection*{Effect of CV}
 
 We then examined the combined effects of both RV and UV.
-The results (Fig \ref{fig:combination}) show that, consistent with the separate analyses above, RV strongly promotes the evolution of cooperation, while UV has much subtle effect.
+The results (Figure~\ref{fig:combination}) show that, consistent with the separate analyses above, RV strongly promotes the evolution of cooperation, while UV has a much more subtle effect.
 
 \begin{figure}[ht]
     \centering
@@ -265,18 +265,18 @@ indicating that when UV is too high, not only UV but even RV has no effect on th
 \subsection*{Primary drivers of the results}
 
 The results are driven by two key factors:
-1. the effects of mutation and EV, which promote fluctuations in cooperation rates, and
-2. the coevolution  of cooperation and network structure.
+(i) the effects of mutation and EV, which promote fluctuations in cooperation rates; and
+(ii) the coevolution of cooperation and network structure.
 
 First, RV increases the fluctuations in the cooperation rate, rather than the rate itself.
-Fig \ref{fig:mechanism}a shows the effect of EV on strategy distribution in a model that entirely excludes the effects of games and networks.
+Figure~\ref{fig:mechanism}a shows the effect of EV on strategy distribution in a model that entirely excludes the effects of games and networks.
 When these effects are excluded, changes in strategy distribution occur solely due to mutation and strategy updating.
 The Y-axis represents the number of agents generated by mutation in one generation, who then serve as role models for strategy updating in the next generation.
 These agents are the source of changes in strategy distribution.
 The line for RV in the figure shows that as the variability increases, the number of mutated role models increases linearly.
-Fig \ref{fig:mechanism}b ``3. (env, C rate)'' shows that the time series of RV and the cooperation rate in each of the 100 trials are completely uncorrelated.
+Figure~\ref{fig:mechanism}b ``3. (env, $C$ rate)'' shows that the time series of RV and the cooperation rate in each of the 100 trials are completely uncorrelated.
 Furthermore, the results remain unchanged even when cross-correlation analysis is performed, accounting for time delays.
-Therefore, it is evident that RV does not directly affect the cooperation rate but instead promote fluctuations in it.
+Therefore, it is evident that RV does not directly affect the cooperation rate but instead promotes fluctuations in it.
 This can be explained as follows: agents in poorer regions frequently undergo reformations and mutations.
 When RV is small, agents rarely accumulate resources in the next generation, causing them to undergo reformations again.
 However, when variability is large, agents may become resource-rich in the next generation, and they potentially survive to influence the strategy updates of other agents.
@@ -290,17 +290,17 @@ Effects of EV on Cooperation.
 (a) The number of mutated role models as a function of RV and UV.
 The simulations are based on a model that excludes games.
 Therefore, the figure shows how EV and reformation impact the system without the effect of games or network structure.
-(b) Correlation analysis through time series ($10,000$ generations) between variables related to EV
-(For RV, env refers to the shift distance of the SoR per generation; for UV, env refers to the value of threshold $\theta$),
+(b) Correlation analysis through time series ($10000$ generations) between variables related to EV
+(for RV, env refers to the shift distance of the SoR per generation; for UV, env refers to the value of threshold $\theta$),
 network structure (degree SD: standard deviation of degrees, hub count: number of nodes with a degree of $10$ or more), and
-cooperation (C rate: frequency of C, resource diff: the difference in average resources between C and D, and degree diff: the difference in average degree between C and D).
+cooperation ($C$ rate: frequency of $C$, resource diff: the difference in average resources between $C$ and $D$, and degree diff: the difference in average degree between $C$ and $D$).
 The mean correlation coefficients are averaged over $100$ trials for both RV and UV.
 $b = 1.8$ for all simulations, $\sigma_R = 16$ for RV, and $\beta = 0.7$, $\sigma_{\theta} = 0.1$ for UV.
 }
     \label{fig:mechanism}
 \end{figure}
 
-Notably, the analytical solution (\ref{eq:n_MR}) aligns closely with the simulation results for RV shown in Fig \ref{fig:mechanism}a.
+Notably, the analytical solution (\ref{eq:n_MR}) aligns closely with the simulation results for RV shown in Figure~\ref{fig:mechanism}a.
 \begin{align}
 E[n_{MR}] &= \sum_{k=0}^n \mu^k (1 - \mu)^{n - k} k \frac{\sigma_R}{N} \notag \\
           &= \frac{n \mu}{N} \sigma_R \label{eq:n_MR}
@@ -309,17 +309,27 @@ In this equation, $E[n_{MR}]$ denotes the expected number of mutated role models
 The right-hand side of the equation represents the expected number of mutated agents within a population of reformed agents, $n$, weighted by the effect of RV, $\sigma_R$, across the entire agent population, $N$.
 This equation is simplified by applying the formula for the expectation of a binomial distribution.
 
-Second, once the cooperation rate increases, it is likely sustained through the coevolution of cooperation and network structure. Fig \ref{fig:mechanism}b 7 indicates that the cooperation rate is correlated with the difference in resources between C and D. This correlation likely arises because, as the frequency of C increases, mutual support among Cs strengthens, leading to an increase in the average resources of C. Fig \ref{fig:mechanism}b 8 further shows that the difference in resources is strongly correlated with the difference in network degree between C and D. This occurs because, in the reformation process of our model, agents with more resources acquire more edges. Finally, Fig \ref{fig:mechanism}b 6 demonstrates that there is a correlation between the difference in degree and the cooperation rate. This is likely because, as shown in several studies \cite{Santos2005, Santos2006, Santos2008}, heterogeneous degree distributions tend to facilitate cooperation in networks. Thus, a positive feedback loop can form, in which an increase in the cooperation rate induces resource heterogeneity, which subsequently results in network degree heterogeneity, and this network heterogeneity, in turn, reinforces the cooperation rate, which is thought to help sustain the maintenance of a cooperation rate that initially emerged by chance. This explanation is based on correlation and inference, and does not rule out the involvement of other factors. One possible factor is the influence of resource heterogeneity on strategy update frequency, which has been suggested to promote cooperation \cite{Meng2024}. This process may operate alongside the previously described process where an increase in the cooperation rate widens the resource gap between C and D.
+Second, once the cooperation rate increases, it is likely sustained through the coevolution of cooperation and network structure.
+Figure~\ref{fig:mechanism}b 7 indicates that the cooperation rate is correlated with the difference in resources between $C$ and $D$.
+This correlation likely arises because, as the frequency of $C$ increases, mutual support among $C$s strengthens, leading to an increase in the average resources of $C$.
+Figure~\ref{fig:mechanism}b 8 further shows that the difference in resources is strongly correlated with the difference in network degree between $C$ and $D$.
+This occurs because, in the reformation process of our model, agents with more resources acquire more edges.
+Finally, Figure~\ref{fig:mechanism}b 6 demonstrates that there is a correlation between the difference in degree and the cooperation rate.
+This is likely because, as shown in several studies \cite{Santos2005, Santos2006, Santos2008}, heterogeneous degree distributions tend to facilitate cooperation in networks.
+Thus, a positive feedback loop can form, in which an increase in the cooperation rate induces resource heterogeneity, which subsequently results in network degree heterogeneity, and this network heterogeneity, in turn, reinforces the cooperation rate, which is thought to help sustain the maintenance of a cooperation rate that initially emerged by chance.
+This explanation is based on correlation and inference, and does not rule out the involvement of other factors.
+One possible factor is the influence of resource heterogeneity on strategy update frequency, which has been suggested to promote cooperation \cite{Meng2024}.
+This process may operate alongside the previously described process where an increase in the cooperation rate widens the resource gap between $C$ and $D$.
 
 In contrast, UV does not significantly promote cooperation for two reasons:
 it fails to generate sufficient fluctuation in the cooperation rate, and
 it inhibits the coevolution of cooperation and the network structure.
-As shown by the two UV lines in Fig \ref{fig:mechanism}a, increasing variability does not substantially increase the number of mutated role models, unlike the linear relationship seen with RV.
+As shown by the two UV lines in Figure~\ref{fig:mechanism}a, increasing variability does not substantially increase the number of mutated role models, unlike the linear relationship seen with RV.
 Furthermore, when UV is intense and the threshold $\theta$ becomes very large, almost all agents undergo reformation.
 This leads to a reduction in network heterogeneity, which is critical for the coevolution of cooperation and network structure.
-This is reflected by the strong inverse correlation between UV and network heterogeneity (Fig \ref{fig:mechanism}b 1-2).
+This is reflected by the strong inverse correlation between UV and network heterogeneity (Figure~\ref{fig:mechanism}b 1-2).
 The factors that promote cooperation in RV are ineffective in the context of UV, which explains why UV does not significantly promote cooperation.
-When RV and UV are combined in the CV model, the results remain consistent, RV promotes cooperation, while UV has a much smaller effect.
+When RV and UV are combined in the CV model, the results remain consistent: RV promotes cooperation, while UV has a much smaller effect.
 
 In summary, the observed patterns in cooperation rates can be attributed to the combined effects of mutation and EV, as well as the coevolution of cooperation and network structure.
 Specifically, when these two factors work well together, as in the RV model, environmental change promotes cooperation.
@@ -333,7 +343,8 @@ Here, agents are defined as geographically separated regional groups.
 EV is implemented through three specific forms of resource variability: RV, involving the spatial shifting of the SoR, UV, involving global fluctuations in the resource threshold, and CV, combining both RV and UV.
 Interaction between agents is governed by a pairwise PGG, coupled with a reformation process that triggers strategy updates and network rewiring when resources fall below the resource threshold.
 
-The results show that RV strongly promotes cooperation, UV has a marginal effect, and CV reflects the additive effects of both RV and UV.This difference arises from two key factors: the fluctuations in strategy distribution generated by EV, and the coevolution of cooperation and network structure.
+The results show that RV strongly promotes cooperation, UV has a marginal effect, and CV reflects the additive effects of both RV and UV.
+This difference arises from two key factors: the fluctuations in strategy distribution generated by EV, and the coevolution of cooperation and network structure.
 Both factors work effectively under RV, whereas neither factor operates effectively under UV due to insufficient fluctuations and disrupted network heterogeneity.
 
 These findings provide a theoretical baseline for the investigations of cooperation under EV.

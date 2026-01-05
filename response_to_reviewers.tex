@@ -105,7 +105,7 @@ This assumption is inconsistent with our research context.
 Therefore, we have developed and adopted a novel pairwise PGG model that accounts for resource availability.
 \end{quote}
 
-他のゲーム、例えば、協力者が全リソースを拠出するゲームや、常に一定量のリソースを拠出するようなゲームでは、協力者が不利になりすぎるため、協力がほとんど成り立たなくなります。
+他のゲーム設定、例えば、協力者が全リソースを拠出するゲームや、常に一定量のリソースを拠出するようなゲームでは、協力者が過度に不利となり、協力がほとんど成立しません。
 
 \subsection*{コメント 2-3}
 
@@ -139,7 +139,7 @@ Chapter3のモデルは構造としてはマルチレベルセレクションと
 \begin{quote}
 While Traulsen and Nowak (2006) \textbackslash cite\{Traulsen2006\} is widely recognized as a seminal study on the evolution of cooperation in a 2-level structure, the model presented in this chapter adopts a fundamentally different approach.
 Their model primarily analyzes the tension between individual-level interaction favoring defectors ($D$s) and group-level interaction favoring groups with higher proportions of cooperators ($C$s).
-In contrast, the 2-level model in this chapter is structured such that the payoff rules of the game (see Subsection \textbackslash nameref\{sec:game\}) inherently define $D$s as the advantageous strategy at both the individual and group levels.
+In contrast, the 2-level model in this chapter is structured such that the payoff rules of the game (see Subsection \textbackslash nameref\{sec:game\}) inherently define $D$ as the advantageous strategy at both the individual and group levels.
 Given this structural disadvantage for $C$s, the primary objective of this chapter is to investigate whether and how the interplay of EV and migration can facilitate the emergence and maintenance of cooperative behavior.
 \end{quote}
 
@@ -153,7 +153,7 @@ https://doi.org/10.1177/104346301013001001
 
 \subsubsection*{コメント 3-2 への対応}
 
-ご教示頂いた文献を追加し、Chapter 5 の「5.1 Summary and cross-model comparison -- (ii) Why does migration promote cooperation? および (iii) How does the 2D model relate to the previous literature on cooperation and migration?」にて、議論しました。
+ご教示頂いた文献を追加し、Chapter 5 の「5.1 Summary and cross-model comparison -- (ii) Why does the impact of migration differ between the 2-level model and the 2D model? および (iii) How does the 2D model relate to the previous literature on cooperation and migration?」にて、議論しました。
 
 \subsection*{コメント 3-3}
 
@@ -161,7 +161,7 @@ https://doi.org/10.1177/104346301013001001
 
 \subsubsection*{コメント 3-3 への対応}
 
-予備審査の説明では誤解を与えてしまったかも知れませんが、Chapter 4 は Chapter 3 の拡張ではありません。
+予備審査の説明では誤解を与えてしまったかもしれませんが、Chapter 4 は Chapter 3 の拡張ではありません。
 Chapter 4 は先行研究と比較するために、先行研究で多く採用されている2D空間モデルを採用しています。
 これらの点を明確にするために、以下の様な説明を追加しました。(Ch.4 p.36)
 
@@ -183,10 +183,10 @@ Base modelにおいて円環で表された地理的構造は、実際には必�
 
 コメントありがとうございます。
 ご指摘の通り、円環構造自体は必須ではなく、また現実の地理的構造を網羅する一般的なものではありません。
-しかし、Chapter 2 の目的は、地理的隔離が存在する条件下で環境変動が協力に与えるメカニズムをできるだけ基礎的な条件の元で解明し、研究のスタートラインを提供することにあります。
+しかし、Chapter 2 の目的は、地理的隔離が存在する条件下で環境変動が協力に与えるメカニズムをできるだけ基礎的な条件のもとで解明し、研究のスタートラインを提供することにあります。
 円環構造は、地理的隔離を表現する最も単純な枠組みであり、境界効果を排除しすべての地域の条件を均一に保つため、妥当な枠組みであると考えています。
 
-Ch.2 では、「our model adopts a highly abstracted approach, aiming to reveal the general effects of EV based on reasonable assumptions while excluding specific details. (Ch.2 p.8)」や「the one-dimensional spatial structure is used for simplicity (Ch.2 p.9)」と説明しています。
+Ch.2 では、「our model adopts a highly abstracted approach, aiming to reveal the general effects of EV based on reasonable assumptions while excluding specific details. (Ch.2 p.8)」や「the 1-dimensional spatial structure is used for simplicity (Ch.2 p.9)」と説明しています。
 
 また、「5.3 Limitations and future directions -- Model simplification」にて、以下の様に説明しました。(Ch.5 p.55)
 
@@ -258,8 +258,8 @@ Chapter 1. Introduction では、まだモデルについて説明していな�
 
 \subsubsection*{コメント 5-3 への対応}
 
-仰る通り理論的には第2章と第3章のGroup-Levelは同等のModelであり、ご指摘のような比較ができたほうが良かったのですが、第2章の研究の経験を踏まえて、第3章の実装方法を第2章から少し変えてしまったため、単純な比較は難しくなっています。
-代わりに、第3章内で、Ablation experiment (p.25) を行い、Figure 3.2ac (ノーマルな実行結果) と Figure 3.4ac (Individual-level のプロセスを非活性化し、Group-level のプロセスだけを実行した結果) とを比較し、Group-Level の実行結果が変わらないことを確認することで、第2章と第3章のGroup-Levelの同等性が間接的に示しました。
+仰る通り理論的には第2章と第3章のGroup-Levelは同等のModelであり、ご指摘のような比較ができたほうが良かったのですが、第2章の研究の結果を踏まえて、第3章の実装方法を一部変更したため、直接的な比較は困難となりました。
+そこで代わりに、第3章内で、Ablation experiment (p.25) を実施し、Figure 3.2ac (ノーマルな実行結果) と Figure 3.4ac (Individual-level のプロセスを非活性化し、Group-level のプロセスだけを実行した結果) とを比較し、Group-Level の実行結果が変わらないことを確認することで、第2章と第3章のGroup-Levelの同等性を間接的に示しました。
 
 \subsection*{コメント 5-4: タイポなど}
 

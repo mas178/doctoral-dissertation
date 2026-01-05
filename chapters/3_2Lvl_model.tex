@@ -8,9 +8,9 @@ Therefore, this chapter introduces migration into the base model to examine how 
 
 Migration can be modeled in various ways, depending on key design choices such as spatial structure, the unit of migration, migration triggers, and destination selection mechanisms.
 
-First, regarding spatial structure, previous studies have primarily employed either patch structures \cite{Dugatkin1991}, where agents move between discrete locations, or two-dimensional continuous spaces \cite{Vainstein2001, Vainstein2007}, where agents move across a grid or plane.
+First, regarding spatial structure, previous studies have primarily employed either patch structures \cite{Dugatkin1991}, where agents move between discrete locations, or 2-dimensional continuous spaces \cite{Vainstein2001, Vainstein2007}, where agents move across a grid or plane.
 To extend the base model from Chapter~\ref{ch:2_base_model} in a straightforward manner, this chapter adopts a patch structure where each regional group contains multiple low-level agents who can migrate between neighboring groups.
-The two-dimensional spatial approach is examined in Chapter~\ref{ch:4_2D_model}.
+The 2-dimensional spatial approach is examined in Chapter~\ref{ch:4_2D_model}.
 
 Second, the unit of migration can be defined at different scales, such as individuals, families, or entire groups.
 In the MSA context, individual humans would rarely migrate alone due to survival constraints, and unified decision-making and simultaneous migration by large groups would be equally implausible given the complexity of group coordination.
@@ -19,19 +19,19 @@ For convenience, we refer to this unit of migration as an individual, even thoug
 
 Regarding migration triggers and destination selection mechanisms, individuals migrate, triggered by resource scarcity, toward resource-rich areas, as this research conceptualizes EV as fluctuations in resource availability.
 
-These design choices result in a two-level hierarchical structure with group agents and individual agents.
+These design choices result in a 2-level hierarchical structure with group agents and individual agents.
 EV affects resource allocation at both levels.
 Game and strategy update occur independently at both levels.
 Migration occurs at the individual level between groups.
 
 While Traulsen and Nowak (2006) \cite{Traulsen2006} is widely recognized as a seminal study on the evolution of cooperation in a 2-level structure, the model presented in this chapter adopts a fundamentally different approach.
 Their model primarily analyzes the tension between individual-level interaction favoring defectors ($D$s) and group-level interaction favoring groups with higher proportions of cooperators ($C$s).
-In contrast, the 2-level model in this chapter is structured such that the payoff rules of the game (see Subsection \nameref{sec:game}) inherently define $D$s as the advantageous strategy at both the individual and group levels.
+In contrast, the 2-level model in this chapter is structured such that the payoff rules of the game (see Subsection \nameref{sec:game}) inherently define $D$ as the advantageous strategy at both the individual and group levels.
 Given this structural disadvantage for $C$s, the primary objective of this chapter is to investigate whether and how the interplay of EV and migration can facilitate the emergence and maintenance of cooperative behavior.
 
 \subsection*{Structural overview}\label{sec:structure}
 
-We consider the model composed of multiple regional groups, each inhabited by a number of humans who may migrate between the groups in response to environmental or social pressures.
+We consider the model composed of multiple regional groups, each inhabited by a number of individuals who may migrate between the groups in response to environmental or social pressures.
 Within this world, the population is represented by group agents and individual agents, and their interaction (see Subsection \nameref{sec:game}) and migration (see Subsection \nameref{sec:migration}) are governed by the geographical and interaction structures (see Figure~\ref{fig:3_model}).
 
 \begin{figure}[htbp]
@@ -39,7 +39,7 @@ Within this world, the population is represented by group agents and individual 
   \includegraphics[width=0.8\textwidth]{figures/3/Model}
   \caption[Illustration of the model structure]{
 Illustration of the model structure.
-Regional groups are arranged on a circular geographic structure, where the SoR stochastically moves between groups.
+Regional groups are arranged on a circular geographic structure, where the \textit{Source of Resources} (SoR) stochastically moves between groups.
 Each group contains individuals.
 Each group and each individual independently adopt either $C$ (blue) or $D$ (red).
 Numbers indicate group resource levels, which decrease with distance from the SoR.
@@ -73,7 +73,7 @@ Each stage is described in the following subsections.
 
 The model captures a key feature of the EV observed during the MSA in Africa, namely the unpredictable shifts in the geographical distribution of resources.
 
-To represent this type of variability, we define the source of resources (SoR) as a dynamic point corresponding to the most resource-abundant region.
+To represent this type of variability, we define the \textit{Source of Resources} (SoR) as a dynamic point corresponding to the most resource-abundant region.
 The SoR moves stochastically across the regional groups at each simulation time step.
 This stochastic movement is formalized as
 \begin{equation}
@@ -179,9 +179,9 @@ This process models success-biased cultural transmission, where agents improve s
 
 To examine how EV and migration influence the evolution of cooperation, we conduct simulations across a range of parameter settings, as summarized in Table~\ref{tab:3_params}.
 For each setting, $100$ independent runs of $10000$ generations are carried out.
-As the principal performance indicators, we calculate the cooperation rates $\phi_R^C$ and $\phi_F^C$, defined as the average proportions of groups and individuals, respectively, employing strategy $C$.
-Specifically, $\phi_R^C$ is the mean of the proportions of the $N_R$ groups employing strategy $C$ at the end of each generation (following the strategy update stage), averaged over the last $5000$ generations and $100$ independent runs.
-$\phi_F^C$ is calculated in the same manner, using the proportions of the $N_F$ individuals employing strategy $C$.
+As the principal performance indicators, we calculate the cooperation rates $\phi_C^R$ and $\phi_C^F$, defined as the average proportions of groups and individuals, respectively, employing strategy $C$.
+Specifically, $\phi_C^R$ is the mean of the proportions of the $N_R$ groups employing strategy $C$ at the end of each generation (following the strategy update stage), averaged over the last $5000$ generations and $100$ independent runs.
+$\phi_C^F$ is calculated in the same manner, using the proportions of the $N_F$ individuals employing strategy $C$.
 
 \begin{table}[!ht]
 \centering
@@ -219,7 +219,7 @@ For a comparison with the other models, refer to Table~\ref{tab:model_comparison
 \end{center}
 \end{table}
 
-\section{Results}\label{sec_results}
+\section{Results}\label{sec:3_results}
 
 \subsection*{Key results: influence of environmental variability and migration}
 
@@ -318,8 +318,8 @@ Consequently, resource-poor cooperators undergo strategy updates and imitate hig
 In contrast, when $p_{EV} > 0$, stochastic SoR movement dynamically reshapes the resource distribution and causes previously poor groups to become rich and vice versa.
 Because migration requires time, disparities in per-capita resources between groups occasionally emerge after each SoR movement (Figure~\ref{fig:mechanism1_3}b).
 In newly enriched groups, cooperators' resources exceed the threshold, preventing both migration and strategy updates.
-These stable cooperators repeatedly interact with each other, gradually strengthening their mutual relationships, while defector relationships decline, isolating them from profitable interactions.
-Naturally, the groups can become poor.
+These stable cooperators repeatedly interact with each other, gradually strengthening their mutual relationships, while defectors' relationships decline, isolating them from profitable interactions.
+Of course, groups may subsequently become resource-poor.
 Even in that case, the strong relationships once established between cooperators enable them to maintain high resource levels through high-payoff mutual cooperation, while defectors with weak relationships remain isolated from profitable interactions.
 Through this process, cooperators become robust against resource fluctuations and seldom undergo migration and strategy updates, while defectors undergo migration and strategy updates more frequently (Figure~\ref{fig:mechanism1_3}c).
 
@@ -362,7 +362,7 @@ Regarding $N_R$, because the resource allocation is normalized such that the gro
 Regarding $N_F / N_R$, group-level dynamics are governed solely by intergroup relationships and EV, independently of the number of individuals within groups.
 At the individual level, larger $N_F / N_R$ generally promotes cooperation because more individuals within each group increases the absolute number of cooperators even if the proportion of cooperators is the same, enabling them to form mutual relationships that are more robust against exploitation by defectors.
 The effect of $N_R$ on $\phi_C^F$ depends on whether EV is present:
-without EV ($p_{EV} = 0$), increasing $N_R$ increases the number of groups with moderate resource levels around the SoR, enabling cooperators to remain in the same group and strengthen the relationships among them.
+without EV ($p_{EV} = 0$), increasing $N_R$ increases the number of groups with moderate resource levels around the SoR, enabling cooperators to remain in the same group and strengthen the relationships among them;
 with EV ($p_{EV} > 0$), increasing $N_R$ increases the frequency of migration, thereby limiting opportunities for cooperators to form stable networks within their groups.
 
 The initial cooperation rate $\phi_C^0$ influences the evolutionary outcomes (Figure~\ref{fig:result2_2}).
@@ -439,4 +439,4 @@ A detailed comparison between the models is provided in Chapter~\ref{ch:5_conclu
 In addition, lower initial relationship strength ($w_0$) and faster updating of relationship weights ($\Delta w$) further facilitate the formation and maintenance of cooperative networks.
 
 These findings demonstrate that EV remains a powerful driver of cooperation even when individual mobility is incorporated.
-The next chapter, Chapter~\ref{ch:4_2D_model}, examines the effects of EV and migration in a two-dimensional spatial structure without explicit group definitions.
+The next chapter, Chapter~\ref{ch:4_2D_model}, examines the effects of EV and migration in a 2-dimensional spatial structure without explicit group definitions.
