@@ -60,7 +60,7 @@ The migration results in uneven spatial distributions of individuals over time, 
 
 The interaction structures constrain the selection of opponents for cooperative or competitive interactions at two levels, i.e., the group level and the individual level.
 There is a single group-level interaction structure in the model, while each group has its own individual-level interaction structure and no interactions occur between individuals belonging to different groups.
-An interaction structure is represented by a weighted, undirected, complete graph whose edge weights are dynamic while its topology remains fixed.
+An interaction structure is represented by a weighted, undirected and complete graph whose edge weights are dynamic while its topology remains fixed.
 Importantly, the geographical structure and the interaction structures are completely independent; the geographical distance between nodes does not influence the probability of their interaction or the weights of their relationships.
 The dynamic edge weight $w_{i,j}$ ($0 \leq w_{i,j} \leq 1$, initialized at $w_0$) denotes the strength of the relationship between nodes $i$ and $j$, where a node represents either a group or an individual, and is proportional to the probability of interaction between them.
 In a social context, this weight represents the level of mutual trust accumulated through repeated interactions.
@@ -173,7 +173,7 @@ Q(j|i) = \frac{r_j}{\sum_{\substack{k \neq i \\ r_k > \theta}} r_k}
 where $\theta$ denotes the relevant threshold, i.e., $\theta_R$ at the group level and $\theta_F$ at the individual level.
 The adopted strategy is then subject to mutation with probability $\mu$, resulting in a stochastic switch between $C$ and $D$.
 After the update, all edges of the updated agent are reset to the baseline weight $w_0$.
-This process models success-biased cultural transmission, where agents improve survival by imitating the norms of more prosperous agents (e.g., successful hunters, thriving neighboring regions) and resetting their social ties.
+This process models success-biased cultural transmission, where agents improve survival by imitating the behavioral patterns of more prosperous agents (e.g., successful hunters, thriving neighboring regions) and resetting their social ties.
 
 \subsection*{Evaluation}\label{sec:evaluation}
 
@@ -265,7 +265,7 @@ Standard deviations corresponding to Figure~\ref{fig:result1_1}.
 \subsection*{Primary drivers of the key results}
 
 To examine the direction of influence between the group-level and individual-level processes, we conducted ablation experiments by selectively disabling specific model components.
-The results show that disabling individual-level games, migration, and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group-level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
+The results show that disabling individual-level games, migration and strategy updates does not significantly affect $\phi_C^R$ values (compare Figure~\ref{fig:result1_1}a,c to Figure~\ref{fig:mechanism1_1}a,c), whereas disabling group-level games and strategy updates markedly suppresses $\phi_C^F$ values (compare Figure~\ref{fig:result1_1}b,d to Figure~\ref{fig:mechanism1_1}b,d).
 This asymmetry indicates that group-level processes contribute to individual-level cooperation, while the reverse influence is minimal.
 
 \begin{figure}[!ht]
